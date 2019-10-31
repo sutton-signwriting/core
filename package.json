@@ -1,0 +1,67 @@
+{
+  "name": "@sutton-signwriting/core",
+  "description": "a javascript package for node and browsers that supports general processing of the Sutton SignWriting script",
+  "version": "1.0.0",
+  "keywords": [
+    "SignWriting",
+    "sign language",
+    "text processing",
+    "regular expressions",
+    "ASCII",
+    "Unicode",
+    "query",
+    "style",
+    "conversion"
+  ],
+  "homepage": "https://github.com/sutton-signwriting/core",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sutton-signwriting/core.get"
+  },
+  "bugs": "https://github.com/sutton-signwriting/core/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Steve Slevinski",
+    "email": "slevinski@signwriting.org",
+    "url": "https://SteveSlevinski.me"
+  },
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "package.json",
+    "core.*",
+    "convert/*",
+    "fsw/*",
+    "fswquery/*",
+    "style/*",
+    "swu/*",
+    "swuquery/*"
+  ],
+  "main": "core.min.cjs",
+  "module": "core.min.mjs",
+  "browser": "core.min.js",
+  "unpkg": "core.min.js",
+  "scripts": {
+    "prebuild": "rimraf core.* style fsw fswquery swu swuquery convert",
+    "build": "rollup -c",
+    "postbuild": "node subpackages.js",
+    "test": "jest || true",
+    "test:watch": "jest --watchAll || true",
+    "docs": "documentation build src/index.js --config documentation.yml -f html -o docs",
+    "postdocs": "node addstyle.js",
+    "docs:server": "documentation serve --watch src/index.js --config documentation.yml"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.0",
+    "documentation": "^12.1.2",
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.21.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.2"
+  }
+}
