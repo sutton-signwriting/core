@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2019-10-31
+### Fixed
+- unpkg example for individual module
+- documentation
+
 ## [1.0.0] - 2019-10-31
 ### Added
 - core modules of fsw, fswquery, swu, swuquery, style, and convert

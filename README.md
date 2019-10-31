@@ -49,11 +49,11 @@ This package supports both Formal SignWriting in ASCII (FSW) and SignWriting in 
 #### Unpkg
     // import entire library
     // available as ssw.core
-    <script src="https://unpkg.com/@sutton-signwriting/core"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.0.0"></script>
 
     // import individual module
     // available as ssw.fsw
-    <script src="https://unpkg.com/@sutton-signwriting/core/fsw"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.0.0/fsw/fsw.js"></script>
 
 ## License
 MIT
