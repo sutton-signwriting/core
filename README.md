@@ -1,6 +1,8 @@
 # @sutton-signwriting/core
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sutton-signwriting/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![version](https://img.shields.io/npm/v/@sutton-signwriting/core)](https://www.npmjs.com/package/@sutton-signwriting/core)
+[![npm downloads](https://img.shields.io/npm/dm/@sutton-signwriting/core)](https://npm-stat.com/charts.html?package=@sutton-signwriting/core&from=2019-10-31)
 
 @sutton-signwriting/core is a javascript package for node and browsers that supports general processing of SignWriting text.
 
