@@ -162,7 +162,7 @@ const id2swu = (id) => code2swu(id + 0x40000);
  * @param {string} key - FSW symbol key
  * @returns {number} 16-bit ID
  * @example
- * convert.swu2id('S10000')
+ * convert.key2id('S10000')
  * 
  * return 1
  */
@@ -174,7 +174,7 @@ const key2id = (key) => 1 + ((parseInt(key.slice(1, 4), 16) - 256) * 96) + ((par
  * @param {number} id - 16-bit ID
  * @returns {string} FSW symbol key
  * @example
- * convert.id2fsw(1)
+ * convert.id2key(1)
  * 
  * return 'S10000'
  */

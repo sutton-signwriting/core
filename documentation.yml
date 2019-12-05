@@ -62,6 +62,8 @@ toc:
   - convert.code2swu
   - convert.swu2id
   - convert.id2swu
+  - convert.key2id
+  - convert.id2key
   - convert.swu2key
   - convert.key2swu
   - convert.swu2fsw

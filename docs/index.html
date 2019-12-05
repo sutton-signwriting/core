@@ -646,6 +646,26 @@
               
                 
                 <li><a
+                  href='#convertkey2id'
+                  class="">
+                  convert.key2id
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#convertid2key'
+                  class="">
+                  convert.id2key
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#convertswu2key'
                   class="">
                   convert.swu2key
@@ -679,26 +699,6 @@
                   href='#convertfsw2swu'
                   class="">
                   convert.fsw2swu
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#convertkey2id'
-                  class="">
-                  convert.key2id
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#convertid2key'
-                  class="">
-                  convert.id2key
                   
                 </a>
                 
@@ -5588,6 +5588,162 @@ return {
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='convertkey2id'>
+      convert.key2id
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to convert an FSW symbol key to a 16-bit ID</p>
+
+    <div class='pre p1 fill-light mt0'>convert.key2id(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    FSW symbol key
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        16-bit ID
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>convert.key2id(<span class="hljs-string">'S10000'</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-number">1</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='convertid2key'>
+      convert.id2key
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to convert a 16-bit ID to an FSW symbol key</p>
+
+    <div class='pre p1 fill-light mt0'>convert.id2key(id: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    16-bit ID
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        FSW symbol key
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>convert.id2key(<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-string">'S10000'</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='convertswu2key'>
       convert.swu2key
     </h3>
@@ -5880,162 +6036,6 @@ return {
       <pre class='p1 overflow-auto round fill-light'>convert.fsw2swu(<span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475'</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">'𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭'</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='convertkey2id'>
-      convert.key2id
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Function to convert an FSW symbol key to a 16-bit ID</p>
-
-    <div class='pre p1 fill-light mt0'>convert.key2id(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    FSW symbol key
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
-        16-bit ID
-
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2id(<span class="hljs-string">'S10000'</span>)
-
-<span class="hljs-keyword">return</span> <span class="hljs-number">1</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='convertid2key'>
-      convert.id2key
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Function to convert a 16-bit ID to an FSW symbol key</p>
-
-    <div class='pre p1 fill-light mt0'>convert.id2key(id: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    16-bit ID
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
-        FSW symbol key
-
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>convert.id2fsw(<span class="hljs-number">1</span>)
-
-<span class="hljs-keyword">return</span> <span class="hljs-string">'S10000'</span></pre>
     
   
 
