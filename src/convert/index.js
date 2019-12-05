@@ -157,6 +157,36 @@ const swu2id = (swuSym) => swu2code(swuSym) - 0x40000;
 const id2swu = (id) => code2swu(id + 0x40000);
 
 /**
+ * Function to convert an FSW symbol key to a 16-bit ID
+ * @function convert.key2id
+ * @param {string} key - FSW symbol key
+ * @returns {number} 16-bit ID
+ * @example
+ * convert.swu2id('S10000')
+ * 
+ * return 1
+ */
+const key2id = (key) => 1 + ((parseInt(key.slice(1, 4), 16) - 256) * 96) + ((parseInt(key.slice(4, 5), 16)) * 16) + parseInt(key.slice(5, 6), 16);
+
+/**
+ * Function to convert a 16-bit ID to an FSW symbol key
+ * @function convert.id2key
+ * @param {number} id - 16-bit ID
+ * @returns {string} FSW symbol key
+ * @example
+ * convert.id2fsw(1)
+ * 
+ * return 'S10000'
+ */
+const id2key = (id) => {
+  const symcode = id - 1;
+  const base = parseInt(symcode / 96);
+  const fill = parseInt((symcode - (base * 96)) / 16);
+  const rotation = parseInt(symcode - (base * 96) - (fill * 16));
+  return 'S' + (base + 0x100).toString(16) + fill.toString(16) + rotation.toString(16);
+}
+
+/**
  * Function to convert an SWU symbol character to an FSW symbol key
  * @function convert.swu2key
  * @param {string} swuSym - SWU symbol character
@@ -252,4 +282,4 @@ const fsw2swu = (fswText) => {
   return fswText;
 }
 
-export { swu2mark, mark2swu, swu2num, num2swu, swu2coord, coord2swu, fsw2coord, coord2fsw, swu2code, code2swu, swu2id, id2swu, swu2key, key2swu, swu2fsw, fsw2swu }
+export { swu2mark, mark2swu, swu2num, num2swu, swu2coord, coord2swu, fsw2coord, coord2fsw, swu2code, code2swu, swu2id, id2swu, key2id, id2key, swu2key, key2swu, swu2fsw, fsw2swu }

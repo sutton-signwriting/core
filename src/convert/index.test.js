@@ -1,5 +1,5 @@
 
-import { swu2num, num2swu, swu2coord, coord2swu, fsw2coord, coord2fsw, swu2code, code2swu, swu2id, id2swu, swu2key, key2swu, swu2fsw, fsw2swu } from './';
+import { swu2num, num2swu, swu2coord, coord2swu, fsw2coord, coord2fsw, swu2code, code2swu, swu2id, id2swu, key2id, id2key, swu2key, key2swu, swu2fsw, fsw2swu } from './';
 
 it('should convert swu to number', () => {
   expect(swu2num('𝤆')).toBe(500);
@@ -39,6 +39,14 @@ it('should convert swu symbol to 16-bit id', () => {
 
 it('should convert 16-bit id to swu symbol', () => {
   expect(id2swu(1)).toBe('񀀁');
+})
+
+it('should convert fsw symbol key to 16-bit id', () => {
+  expect(key2id('S10000')).toBe(1);
+})
+
+it('should convert 16-bit id to fsw symbol key', () => {
+  expect(id2key(1)).toBe('S10000');
 })
 
 it('should convert swu symbol to fsw key', () => {

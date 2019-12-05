@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <title>@sutton-signwriting/core 1.0.2 | Documentation</title>
+  <title>@sutton-signwriting/core 1.1.0 | Documentation</title>
   <meta name='description' content='a javascript package for node and browsers that supports general processing of the Sutton SignWriting script'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@sutton-signwriting/core</h3>
-          <div class='mb1'><code>1.0.2</code></div>
+          <div class='mb1'><code>1.1.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -684,6 +684,26 @@
                 
                 </li>
               
+                
+                <li><a
+                  href='#convertkey2id'
+                  class="">
+                  convert.key2id
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#convertid2key'
+                  class="">
+                  convert.id2key
+                  
+                </a>
+                
+                </li>
+              
             </ul>
           </div>
           <div class='mt1 h6 quiet'>
@@ -702,7 +722,9 @@
 
   
     <h1>@sutton-signwriting/core</h1>
-<p><a href="https://gitter.im/sutton-signwriting/community?utm_source=badge&#x26;utm_medium=badge&#x26;utm_campaign=pr-badge&#x26;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a></p>
+<p><a href="https://gitter.im/sutton-signwriting/community?utm_source=badge&#x26;utm_medium=badge&#x26;utm_campaign=pr-badge&#x26;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
+<a href="https://www.npmjs.com/package/@sutton-signwriting/core"><img src="https://img.shields.io/npm/v/@sutton-signwriting/core" alt="version"></a>
+<a href="https://npm-stat.com/charts.html?package=@sutton-signwriting/core&#x26;from=2019-10-31"><img src="https://img.shields.io/npm/dm/@sutton-signwriting/core" alt="npm downloads"></a></p>
 <p>@sutton-signwriting/core is a javascript package for node and browsers that supports general processing of SignWriting text.</p>
 <p>This package supports both Formal SignWriting in ASCII (FSW) and SignWriting in Unicode (SWU) character sets, along with the associated query languages and style string.  See <a href="https://tools.ietf.org/id/draft-slevinski-formal-signwriting-07.html">draft-slevinski-formal-signwriting</a> for detailed specification.</p>
 <h2>Useful links</h2>
@@ -5858,6 +5880,162 @@ return {
       <pre class='p1 overflow-auto round fill-light'>convert.fsw2swu(<span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475'</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">'𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭'</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='convertkey2id'>
+      convert.key2id
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to convert an FSW symbol key to a 16-bit ID</p>
+
+    <div class='pre p1 fill-light mt0'>convert.key2id(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    FSW symbol key
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        16-bit ID
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>convert.swu2id(<span class="hljs-string">'S10000'</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-number">1</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='convertid2key'>
+      convert.id2key
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to convert a 16-bit ID to an FSW symbol key</p>
+
+    <div class='pre p1 fill-light mt0'>convert.id2key(id: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    16-bit ID
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        FSW symbol key
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>convert.id2fsw(<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-string">'S10000'</span></pre>
     
   
 
