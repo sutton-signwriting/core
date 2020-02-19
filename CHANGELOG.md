@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Todo
 - update parse for style string that drops empty style of '-'
 
+### Fixed
+- documentation for key2id and id2key
+
+### Changed
+- updated comments before js library
+
 ## [1.1.0] - 2019-12-05
 ### Added
 - convert module functions key2id and id2key

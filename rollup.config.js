@@ -6,14 +6,13 @@ import { version } from './package.json';
 const file = (name, ext) => `${name}.${ext}`
 const fileMin = (name, ext) => `${name}.min.${ext}`
 const banner = (name) => '/**' +
-  '\n* Sutton SignWriting Core Module v' + version +
-  '\n* https://github.com/Slevinski/SignWriting' +
-  '\n* Copyright (c) 2007-2019, Steve Slevinski' +
+  '\n* Sutton SignWriting Core Module v' + version + ' (https://github.com/sutton-signwriting/core)' +
+  '\n* Author: Steve Slevinski  (https://SteveSlevinski.me)' +
   '\n* ' + name + ' is released under the MIT License.' +
   '\n*/\n';
-const footer = '\n/* help fund development on https://patreon.com/signwriting */';
-const bannerMin = () => '/* Sutton SignWriting Core Module v' + version +
-  ', author: Steve Slevinski, license: MIT */';
+const footer = '\n/* support ongoing development on https://patreon.com/signwriting */';
+const bannerMin = () => '/* Sutton SignWriting Core Module v' + version + ' (https://github.com/sutton-signwriting/core)' +
+  ', author: Steve Slevinski (https://SteveSlevinski.me), license: MIT */';
 const footerMin = '/* the end */';
 
 const defOut = (name, format, dirname, filename, ext) => {
