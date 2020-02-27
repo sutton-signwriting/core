@@ -40,7 +40,7 @@ const parseSignbox = (text) => {
  * @param {string} swuQueryString - an SWU query string
  * @returns {object} elements of an SWU query string
  * @example
- * fswquery.parse('QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-')
+ * swuquery.parse('QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-')
  * 
  * return { 
  *   query: true,

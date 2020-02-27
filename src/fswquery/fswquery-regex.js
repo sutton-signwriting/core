@@ -39,34 +39,34 @@ const regex = (query) => {
   var re_sym = 'S[123][0-9a-f]{2}[0-5][0-9a-f]';
   var re_coord = '[0-9]{3}x[0-9]{3}';
   var re_word = '[BLMR](' + re_coord + ')(' + re_sym + re_coord + ')*';
-  var re_term = '(A(' + re_sym + ')+)';
+  var re_sortable = '(A(' + re_sym + ')+)';
   var q_range = 'R[123][0-9a-f]{2}t[123][0-9a-f]{2}';
   var q_sym = 'S[123][0-9a-f]{2}[0-5u][0-9a-fu]';
   var q_coord = '([0-9]{3}x[0-9]{3})?';
   var q_var = '(V[0-9]+)';
   var q_style = '(' + reStyle.full + ')?';
-  var q_term;
+  var q_sortable;
 
   if (query == 'Q') {
-    return [re_term + "?" + re_word];
+    return [re_sortable + "?" + re_word];
   }
   if (query == 'Q-') {
-    return [re_term + "?" + re_word + q_style];
+    return [re_sortable + "?" + re_word + q_style];
   }
   if (query == 'QT') {
-    return [re_term + re_word];
+    return [re_sortable + re_word];
   }
   if (query == 'QT-') {
-    return [re_term + re_word + q_style];
+    return [re_sortable + re_word + q_style];
   }
   var segments = [];
-  var term = query.indexOf('T') + 1;
-  if (term) {
-    q_term = '(A';
-    var qat = query.slice(0, term);
+  var sortable = query.indexOf('T') + 1;
+  if (sortable) {
+    q_sortable = '(A';
+    var qat = query.slice(0, sortable);
     query = query.replace(qat, '');
     if (qat == 'QT') {
-      q_term += '(' + re_sym + ')+)';
+      q_sortable += '(' + re_sym + ')+)';
     } else {
       matches = qat.match(new RegExp('(' + q_sym + '|' + q_range + ')', 'g'));
       if (matches) {
@@ -87,16 +87,16 @@ const regex = (query) => {
             } else {
               segment += rotate;
             }
-            q_term += segment;
+            q_sortable += segment;
           } else {
             from = matches[i].slice(1, 4);
             to = matches[i].slice(5, 8);
             re_range = range(from, to, 'hex');
             segment = 'S' + re_range + '[0-5][0-9a-f]';
-            q_term += segment;
+            q_sortable += segment;
           }
         }
-        q_term += '(' + re_sym + ')*)';
+        q_sortable += '(' + re_sym + ')*)';
       }
     }
   }
@@ -138,10 +138,10 @@ const regex = (query) => {
       //now I have the specific search symbol
       // add to general ksw word
       segment = re_word + segment + '(' + re_sym + re_coord + ')*';
-      if (term) {
-        segment = q_term + segment;
+      if (sortable) {
+        segment = q_sortable + segment;
       } else {
-        segment = re_term + "?" + segment;
+        segment = re_sortable + "?" + segment;
       }
       if (query.indexOf('-') > 0) {
         segment += q_style;
@@ -171,10 +171,10 @@ const regex = (query) => {
       }
       // add to general ksw word
       segment = re_word + segment + '(' + re_sym + re_coord + ')*';
-      if (term) {
-        segment = q_term + segment;
+      if (sortable) {
+        segment = q_sortable + segment;
       } else {
-        segment = re_term + "?" + segment;
+        segment = re_sortable + "?" + segment;
       }
       if (query.indexOf('-') > 0) {
         segment += q_style;
@@ -186,7 +186,7 @@ const regex = (query) => {
     if (query.indexOf('-') > 0) {
       segment += q_style;
     }
-    segments.push(q_term + re_word);
+    segments.push(q_sortable + re_word);
   }
   return segments;
 }

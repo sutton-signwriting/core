@@ -69,6 +69,7 @@ it('should compose style strings', () => {
 })
 
 it('should compose without breaking on bad data', () => {
+  expect(compose()).toBe(undefined);
   expect(compose({
     'colorize': 'C',
     'padding': -1,

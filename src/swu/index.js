@@ -6,7 +6,8 @@
 
 import { re } from './swu-re';
 import { parse, encode, decode, pair } from './swu-parse';
+import { compose } from './swu-compose';
 import { kind, category, group, ranges, isType } from './swu-structure';
 import { colors, colorize } from './swu-colorize';
 
-export { re, parse, encode, decode, pair, kind, category, group, ranges, isType, colors, colorize }
+export { re, parse, encode, decode, pair, compose, kind, category, group, ranges, isType, colors, colorize }

@@ -11,7 +11,7 @@ import { re } from './style-re';
  * @param {string[]} styleObject.detail - css name or hex color for line and optional fill
  * @param {number} styleObject.zoom - decimal value for zoom level
  * @param {{index:number,detail:string[]}[]} styleObject.detailsym - array of symbol indexes and detail color array
- * @param {{index:number,zoom:number,offset:number[]}[]} styleObject.zoomsym - array of symbol indexes and ziin levels with optionsl x,y offset
+ * @param {{index:number,zoom:number,offset:number[]}[]} styleObject.zoomsym - array of symbol indexes and zoom levels with optional x,y offset
  * @param {string} styleObject.classes - list of class names separated with spaces used for SVG
  * @param {string} styleObject.id - id name used for SVG
  * @returns {string} style string 
@@ -50,6 +50,8 @@ import { re } from './style-re';
  * return '-CP10G_blue_D_red,Cyan_Z1.1-D01_ff00ff_D02_yellow,green_Z01,10,500x500Z02,5.5-primary blinking!cursor!'
  */
 const compose = (styleObject) => {
+  if (typeof styleObject !== 'object' || styleObject === null) return undefined;
+
   // three sections
   let style1 = '-';
 

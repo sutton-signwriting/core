@@ -1,7 +1,7 @@
 {
   "name": "@sutton-signwriting/core",
   "description": "a javascript package for node and browsers that supports general processing of the Sutton SignWriting script",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "keywords": [
     "SignWriting",
     "sign language",
@@ -13,7 +13,7 @@
     "style",
     "conversion"
   ],
-  "homepage": "https://github.com/sutton-signwriting/core",
+  "homepage": "https://sutton-signwriting.github.io/core/",
   "repository": {
     "type": "git",
     "url": "https://github.com/sutton-signwriting/core.git"
@@ -30,6 +30,7 @@
     "CHANGELOG.md",
     "LICENSE",
     "package.json",
+    "src/*",
     "core.*",
     "convert/*",
     "fsw/*",

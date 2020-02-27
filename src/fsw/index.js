@@ -6,7 +6,8 @@
 
 import { re } from './fsw-re';
 import { parse } from './fsw-parse';
+import { compose } from './fsw-compose';
 import { kind, category, group, ranges, isType } from './fsw-structure';
 import { colors, colorize } from './fsw-colorize';
 
-export { re, parse, kind, category, group, ranges, isType, colors, colorize }
+export { re, parse, compose, kind, category, group, ranges, isType, colors, colorize }

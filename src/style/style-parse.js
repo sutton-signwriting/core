@@ -23,7 +23,7 @@ const prefixColor = (color) => {
  */
 const parse = (styleString) => {
   const regex = `^${re.full}`;
-  const m = (typeof styleString === 'string') ? styleString.match(new RegExp(regex)) : [];
+  const m = ((typeof styleString === 'string') ? styleString.match(new RegExp(regex)) : []) || [];
 
   return {
     'colorize': !m[1] ? undefined : !!m[1],

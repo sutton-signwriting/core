@@ -8,11 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Todo
 - update parse for style string that drops empty style of '-'
 
+## [1.2.0] - 2020-02-27
 ### Fixed
-- documentation for key2id and id2key
-
-### Changed
-- updated comments before js library
+- documentation for library, module, and functions
+correct module and function names
+- parse style for parsing non-style strings
+- compose functions with empty call
+### Added
+- original source JavaScript
+- link to online training
+- fsw.compose and swu.compose functions
 
 ## [1.1.0] - 2019-12-05
 ### Added
@@ -28,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.1.0...HEAD
-[1.1.0]: https://github.com/sutton-signwriting/core/compare/v1.1.0...v1.0.2
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.2.0
+[1.1.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.1.0
 [1.0.2]: https://github.com/sutton-signwriting/core/releases/tag/v1.0.2

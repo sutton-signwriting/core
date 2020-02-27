@@ -5,6 +5,8 @@ toc:
   - fsw.re
   - fsw.parse.symbol
   - fsw.parse.sign
+  - fsw.compose.symbol
+  - fsw.compose.sign
   - fsw.kind
   - fsw.category
   - fsw.group
@@ -28,6 +30,8 @@ toc:
   - swu.encode
   - swu.decode
   - swu.pair
+  - swu.compose.symbol
+  - swu.compose.sign
   - swu.kind
   - swu.category
   - swu.group

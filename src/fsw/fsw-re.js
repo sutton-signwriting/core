@@ -2,7 +2,7 @@
 /**
  * Object of regular expressions for FSW strings
  * 
- *   { symbol, coord, sort, box, prefix, spatial, signbox, sign, term }
+ *   { symbol, coord, sort, box, prefix, spatial, signbox, sign, sortable }
  * @alias fsw.re
  * @type {object}
  */
@@ -16,6 +16,6 @@ re.prefix = `(?:${re.sort}(?:${re.symbol})+)`;
 re.spatial = `${re.symbol}${re.coord}`;
 re.signbox = `${re.box}${re.coord}(?:${re.spatial})*`;
 re.sign = `${re.prefix}?${re.signbox}`;
-re.term = `${re.prefix}${re.signbox}`;
+re.sortable = `${re.prefix}${re.signbox}`;
 
 export { re }

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <title>@sutton-signwriting/core 1.1.0 | Documentation</title>
+  <title>@sutton-signwriting/core 1.2.0 | Documentation</title>
   <meta name='description' content='a javascript package for node and browsers that supports general processing of the Sutton SignWriting script'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@sutton-signwriting/core</h3>
-          <div class='mb1'><code>1.1.0</code></div>
+          <div class='mb1'><code>1.2.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -69,6 +69,26 @@
                   href='#fswparsesign'
                   class="">
                   fsw.parse.sign
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#fswcomposesymbol'
+                  class="">
+                  fsw.compose.symbol
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#fswcomposesign'
+                  class="">
+                  fsw.compose.sign
                   
                 </a>
                 
@@ -299,6 +319,26 @@
                   href='#swupair'
                   class="">
                   swu.pair
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#swucomposesymbol'
+                  class="">
+                  swu.compose.symbol
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#swucomposesign'
+                  class="">
+                  swu.compose.sign
                   
                 </a>
                 
@@ -725,29 +765,49 @@
 <p><a href="https://gitter.im/sutton-signwriting/community?utm_source=badge&#x26;utm_medium=badge&#x26;utm_campaign=pr-badge&#x26;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
 <a href="https://www.npmjs.com/package/@sutton-signwriting/core"><img src="https://img.shields.io/npm/v/@sutton-signwriting/core" alt="version"></a>
 <a href="https://npm-stat.com/charts.html?package=@sutton-signwriting/core&#x26;from=2019-10-31"><img src="https://img.shields.io/npm/dm/@sutton-signwriting/core" alt="npm downloads"></a></p>
+<img alt="Core Package Mindmap" src="./Core.jpg" width="100%">
 <p>@sutton-signwriting/core is a javascript package for node and browsers that supports general processing of SignWriting text.</p>
 <p>This package supports both Formal SignWriting in ASCII (FSW) and SignWriting in Unicode (SWU) character sets, along with the associated query languages and style string.  See <a href="https://tools.ietf.org/id/draft-slevinski-formal-signwriting-07.html">draft-slevinski-formal-signwriting</a> for detailed specification.</p>
+<blockquote>
+<p>Author: <a href="https://SteveSlevinski.me">https://SteveSlevinski.me</a><br>
+Channel: <a href="https://www.youtube.com/channel/UCXu4AXlG0rXFtk_5SzumDow">https://www.youtube.com/channel/UCXu4AXlG0rXFtk_5SzumDow</a><br>
+Support: <a href="https://www.patreon.com/signwriting">https://www.patreon.com/signwriting</a>  </p>
+</blockquote>
 <h2>Useful links</h2>
 <ul>
-<li>GitHub Repo: <a href="https://github.com/sutton-signwriting/core">https://github.com/sutton-signwriting/core</a></li>
+<li>Source: <a href="https://github.com/sutton-signwriting/core">https://github.com/sutton-signwriting/core</a></li>
+<li>Distribution: <a href="https://unpkg.com/browse/@sutton-signwriting/core/">https://unpkg.com/browse/@sutton-signwriting/core/</a></li>
 <li>Documentation: <a href="https://sutton-signwriting.github.io/core/">https://sutton-signwriting.github.io/core/</a></li>
 <li>Issue Tracker: <a href="https://github.com/sutton-signwriting/core/issues">https://github.com/sutton-signwriting/core/issues</a></li>
 <li>Online Discussion: <a href="https://gitter.im/sutton-signwriting/community">https://gitter.im/sutton-signwriting/community</a></li>
+<li>Online Training: <a href="https://katacoda.com/sutton-signwriting/courses/core">https://katacoda.com/sutton-signwriting/courses/core</a></li>
+</ul>
+<h2>Types of files</h2>
+<p>The source is written in small ES Modules available in the <code>src</code> directory along with the associated tests.</p>
+<p>The distribution is available in three flavors.  20 KB for the whole library minified.  Individual modules as small as 3 KB.</p>
+<ul>
+<li>.js - Universal Module Definition</li>
+<li>.cjs - CommonJS</li>
+<li>.mjs - ES Module </li>
 </ul>
 <h2>Installation</h2>
-<h3>Install with NPM</h3>
+<h3>Download and Install with NPM</h3>
 <pre><code>npm install @sutton-signwriting/core
 </code></pre>
-<h3>Download from GitHub</h3>
-<pre><code>https://github.com/sutton-signwriting/core/archive/master.zip
+<h2>Developer Installation</h2>
+<h3>Download from GitHub and Install Development Dependencies</h3>
+<pre><code>wget https://github.com/sutton-signwriting/core/archive/master.zip
+unzip master.zip
+cd core-master
+npm install
 </code></pre>
 <h2>Usage</h2>
 <h3>Using in Node</h3>
 <pre><code>// import entire library
-const core = require('@sutton-signwriting/core);
+const core = require('@sutton-signwriting/core');
 
 // import individual module
-const fsw = require('@sutton-signwriting/core/fsw);
+const fsw = require('@sutton-signwriting/core/fsw');
 </code></pre>
 <h3>Using in the Browser</h3>
 <h4>Local files</h4>
@@ -762,11 +822,11 @@ const fsw = require('@sutton-signwriting/core/fsw);
 <h4>Unpkg</h4>
 <pre><code>// import entire library
 // available as ssw.core
-&#x3C;script src="https://unpkg.com/@sutton-signwriting/core@1.0.0">&#x3C;/script>
+&#x3C;script src="https://unpkg.com/@sutton-signwriting/core@1.2.0">&#x3C;/script>
 
 // import individual module
 // available as ssw.fsw
-&#x3C;script src="https://unpkg.com/@sutton-signwriting/core@1.0.0/fsw/fsw.js">&#x3C;/script>
+&#x3C;script src="https://unpkg.com/@sutton-signwriting/core@1.2.0/fsw/fsw.js">&#x3C;/script>
 </code></pre>
 <h2>License</h2>
 <p>MIT</p>
@@ -846,7 +906,7 @@ const fsw = require('@sutton-signwriting/core/fsw);
   
 
   <p>Object of regular expressions for FSW strings</p>
-<p>  { symbol, coord, sort, box, prefix, spatial, signbox, sign, term }</p>
+<p>  { symbol, coord, sort, box, prefix, spatial, signbox, sign, sortable }</p>
 
     <div class='pre p1 fill-light mt0'>fsw.re</div>
   
@@ -1054,6 +1114,218 @@ const fsw = require('@sutton-signwriting/core/fsw);
  ],
  <span class="hljs-attr">style</span>: <span class="hljs-string">'-C'</span>
 }</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='fswcomposesymbol'>
+      fsw.compose.symbol
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to compose an fsw symbol with optional coordinate and style string</p>
+
+    <div class='pre p1 fill-light mt0'>fsw.compose.symbol(fswSymObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fswSymObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    an fsw symbol object
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>fswSymObject.symbol</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>an fsw symbol key
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>fswSymObject.coord</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>></code>
+  </td>
+  <td class='break-word'><span>top-left coordinate of symbol with 500,500 center
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>fswSymObject.style</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>a style string for custom appearance
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        an fsw symbol string
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>fsw.compose.symbol({
+ <span class="hljs-string">'symbol'</span>: <span class="hljs-string">'S10000'</span>,
+ <span class="hljs-string">'coord'</span>: [<span class="hljs-number">480</span>, <span class="hljs-number">480</span>],
+ <span class="hljs-string">'style'</span>: <span class="hljs-string">'-C'</span>
+})
+
+<span class="hljs-keyword">return</span> <span class="hljs-string">'S10000480x480-C'</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='fswcomposesign'>
+      fsw.compose.sign
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to compose an fsw sign with style string</p>
+
+    <div class='pre p1 fill-light mt0'>fsw.compose.sign(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        an fsw sign string
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>fsw.compose.sign({
+ <span class="hljs-attr">sequence</span>: [<span class="hljs-string">'S10011'</span>, <span class="hljs-string">'S10019'</span>, <span class="hljs-string">'S2e704'</span>, <span class="hljs-string">'S2e748'</span>],
+ <span class="hljs-attr">box</span>: <span class="hljs-string">'M'</span>,
+ <span class="hljs-attr">max</span>: [<span class="hljs-number">525</span>, <span class="hljs-number">535</span>],
+ <span class="hljs-attr">spatials</span>: [
+   {
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S2e748'</span>,
+     <span class="hljs-attr">coord</span>: [<span class="hljs-number">483</span>, <span class="hljs-number">510</span>]
+   },
+   {
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S10011'</span>,
+     <span class="hljs-attr">coord</span>: [<span class="hljs-number">501</span>, <span class="hljs-number">466</span>]
+   },
+   {
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S2e704'</span>,
+     <span class="hljs-attr">coord</span>: [<span class="hljs-number">510</span>, <span class="hljs-number">500</span>]
+   },
+   {
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S10019'</span>,
+     <span class="hljs-attr">coord</span>: [<span class="hljs-number">476</span>, <span class="hljs-number">475</span>]
+   }
+ ],
+ <span class="hljs-attr">style</span>: <span class="hljs-string">'-C'</span>
+})
+
+<span class="hljs-keyword">return</span> <span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C'</span></pre>
     
   
 
@@ -2397,8 +2669,8 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   </div>
   
 
-  <p>Object of regular expressions for FSW strings</p>
-<p>  { symbol, coord, sort, box, prefix, spatial, signbox, sign, term }</p>
+  <p>Object of regular expressions for SWU strings in UTF-16</p>
+<p>  { symbol, coord, sort, box, prefix, spatial, signbox, sign, sortable }</p>
 
     <div class='pre p1 fill-light mt0'>swu.re</div>
   
@@ -2840,6 +3112,218 @@ return {
       <pre class='p1 overflow-auto round fill-light'>swu.pair(<span class="hljs-string">'񀀁'</span>)
 
 <span class="hljs-keyword">return</span> [<span class="hljs-string">'D8C0'</span>, <span class="hljs-string">'DC01'</span>]</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='swucomposesymbol'>
+      swu.compose.symbol
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to compose an swu symbol with optional coordinate and style string</p>
+
+    <div class='pre p1 fill-light mt0'>swu.compose.symbol(swuSymObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>swuSymObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    an swu symbol object
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>swuSymObject.symbol</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>an swu symbol key
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>swuSymObject.coord</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>></code>
+  </td>
+  <td class='break-word'><span>top-left coordinate of symbol with 500,500 center
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>swuSymObject.style</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>a style string for custom appearance
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        an swu symbol string
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>swu.compose.symbol({
+ <span class="hljs-string">'symbol'</span>: <span class="hljs-string">'񀀁'</span>,
+ <span class="hljs-string">'coord'</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>],
+ <span class="hljs-string">'style'</span>: <span class="hljs-string">'-C'</span>
+})
+
+<span class="hljs-keyword">return</span> <span class="hljs-string">'񀀁𝤆𝤆-C'</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='swucomposesign'>
+      swu.compose.sign
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to compose an swu sign with style string</p>
+
+    <div class='pre p1 fill-light mt0'>swu.compose.sign(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        an swu sign string
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>swu.compose.sign({
+ sequence: ['񀀒','񀀚','񋚥','񋛩''],
+ box: '𝠃',
+ max: [525, 535],
+ spatials: [
+   {
+     symbol: '񋛩',
+     coord: [483, 510]
+   },
+   {
+     symbol: '񀀒',
+     coord: [501, 466]
+   },
+   {
+     symbol: '񋚥',
+     coord: [510, 500]
+   },
+   {
+     symbol: '񀀚',
+     coord: [476, 475]
+   }
+ ],
+ style: '-C'
+})
+
+return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭-C'</pre>
     
   
 
@@ -3449,7 +3933,7 @@ return {
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.parse(<span class="hljs-string">'QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.parse(<span class="hljs-string">'QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-'</span>)
 
 <span class="hljs-keyword">return</span> { 
   <span class="hljs-attr">query</span>: <span class="hljs-literal">true</span>,
@@ -4501,7 +4985,7 @@ return {
                 <tr>
   <td class='break-word'><span class='code bold'>styleObject.zoomsym</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;{index: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, zoom: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, offset: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>}></code>
   </td>
-  <td class='break-word'><span>array of symbol indexes and ziin levels with optionsl x,y offset
+  <td class='break-word'><span>array of symbol indexes and zoom levels with optional x,y offset
 </span></td>
 </tr>
 
