@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>@sutton-signwriting/core 1.2.0 | Documentation</title>
+  <title>@sutton-signwriting/core 1.2.1 | Documentation</title>
   <meta name='description' content='a javascript package for node and browsers that supports general processing of the Sutton SignWriting script'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,11 +15,14 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@sutton-signwriting/core</h3>
-          <div class='mb1'><code>1.2.0</code></div>
+          <div class='mb1'><code>1.2.1</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
             class='col12 block input'
+            spellcheck='false'
+            autocapitalize='off'
+            autocorrect='off'
             type='text' />
           <div id='toc'>
             <ul class='list-reset h5 py1-ul'>
@@ -771,7 +774,7 @@
 <blockquote>
 <p>Author: <a href="https://SteveSlevinski.me">https://SteveSlevinski.me</a><br>
 Channel: <a href="https://www.youtube.com/channel/UCXu4AXlG0rXFtk_5SzumDow">https://www.youtube.com/channel/UCXu4AXlG0rXFtk_5SzumDow</a><br>
-Support: <a href="https://www.patreon.com/signwriting">https://www.patreon.com/signwriting</a>  </p>
+Support: <a href="https://www.patreon.com/signwriting">https://www.patreon.com/signwriting</a></p>
 </blockquote>
 <h2>Useful links</h2>
 <ul>
@@ -788,7 +791,7 @@ Support: <a href="https://www.patreon.com/signwriting">https://www.patreon.com/s
 <ul>
 <li>.js - Universal Module Definition</li>
 <li>.cjs - CommonJS</li>
-<li>.mjs - ES Module </li>
+<li>.mjs - ES Module</li>
 </ul>
 <h2>Installation</h2>
 <h3>Download and Install with NPM</h3>
@@ -887,6 +890,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
 </section>
 
           
@@ -906,7 +911,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   <p>Object of regular expressions for FSW strings</p>
-<p>  { symbol, coord, sort, box, prefix, spatial, signbox, sign, sortable }</p>
+<p>{ symbol, coord, sort, box, prefix, spatial, signbox, sign, sortable }</p>
 
     <div class='pre p1 fill-light mt0'>fsw.re</div>
   
@@ -922,6 +927,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
   
   
+  
+
   
 
   
@@ -1003,15 +1010,17 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.parse.symbol(<span class="hljs-string">'S10000500x500-C'</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.parse.symbol(<span class="hljs-string">&#x27;S10000500x500-C&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
- <span class="hljs-string">'symbol'</span>: <span class="hljs-string">'S10000'</span>,
- <span class="hljs-string">'coord'</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>],
- <span class="hljs-string">'style'</span>: <span class="hljs-string">'-C'</span>
+ <span class="hljs-string">&#x27;symbol&#x27;</span>: <span class="hljs-string">&#x27;S10000&#x27;</span>,
+ <span class="hljs-string">&#x27;coord&#x27;</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>],
+ <span class="hljs-string">&#x27;style&#x27;</span>: <span class="hljs-string">&#x27;-C&#x27;</span>
 }</pre>
     
   
@@ -1085,34 +1094,36 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.parse.sign(<span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C'</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.parse.sign(<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
- <span class="hljs-attr">sequence</span>: [<span class="hljs-string">'S10011'</span>, <span class="hljs-string">'S10019'</span>, <span class="hljs-string">'S2e704'</span>, <span class="hljs-string">'S2e748'</span>],
- <span class="hljs-attr">box</span>: <span class="hljs-string">'M'</span>,
+ <span class="hljs-attr">sequence</span>: [<span class="hljs-string">&#x27;S10011&#x27;</span>, <span class="hljs-string">&#x27;S10019&#x27;</span>, <span class="hljs-string">&#x27;S2e704&#x27;</span>, <span class="hljs-string">&#x27;S2e748&#x27;</span>],
+ <span class="hljs-attr">box</span>: <span class="hljs-string">&#x27;M&#x27;</span>,
  <span class="hljs-attr">max</span>: [<span class="hljs-number">525</span>, <span class="hljs-number">535</span>],
  <span class="hljs-attr">spatials</span>: [
    {
-     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S2e748'</span>,
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S2e748&#x27;</span>,
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">483</span>, <span class="hljs-number">510</span>]
    },
    {
-     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S10011'</span>,
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S10011&#x27;</span>,
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">501</span>, <span class="hljs-number">466</span>]
    },
    {
-     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S2e704'</span>,
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S2e704&#x27;</span>,
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">510</span>, <span class="hljs-number">500</span>]
    },
    {
-     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S10019'</span>,
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S10019&#x27;</span>,
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">476</span>, <span class="hljs-number">475</span>]
    }
  ],
- <span class="hljs-attr">style</span>: <span class="hljs-string">'-C'</span>
+ <span class="hljs-attr">style</span>: <span class="hljs-string">&#x27;-C&#x27;</span>
 }</pre>
     
   
@@ -1229,16 +1240,18 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>fsw.compose.symbol({
- <span class="hljs-string">'symbol'</span>: <span class="hljs-string">'S10000'</span>,
- <span class="hljs-string">'coord'</span>: [<span class="hljs-number">480</span>, <span class="hljs-number">480</span>],
- <span class="hljs-string">'style'</span>: <span class="hljs-string">'-C'</span>
+ <span class="hljs-string">&#x27;symbol&#x27;</span>: <span class="hljs-string">&#x27;S10000&#x27;</span>,
+ <span class="hljs-string">&#x27;coord&#x27;</span>: [<span class="hljs-number">480</span>, <span class="hljs-number">480</span>],
+ <span class="hljs-string">&#x27;style&#x27;</span>: <span class="hljs-string">&#x27;-C&#x27;</span>
 })
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'S10000480x480-C'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;S10000480x480-C&#x27;</span></pre>
     
   
 
@@ -1297,35 +1310,37 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>fsw.compose.sign({
- <span class="hljs-attr">sequence</span>: [<span class="hljs-string">'S10011'</span>, <span class="hljs-string">'S10019'</span>, <span class="hljs-string">'S2e704'</span>, <span class="hljs-string">'S2e748'</span>],
- <span class="hljs-attr">box</span>: <span class="hljs-string">'M'</span>,
+ <span class="hljs-attr">sequence</span>: [<span class="hljs-string">&#x27;S10011&#x27;</span>, <span class="hljs-string">&#x27;S10019&#x27;</span>, <span class="hljs-string">&#x27;S2e704&#x27;</span>, <span class="hljs-string">&#x27;S2e748&#x27;</span>],
+ <span class="hljs-attr">box</span>: <span class="hljs-string">&#x27;M&#x27;</span>,
  <span class="hljs-attr">max</span>: [<span class="hljs-number">525</span>, <span class="hljs-number">535</span>],
  <span class="hljs-attr">spatials</span>: [
    {
-     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S2e748'</span>,
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S2e748&#x27;</span>,
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">483</span>, <span class="hljs-number">510</span>]
    },
    {
-     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S10011'</span>,
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S10011&#x27;</span>,
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">501</span>, <span class="hljs-number">466</span>]
    },
    {
-     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S2e704'</span>,
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S2e704&#x27;</span>,
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">510</span>, <span class="hljs-number">500</span>]
    },
    {
-     <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S10019'</span>,
+     <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S10019&#x27;</span>,
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">476</span>, <span class="hljs-number">475</span>]
    }
  ],
- <span class="hljs-attr">style</span>: <span class="hljs-string">'-C'</span>
+ <span class="hljs-attr">style</span>: <span class="hljs-string">&#x27;-C&#x27;</span>
 })
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C&#x27;</span></pre>
     
   
 
@@ -1370,6 +1385,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
   
   
+  
+
   
 
   
@@ -1442,6 +1459,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
 </section>
 
           
@@ -1495,6 +1514,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
 </section>
 
           
@@ -1514,7 +1535,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   <p>Object of symbol ranges with starting and ending numbers.</p>
-<p>  { all, writing, hand, movement, dynamic, head, hcenter, vcenter, trunk, limb, location, punctuation }</p>
+<p>{ all, writing, hand, movement, dynamic, head, hcenter, vcenter, trunk, limb, location, punctuation }</p>
 
     <div class='pre p1 fill-light mt0'>fsw.ranges</div>
   
@@ -1530,6 +1551,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
   
   
+  
+
   
 
   
@@ -1620,10 +1643,12 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.isType(<span class="hljs-string">'S10000'</span>, <span class="hljs-string">'hand'</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.isType(<span class="hljs-string">&#x27;S10000&#x27;</span>, <span class="hljs-string">&#x27;hand&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span></pre>
     
@@ -1670,6 +1695,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
   
   
+  
+
   
 
   
@@ -1751,12 +1778,14 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.colorize(<span class="hljs-string">'S10000'</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.colorize(<span class="hljs-string">&#x27;S10000&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'#0000CC'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;#0000CC&#x27;</span></pre>
     
   
 
@@ -1816,6 +1845,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
 </section>
 
           
@@ -1835,7 +1866,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   <p>Object of regular expressions for FSW query strings</p>
-<p>  { base, coord, var, symbol, range, prefix, signbox, full }</p>
+<p>{ base, coord, var, symbol, range, prefix, signbox, full }</p>
 
     <div class='pre p1 fill-light mt0'>fswquery.re</div>
   
@@ -1851,6 +1882,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
   
   
+  
+
   
 
   
@@ -1932,25 +1965,27 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.parse(<span class="hljs-string">'QAS10000R100t204S20500TS20000R100t105500x500V5-'</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.parse(<span class="hljs-string">&#x27;QAS10000R100t204S20500TS20000R100t105500x500V5-&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
  <span class="hljs-attr">query</span>: <span class="hljs-literal">true</span>,
  <span class="hljs-attr">prefix</span>: {
    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
    <span class="hljs-attr">parts</span>: [
-     <span class="hljs-string">'S10000'</span>,
-     [<span class="hljs-string">'100'</span>, <span class="hljs-string">'204'</span>],
-     <span class="hljs-string">'S20500'</span>
+     <span class="hljs-string">&#x27;S10000&#x27;</span>,
+     [<span class="hljs-string">&#x27;100&#x27;</span>, <span class="hljs-string">&#x27;204&#x27;</span>],
+     <span class="hljs-string">&#x27;S20500&#x27;</span>
    ]
  },
  <span class="hljs-attr">signbox</span>: [
-   { <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S20000'</span> },
+   { <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S20000&#x27;</span> },
    {
-     <span class="hljs-attr">range</span>: [<span class="hljs-string">'100'</span>, <span class="hljs-string">'105'</span>],
+     <span class="hljs-attr">range</span>: [<span class="hljs-string">&#x27;100&#x27;</span>, <span class="hljs-string">&#x27;105&#x27;</span>],
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>]
    }
  ],
@@ -2110,6 +2145,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
@@ -2118,15 +2155,15 @@ const fsw = require('@sutton-signwriting/core/fsw');
  <span class="hljs-attr">prefix</span>: {
    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
    <span class="hljs-attr">parts</span>: [
-     <span class="hljs-string">'S10000'</span>,
-     [<span class="hljs-string">'100'</span>, <span class="hljs-string">'204'</span>],
-     <span class="hljs-string">'S20500'</span>
+     <span class="hljs-string">&#x27;S10000&#x27;</span>,
+     [<span class="hljs-string">&#x27;100&#x27;</span>, <span class="hljs-string">&#x27;204&#x27;</span>],
+     <span class="hljs-string">&#x27;S20500&#x27;</span>
    ]
  },
  <span class="hljs-attr">signbox</span>: [
-   { <span class="hljs-attr">symbol</span>: <span class="hljs-string">'S20000'</span> },
+   { <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S20000&#x27;</span> },
    {
-     <span class="hljs-attr">range</span>: [<span class="hljs-string">'100'</span>, <span class="hljs-string">'105'</span>],
+     <span class="hljs-attr">range</span>: [<span class="hljs-string">&#x27;100&#x27;</span>, <span class="hljs-string">&#x27;105&#x27;</span>],
      <span class="hljs-attr">coord</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>]
    }
  ],
@@ -2134,7 +2171,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
  <span class="hljs-attr">style</span>: <span class="hljs-literal">true</span>
 })
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'QAS10000R100t204S20500TS20000R100t105500x500V5-'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;QAS10000R100t204S20500TS20000R100t105500x500V5-&#x27;</span></pre>
     
   
 
@@ -2224,12 +2261,14 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.fsw2query(<span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475'</span>, <span class="hljs-string">'ASL'</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.fsw2query(<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span>, <span class="hljs-string">&#x27;ASL&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'QAS10011S10019S2e704S2e748TS2e748483x510S10011501x466S2e704510x500S10019476x475'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;QAS10011S10019S2e704S2e748TS2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span></pre>
     
   
 
@@ -2320,17 +2359,19 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>fswquery.range(<span class="hljs-number">500</span>,<span class="hljs-number">749</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'(([56][0-9][0-9])|(7[0-4][0-9])|(750))'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;(([56][0-9][0-9])|(7[0-4][0-9])|(750))&#x27;</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.range(<span class="hljs-string">'100'</span>,<span class="hljs-string">'10e'</span>,<span class="hljs-literal">true</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.range(<span class="hljs-string">&#x27;100&#x27;</span>,<span class="hljs-string">&#x27;10e&#x27;</span>,<span class="hljs-literal">true</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'10[0-9a-e]'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;10[0-9a-e]&#x27;</span></pre>
     
   
 
@@ -2403,14 +2444,16 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.regex(<span class="hljs-string">'QS100uuS20500480x520'</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.regex(<span class="hljs-string">&#x27;QS100uuS20500480x520&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
-  <span class="hljs-string">'(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S100[0-5][0-9a-f][0-9]{3}x[0-9]{3}(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*'</span>,
-  <span class="hljs-string">'(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S20500((4[6-9][0-9])|(500))x((5[0-3][0-9])|(540))(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*'</span>
+  <span class="hljs-string">&#x27;(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S100[0-5][0-9a-f][0-9]{3}x[0-9]{3}(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*&#x27;</span>,
+  <span class="hljs-string">&#x27;(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S20500((4[6-9][0-9])|(500))x((5[0-3][0-9])|(540))(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*&#x27;</span>
 ]</pre>
     
   
@@ -2493,13 +2536,15 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.results(<span class="hljs-string">'QAS10011T'</span>,<span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 AS15a21S15a07S21100S2df04S2df14M521x538S15a07494x488S15a21498x489S2df04498x517S2df14497x461S21100479x486 AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476'</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.results(<span class="hljs-string">&#x27;QAS10011T&#x27;</span>,<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 AS15a21S15a07S21100S2df04S2df14M521x538S15a07494x488S15a21498x489S2df04498x517S2df14497x461S21100479x486 AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
-  <span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475'</span>
+  <span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span>
 ]</pre>
     
   
@@ -2582,15 +2627,17 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.lines(<span class="hljs-string">'QAS10011T'</span>,<span class="hljs-string">`AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 line one
+      <pre class='p1 overflow-auto round fill-light'>fswquery.lines(<span class="hljs-string">&#x27;QAS10011T&#x27;</span>,<span class="hljs-string">`AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 line one
 AS15a21S15a07S21100S2df04S2df14M521x538S15a07494x488S15a21498x489S2df04498x517S2df14497x461S21100479x486 line two
 AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</span>)
 
 <span class="hljs-keyword">return</span> [
-  <span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 line one'</span>
+  <span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 line one&#x27;</span>
 ]</pre>
     
   
@@ -2651,6 +2698,8 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
 
   
+
+  
 </section>
 
           
@@ -2670,7 +2719,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
 
   <p>Object of regular expressions for SWU strings in UTF-16</p>
-<p>  { symbol, coord, sort, box, prefix, spatial, signbox, sign, sortable }</p>
+<p>{ symbol, coord, sort, box, prefix, spatial, signbox, sign, sortable }</p>
 
     <div class='pre p1 fill-light mt0'>swu.re</div>
   
@@ -2686,6 +2735,8 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
   
   
+  
+
   
 
   
@@ -2767,15 +2818,17 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.parse.symbol(<span class="hljs-string">'񀀁𝤆𝤆-C'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.parse.symbol(<span class="hljs-string">&#x27;񀀁𝤆𝤆-C&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
- <span class="hljs-string">'symbol'</span>: <span class="hljs-string">'񀀁'</span>,
- <span class="hljs-string">'coord'</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>],
- <span class="hljs-string">'style'</span>: <span class="hljs-string">'-C'</span>
+ <span class="hljs-string">&#x27;symbol&#x27;</span>: <span class="hljs-string">&#x27;񀀁&#x27;</span>,
+ <span class="hljs-string">&#x27;coord&#x27;</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>],
+ <span class="hljs-string">&#x27;style&#x27;</span>: <span class="hljs-string">&#x27;-C&#x27;</span>
 }</pre>
     
   
@@ -2849,34 +2902,36 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.parse.sign('𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭-C')
+      <pre class='p1 overflow-auto round fill-light'>swu.parse.sign(&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭-C&#x27;)
 
 return {
- sequence: ['񀀒','񀀚','񋚥','񋛩''],
- box: '𝠃',
+ sequence: [&#x27;񀀒&#x27;,&#x27;񀀚&#x27;,&#x27;񋚥&#x27;,&#x27;񋛩&#x27;&#x27;],
+ box: &#x27;𝠃&#x27;,
  max: [525, 535],
  spatials: [
    {
-     symbol: '񋛩',
+     symbol: &#x27;񋛩&#x27;,
      coord: [483, 510]
    },
    {
-     symbol: '񀀒',
+     symbol: &#x27;񀀒&#x27;,
      coord: [501, 466]
    },
    {
-     symbol: '񋚥',
+     symbol: &#x27;񋚥&#x27;,
      coord: [510, 500]
    },
    {
-     symbol: '񀀚',
+     symbol: &#x27;񀀚&#x27;,
      coord: [476, 475]
    }
  ],
- style: '-C'
+ style: &#x27;-C&#x27;
 }</pre>
     
   
@@ -2950,12 +3005,14 @@ return {
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.encode(<span class="hljs-string">'񀀁𝤆𝤆'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.encode(<span class="hljs-string">&#x27;񀀁𝤆𝤆&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'\\uD8C0\\uDC01\\uD836\\uDD06\\uD836\\uDD06'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\\uD8C0\\uDC01\\uD836\\uDD06\\uD836\\uDD06&#x27;</span></pre>
     
   
 
@@ -3028,12 +3085,14 @@ return {
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.decode(<span class="hljs-string">'\\uD8C0\\uDC01\\uD836\\uDD06\\uD836\\uDD06'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.decode(<span class="hljs-string">&#x27;\\uD8C0\\uDC01\\uD836\\uDD06\\uD836\\uDD06&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'񀀁𝤆𝤆'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;񀀁𝤆𝤆&#x27;</span></pre>
     
   
 
@@ -3106,12 +3165,14 @@ return {
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.pair(<span class="hljs-string">'񀀁'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.pair(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
-<span class="hljs-keyword">return</span> [<span class="hljs-string">'D8C0'</span>, <span class="hljs-string">'DC01'</span>]</pre>
+<span class="hljs-keyword">return</span> [<span class="hljs-string">&#x27;D8C0&#x27;</span>, <span class="hljs-string">&#x27;DC01&#x27;</span>]</pre>
     
   
 
@@ -3227,16 +3288,18 @@ return {
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>swu.compose.symbol({
- <span class="hljs-string">'symbol'</span>: <span class="hljs-string">'񀀁'</span>,
- <span class="hljs-string">'coord'</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>],
- <span class="hljs-string">'style'</span>: <span class="hljs-string">'-C'</span>
+ <span class="hljs-string">&#x27;symbol&#x27;</span>: <span class="hljs-string">&#x27;񀀁&#x27;</span>,
+ <span class="hljs-string">&#x27;coord&#x27;</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>],
+ <span class="hljs-string">&#x27;style&#x27;</span>: <span class="hljs-string">&#x27;-C&#x27;</span>
 })
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'񀀁𝤆𝤆-C'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;񀀁𝤆𝤆-C&#x27;</span></pre>
     
   
 
@@ -3295,35 +3358,37 @@ return {
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>swu.compose.sign({
- sequence: ['񀀒','񀀚','񋚥','񋛩''],
- box: '𝠃',
+ sequence: [&#x27;񀀒&#x27;,&#x27;񀀚&#x27;,&#x27;񋚥&#x27;,&#x27;񋛩&#x27;&#x27;],
+ box: &#x27;𝠃&#x27;,
  max: [525, 535],
  spatials: [
    {
-     symbol: '񋛩',
+     symbol: &#x27;񋛩&#x27;,
      coord: [483, 510]
    },
    {
-     symbol: '񀀒',
+     symbol: &#x27;񀀒&#x27;,
      coord: [501, 466]
    },
    {
-     symbol: '񋚥',
+     symbol: &#x27;񋚥&#x27;,
      coord: [510, 500]
    },
    {
-     symbol: '񀀚',
+     symbol: &#x27;񀀚&#x27;,
      coord: [476, 475]
    }
  ],
- style: '-C'
+ style: &#x27;-C&#x27;
 })
 
-return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭-C'</pre>
+return &#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭-C&#x27;</pre>
     
   
 
@@ -3368,6 +3433,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
   
   
+  
+
   
 
   
@@ -3440,6 +3507,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
 </section>
 
           
@@ -3493,6 +3562,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
 </section>
 
           
@@ -3512,7 +3583,7 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   <p>Object of symbol ranges with starting and ending code points on plane 4.</p>
-<p>  { all, writing, hand, movement, dynamic, head, hcenter, vcenter, trunk, limb, location, punctuation }</p>
+<p>{ all, writing, hand, movement, dynamic, head, hcenter, vcenter, trunk, limb, location, punctuation }</p>
 
     <div class='pre p1 fill-light mt0'>swu.ranges</div>
   
@@ -3528,6 +3599,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
   
   
+  
+
   
 
   
@@ -3618,10 +3691,12 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.isType(<span class="hljs-string">'񀀁'</span>, <span class="hljs-string">'hand'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.isType(<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;hand&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span></pre>
     
@@ -3668,6 +3743,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
   
   
+  
+
   
 
   
@@ -3749,12 +3826,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.colorize(<span class="hljs-string">'񀀁'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.colorize(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'#0000CC'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;#0000CC&#x27;</span></pre>
     
   
 
@@ -3814,6 +3893,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
 </section>
 
           
@@ -3833,7 +3914,7 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   <p>Object of regular expressions for SWU query strings</p>
-<p>  { base, coord, var, symbol, range, prefix, signbox, full }</p>
+<p>{ base, coord, var, symbol, range, prefix, signbox, full }</p>
 
     <div class='pre p1 fill-light mt0'>swuquery.re</div>
   
@@ -3849,6 +3930,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
   
   
+  
+
   
 
   
@@ -3930,25 +4013,27 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.parse(<span class="hljs-string">'QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.parse(<span class="hljs-string">&#x27;QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-&#x27;</span>)
 
 <span class="hljs-keyword">return</span> { 
   <span class="hljs-attr">query</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">prefix</span>: {
     <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">parts</span>: [
-      <span class="hljs-string">'񀀁'</span>,
-      [<span class="hljs-string">'񀀁'</span>, <span class="hljs-string">'񆆑'</span>],
-      <span class="hljs-string">'񆇡'</span>
+      <span class="hljs-string">&#x27;񀀁&#x27;</span>,
+      [<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;񆆑&#x27;</span>],
+      <span class="hljs-string">&#x27;񆇡&#x27;</span>
     ]
   },
   <span class="hljs-attr">signbox</span>: [
-    { <span class="hljs-attr">symbol</span>: <span class="hljs-string">'񆀁'</span> },
+    { <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;񆀁&#x27;</span> },
     {
-      <span class="hljs-attr">range</span>: [<span class="hljs-string">'񀀁'</span>, <span class="hljs-string">'񀇱'</span>],
+      <span class="hljs-attr">range</span>: [<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;񀇱&#x27;</span>],
       <span class="hljs-attr">coord</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>]
     }
   ],
@@ -4108,6 +4193,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
@@ -4116,15 +4203,15 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   <span class="hljs-attr">prefix</span>: {
     <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">parts</span>: [
-      <span class="hljs-string">'񀀁'</span>,
-      [<span class="hljs-string">'񀀁'</span>, <span class="hljs-string">'񆆑'</span>],
-      <span class="hljs-string">'񆇡'</span>
+      <span class="hljs-string">&#x27;񀀁&#x27;</span>,
+      [<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;񆆑&#x27;</span>],
+      <span class="hljs-string">&#x27;񆇡&#x27;</span>
     ]
   },
   <span class="hljs-attr">signbox</span>: [
-    { <span class="hljs-attr">symbol</span>: <span class="hljs-string">'񆀁'</span> },
+    { <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;񆀁&#x27;</span> },
     {
-      <span class="hljs-attr">range</span>: [<span class="hljs-string">'񀀁'</span>, <span class="hljs-string">'񀇱'</span>],
+      <span class="hljs-attr">range</span>: [<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;񀇱&#x27;</span>],
       <span class="hljs-attr">coord</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>]
     }
   ],
@@ -4132,7 +4219,7 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   <span class="hljs-attr">style</span>: <span class="hljs-literal">true</span> 
 })
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-&#x27;</span></pre>
     
   
 
@@ -4222,12 +4309,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.swu2query(<span class="hljs-string">'𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭'</span>, <span class="hljs-string">'ASL'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.swu2query(<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span>, <span class="hljs-string">&#x27;ASL&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'QA񀀒񀀚񋚥񋛩T񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;QA񀀒񀀚񋚥񋛩T񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span></pre>
     
   
 
@@ -4309,17 +4398,19 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.range(<span class="hljs-string">'񀀁'</span>, <span class="hljs-string">'񀇡'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.range(<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;񀇡&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'\uD8C0[\uDC01-\uDDE1]'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD8C0[\uDC01-\uDDE1]&#x27;</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.range(<span class="hljs-string">'𝣔'</span>, <span class="hljs-string">'𝤸'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.range(<span class="hljs-string">&#x27;𝣔&#x27;</span>, <span class="hljs-string">&#x27;𝤸&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'\uD836[\uDCD4-\uDD38]'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD836[\uDCD4-\uDD38]&#x27;</span></pre>
     
   
 
@@ -4392,31 +4483,33 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       <p><p>Match an exact symbol</p>
 </p>
-      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">'񀀁'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'\uD8C0\uDC01'</span>);</pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD8C0\uDC01&#x27;</span>);</pre>
     
       <p><p>Match a symbol with any fill</p>
 </p>
-      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">'񀀁f'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">&#x27;񀀁f&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'(\uD8C0\uDC01|\uD8C0\uDC11|\uD8C0\uDC21|\uD8C0\uDC31|\uD8C0\uDC41|\uD8C0\uDC51)'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;(\uD8C0\uDC01|\uD8C0\uDC11|\uD8C0\uDC21|\uD8C0\uDC31|\uD8C0\uDC41|\uD8C0\uDC51)&#x27;</span></pre>
     
       <p><p>Match a symbol with any rotation</p>
 </p>
-      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">'񀀁r'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">&#x27;񀀁r&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'\uD8C0[\uDC01-\uDC10]'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD8C0[\uDC01-\uDC10]&#x27;</span></pre>
     
       <p><p>Match a symbol with any fill or rotation</p>
 </p>
-      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">'񀀁fr'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">&#x27;񀀁fr&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'\uD8C0[\uDC01-\uDC60]'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD8C0[\uDC01-\uDC60]&#x27;</span></pre>
     
   
 
@@ -4489,13 +4582,15 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.regex(<span class="hljs-string">'QA񀀒T'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.regex(<span class="hljs-string">&#x27;QA񀀒T&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
-  <span class="hljs-string">'(\uD836\uDC00\uD8C0\uDC12((?:(?:\uD8C0[\uDC01-\uDFFF])|(?:[\uD8C1-\uD8FC][\uDC00-\uDFFF])|(?:\uD8FD[\uDC00-\uDC80])))*)\uD836[\uDC01-\uDC04](?:\uD836[\uDC0C-\uDDFF]){2}((?:(?:\uD8C0[\uDC01-\uDFFF])|(?:[\uD8C1-\uD8FC][\uDC00-\uDFFF])|(?:\uD8FD[\uDC00-\uDC80]))(?:\uD836[\uDC0C-\uDDFF]){2})*'</span>
+  <span class="hljs-string">&#x27;(\uD836\uDC00\uD8C0\uDC12((?:(?:\uD8C0[\uDC01-\uDFFF])|(?:[\uD8C1-\uD8FC][\uDC00-\uDFFF])|(?:\uD8FD[\uDC00-\uDC80])))*)\uD836[\uDC01-\uDC04](?:\uD836[\uDC0C-\uDDFF]){2}((?:(?:\uD8C0[\uDC01-\uDFFF])|(?:[\uD8C1-\uD8FC][\uDC00-\uDFFF])|(?:\uD8FD[\uDC00-\uDC80]))(?:\uD836[\uDC0C-\uDDFF]){2})*&#x27;</span>
 ]</pre>
     
   
@@ -4578,13 +4673,15 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.results(<span class="hljs-string">'QA񀀒T'</span>,<span class="hljs-string">'𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 𝠀񂇢񂇈񆙡񋎥񋎵𝠃𝤛𝤬񂇈𝤀𝣺񂇢𝤄𝣻񋎥𝤄𝤗񋎵𝤃𝣟񆙡𝣱𝣸 𝠀񅨑񀀙񆉁𝠃𝤙𝤞񀀙𝣷𝤀񅨑𝣼𝤀񆉁𝣳𝣮'</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.results(<span class="hljs-string">&#x27;QA񀀒T&#x27;</span>,<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 𝠀񂇢񂇈񆙡񋎥񋎵𝠃𝤛𝤬񂇈𝤀𝣺񂇢𝤄𝣻񋎥𝤄𝤗񋎵𝤃𝣟񆙡𝣱𝣸 𝠀񅨑񀀙񆉁𝠃𝤙𝤞񀀙𝣷𝤀񅨑𝣼𝤀񆉁𝣳𝣮&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
-  <span class="hljs-string">'𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭'</span>
+  <span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span>
 ]</pre>
     
   
@@ -4667,15 +4764,17 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.lines(<span class="hljs-string">'QA񀀒T'</span>,<span class="hljs-string">`𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 line one
+      <pre class='p1 overflow-auto round fill-light'>swuquery.lines(<span class="hljs-string">&#x27;QA񀀒T&#x27;</span>,<span class="hljs-string">`𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 line one
 𝠀񂇢񂇈񆙡񋎥񋎵𝠃𝤛𝤬񂇈𝤀𝣺񂇢𝤄𝣻񋎥𝤄𝤗񋎵𝤃𝣟񆙡𝣱𝣸 line two
 𝠀񅨑񀀙񆉁𝠃𝤙𝤞񀀙𝣷𝤀񅨑𝣼𝤀񆉁𝣳𝣮 line three`</span>)
 
 <span class="hljs-keyword">return</span> [
-  <span class="hljs-string">'𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 line one'</span>
+  <span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 line one&#x27;</span>
 ]</pre>
     
   
@@ -4736,6 +4835,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
 </section>
 
           
@@ -4755,7 +4856,7 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   <p>Object of regular expressions for style strings</p>
-<p>  { colorize, colorhex, colorname, padding, zoom, zoomsym, classbase, id, colorbase, color, colors, background, detail, detailsym, classes, full }</p>
+<p>{ colorize, colorhex, colorname, padding, zoom, zoomsym, classbase, id, colorbase, color, colors, background, detail, detailsym, classes, full }</p>
 
     <div class='pre p1 fill-light mt0'>style.re</div>
   
@@ -4771,6 +4872,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
   
   
+  
+
   
 
   
@@ -4852,16 +4955,18 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>style.parse(<span class="hljs-string">'-CP10G_blue_D_red,Cyan_'</span>)
+      <pre class='p1 overflow-auto round fill-light'>style.parse(<span class="hljs-string">&#x27;-CP10G_blue_D_red,Cyan_&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
- <span class="hljs-string">'colorize'</span>: <span class="hljs-literal">true</span>,
- <span class="hljs-string">'padding'</span>: <span class="hljs-number">10</span>,
- <span class="hljs-string">'background'</span>: <span class="hljs-string">'blue'</span>,
- <span class="hljs-string">'detail'</span>: [<span class="hljs-string">'red'</span>, <span class="hljs-string">'Cyan'</span>]
+ <span class="hljs-string">&#x27;colorize&#x27;</span>: <span class="hljs-literal">true</span>,
+ <span class="hljs-string">&#x27;padding&#x27;</span>: <span class="hljs-number">10</span>,
+ <span class="hljs-string">&#x27;background&#x27;</span>: <span class="hljs-string">&#x27;blue&#x27;</span>,
+ <span class="hljs-string">&#x27;detail&#x27;</span>: [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;Cyan&#x27;</span>]
 }</pre>
     
   
@@ -5032,41 +5137,43 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>style.compose({
- <span class="hljs-string">'colorize'</span>: <span class="hljs-literal">true</span>,
- <span class="hljs-string">'padding'</span>: <span class="hljs-number">10</span>,
- <span class="hljs-string">'background'</span>: <span class="hljs-string">'blue'</span>,
- <span class="hljs-string">'detail'</span>: [<span class="hljs-string">'red'</span>, <span class="hljs-string">'Cyan'</span>],
- <span class="hljs-string">'zoom'</span>: <span class="hljs-number">1.1</span>,
- <span class="hljs-string">'detailsym'</span>: [
+ <span class="hljs-string">&#x27;colorize&#x27;</span>: <span class="hljs-literal">true</span>,
+ <span class="hljs-string">&#x27;padding&#x27;</span>: <span class="hljs-number">10</span>,
+ <span class="hljs-string">&#x27;background&#x27;</span>: <span class="hljs-string">&#x27;blue&#x27;</span>,
+ <span class="hljs-string">&#x27;detail&#x27;</span>: [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;Cyan&#x27;</span>],
+ <span class="hljs-string">&#x27;zoom&#x27;</span>: <span class="hljs-number">1.1</span>,
+ <span class="hljs-string">&#x27;detailsym&#x27;</span>: [
    {
-     <span class="hljs-string">'index'</span>: <span class="hljs-number">1</span>,
-     <span class="hljs-string">'detail'</span>: [<span class="hljs-string">'#ff00ff'</span>]
+     <span class="hljs-string">&#x27;index&#x27;</span>: <span class="hljs-number">1</span>,
+     <span class="hljs-string">&#x27;detail&#x27;</span>: [<span class="hljs-string">&#x27;#ff00ff&#x27;</span>]
    },
    {
-     <span class="hljs-string">'index'</span>: <span class="hljs-number">2</span>,
-     <span class="hljs-string">'detail'</span>: [<span class="hljs-string">'yellow'</span>, <span class="hljs-string">'green'</span>]
+     <span class="hljs-string">&#x27;index&#x27;</span>: <span class="hljs-number">2</span>,
+     <span class="hljs-string">&#x27;detail&#x27;</span>: [<span class="hljs-string">&#x27;yellow&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>]
    }
  ],
- <span class="hljs-string">'zoomsym'</span>: [
+ <span class="hljs-string">&#x27;zoomsym&#x27;</span>: [
    {
-     <span class="hljs-string">'index'</span>: <span class="hljs-number">1</span>,
-     <span class="hljs-string">'zoom'</span>: <span class="hljs-number">10</span>,
-     <span class="hljs-string">'offset'</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+     <span class="hljs-string">&#x27;index&#x27;</span>: <span class="hljs-number">1</span>,
+     <span class="hljs-string">&#x27;zoom&#x27;</span>: <span class="hljs-number">10</span>,
+     <span class="hljs-string">&#x27;offset&#x27;</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
    },
    {
-     <span class="hljs-string">'index'</span>: <span class="hljs-number">2</span>,
-     <span class="hljs-string">'zoom'</span>: <span class="hljs-number">5.5</span>
+     <span class="hljs-string">&#x27;index&#x27;</span>: <span class="hljs-number">2</span>,
+     <span class="hljs-string">&#x27;zoom&#x27;</span>: <span class="hljs-number">5.5</span>
    }
  ],
- <span class="hljs-string">'classes'</span>: <span class="hljs-string">'primary blinking'</span>,
- <span class="hljs-string">'id'</span>: <span class="hljs-string">'cursor'</span>
+ <span class="hljs-string">&#x27;classes&#x27;</span>: <span class="hljs-string">&#x27;primary blinking&#x27;</span>,
+ <span class="hljs-string">&#x27;id&#x27;</span>: <span class="hljs-string">&#x27;cursor&#x27;</span>
 })
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'-CP10G_blue_D_red,Cyan_Z1.1-D01_ff00ff_D02_yellow,green_Z01,10,500x500Z02,5.5-primary blinking!cursor!'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;-CP10G_blue_D_red,Cyan_Z1.1-D01_ff00ff_D02_yellow,green_Z01,10,500x500Z02,5.5-primary blinking!cursor!&#x27;</span></pre>
     
   
 
@@ -5107,6 +5214,8 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
   
   
+  
+
   
 
   
@@ -5188,12 +5297,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2mark(<span class="hljs-string">'𝠀'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.swu2mark(<span class="hljs-string">&#x27;𝠀&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'A'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;A&#x27;</span></pre>
     
   
 
@@ -5266,12 +5377,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.mark2swu(<span class="hljs-string">'A'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.mark2swu(<span class="hljs-string">&#x27;A&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'𝠀'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;𝠀&#x27;</span></pre>
     
   
 
@@ -5344,10 +5457,12 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2num(<span class="hljs-string">'𝤆'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.swu2num(<span class="hljs-string">&#x27;𝤆&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-number">500</span></pre>
     
@@ -5422,12 +5537,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>convert.num2swu(<span class="hljs-number">500</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'𝤆'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;𝤆&#x27;</span></pre>
     
   
 
@@ -5500,10 +5617,12 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2coord(<span class="hljs-string">'𝤆𝤆'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.swu2coord(<span class="hljs-string">&#x27;𝤆𝤆&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>]</pre>
     
@@ -5578,12 +5697,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>convert.coord2swu([<span class="hljs-number">500</span>, <span class="hljs-number">500</span>])
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'𝤆𝤆'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;𝤆𝤆&#x27;</span></pre>
     
   
 
@@ -5656,10 +5777,12 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.fsw2coord(<span class="hljs-string">'500x500'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.fsw2coord(<span class="hljs-string">&#x27;500x500&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>]</pre>
     
@@ -5734,12 +5857,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>convert.coord2fsw([<span class="hljs-number">500</span>, <span class="hljs-number">500</span>])
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'500x500'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;500x500&#x27;</span></pre>
     
   
 
@@ -5812,10 +5937,12 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2code(<span class="hljs-string">'񀀁'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.swu2code(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-number">0x40001</span></pre>
     
@@ -5890,12 +6017,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>convert.code2swu(<span class="hljs-number">0x40001</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'񀀁'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;񀀁&#x27;</span></pre>
     
   
 
@@ -5968,10 +6097,12 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2id(<span class="hljs-string">'񀀁'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.swu2id(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-number">1</span></pre>
     
@@ -6046,12 +6177,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>convert.id2swu(<span class="hljs-number">1</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'񀀁'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;񀀁&#x27;</span></pre>
     
   
 
@@ -6124,10 +6257,12 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.key2id(<span class="hljs-string">'S10000'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.key2id(<span class="hljs-string">&#x27;S10000&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-number">1</span></pre>
     
@@ -6202,12 +6337,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
       <pre class='p1 overflow-auto round fill-light'>convert.id2key(<span class="hljs-number">1</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'S10000'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;S10000&#x27;</span></pre>
     
   
 
@@ -6280,12 +6417,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2key(<span class="hljs-string">'񀀁'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.swu2key(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'S10000'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;S10000&#x27;</span></pre>
     
   
 
@@ -6358,12 +6497,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.key2swu(<span class="hljs-string">'S10000'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.key2swu(<span class="hljs-string">&#x27;S10000&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'񀀁'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;񀀁&#x27;</span></pre>
     
   
 
@@ -6436,12 +6577,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2fsw(<span class="hljs-string">'𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.swu2fsw(<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span></pre>
     
   
 
@@ -6514,12 +6657,14 @@ return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚
   
 
   
+
+  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.fsw2swu(<span class="hljs-string">'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475'</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.fsw2swu(<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span>)
 
-<span class="hljs-keyword">return</span> <span class="hljs-string">'𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭'</span></pre>
+<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span></pre>
     
   
 

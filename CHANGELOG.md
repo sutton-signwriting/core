@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Todo
 - update parse for style string that drops empty style of '-'
 
+## [1.2.1] - 2021-06-24
+### Fixed
+- updated dependencies to fix warnings
+
 ## [1.2.0] - 2020-02-27
 ### Fixed
 - documentation for library, module, and functions
@@ -33,7 +37,8 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.2.1
 [1.2.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.1.0
 [1.0.2]: https://github.com/sutton-signwriting/core/releases/tag/v1.0.2
