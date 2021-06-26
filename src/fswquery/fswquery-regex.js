@@ -1,7 +1,32 @@
 
 import { re } from './fswquery-re';
+import { re as reFSW } from '../fsw/fsw-re';
 import { re as reStyle } from '../style/style-re';
 import { range } from './fswquery-range';
+import { fsw2coord } from '../convert';
+
+const regexSymbol = (sym) => {
+  let segment = sym.slice(0, 4);
+  let fill = sym.slice(4, 5);
+  if (fill == 'u') {
+    segment += '[0-5]';
+  } else {
+    segment += fill;
+  }
+  let rotate = sym.slice(5, 6);
+  if (rotate == 'u') {
+    segment += '[0-9a-f]';
+  } else {
+    segment += rotate;
+  }
+  return segment;
+}
+
+const regexRange = (symRange) => {
+  let from = symRange.slice(1, 4);
+  let to = symRange.slice(5, 8);
+  return 'S' + range(from, to, 'hex') + '[0-5][0-9a-f]';
+}
 
 //needs rewritten, but it works
 /**
@@ -13,8 +38,8 @@ import { range } from './fswquery-range';
  * fswquery.regex('QS100uuS20500480x520')
  * 
  * return [
- *   '(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S100[0-5][0-9a-f][0-9]{3}x[0-9]{3}(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*',
- *   '(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S20500((4[6-9][0-9])|(500))x((5[0-3][0-9])|(540))(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*'
+ *   '(?:A(?:S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S100[0-5][0-9a-f][0-9]{3}x[0-9]{3}(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*',
+ *   '(?:A(?:S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S20500((4[6-9][0-9])|(500))x((5[0-3][0-9])|(540))(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*'
  * ]
  */
 const regex = (query) => {
@@ -23,41 +48,35 @@ const regex = (query) => {
     return '';
   }
   var matches;
+  var matchesOr;
+  var matched;
+  var orList;
   var i;
+  var j;
   var fsw_pattern;
   var part;
   var from;
   var to;
   var re_range;
   var segment;
+  var coord;
   var x;
   var y;
-  var base;
-  var fill;
-  var rotate;
   var fuzz = 20;
-  var re_sym = 'S[123][0-9a-f]{2}[0-5][0-9a-f]';
-  var re_coord = '[0-9]{3}x[0-9]{3}';
-  var re_word = '[BLMR](' + re_coord + ')(' + re_sym + re_coord + ')*';
-  var re_sortable = '(A(' + re_sym + ')+)';
-  var q_range = 'R[123][0-9a-f]{2}t[123][0-9a-f]{2}';
-  var q_sym = 'S[123][0-9a-f]{2}[0-5u][0-9a-fu]';
-  var q_coord = '([0-9]{3}x[0-9]{3})?';
-  var q_var = '(V[0-9]+)';
   var q_style = '(' + reStyle.full + ')?';
   var q_sortable;
 
   if (query == 'Q') {
-    return [re_sortable + "?" + re_word];
+    return [reFSW.prefix + "?" + reFSW.signbox];
   }
   if (query == 'Q-') {
-    return [re_sortable + "?" + re_word + q_style];
+    return [reFSW.prefix + "?" + reFSW.signbox + q_style];
   }
   if (query == 'QT') {
-    return [re_sortable + re_word];
+    return [reFSW.prefix + reFSW.signbox];
   }
   if (query == 'QT-') {
-    return [re_sortable + re_word + q_style];
+    return [reFSW.prefix + reFSW.signbox + q_style];
   }
   var segments = [];
   var sortable = query.indexOf('T') + 1;
@@ -66,82 +85,76 @@ const regex = (query) => {
     var qat = query.slice(0, sortable);
     query = query.replace(qat, '');
     if (qat == 'QT') {
-      q_sortable += '(' + re_sym + ')+)';
+      q_sortable += '(' + reFSW.symbol + ')+)';
     } else {
-      matches = qat.match(new RegExp('(' + q_sym + '|' + q_range + ')', 'g'));
+      matches = qat.match(new RegExp('(' + re.list + ')', 'g'));
       if (matches) {
-        var matched;
         for (i = 0; i < matches.length; i += 1) {
-          matched = matches[i].match(new RegExp(q_sym));
-          if (matched) {
-            segment = matched[0].slice(0, 4);
-            fill = matched[0].slice(4, 5);
-            if (fill == 'u') {
-              segment += '[0-5]';
-            } else {
-              segment += fill;
+          orList = [];
+          matchesOr = matches[i].match(new RegExp('(' + re.symbol + '|' + re.range + ')', 'g'));
+          if (matchesOr) {
+            for (j = 0; j < matchesOr.length; j += 1) {
+              matched = matchesOr[j].match(new RegExp(re.symbol));
+              if (matched) {
+                orList.push(regexSymbol(matched[0]));
+              } else {
+                orList.push(regexRange(matchesOr[j]));
+              }
             }
-            rotate = matched[0].slice(5, 6);
-            if (rotate == 'u') {
-              segment += '[0-9a-f]';
+            if (orList.length==1){
+              q_sortable += orList[0];
             } else {
-              segment += rotate;
+              q_sortable += '(' + orList.join('|') + ')';
             }
-            q_sortable += segment;
-          } else {
-            from = matches[i].slice(1, 4);
-            to = matches[i].slice(5, 8);
-            re_range = range(from, to, 'hex');
-            segment = 'S' + re_range + '[0-5][0-9a-f]';
-            q_sortable += segment;
           }
         }
-        q_sortable += '(' + re_sym + ')*)';
+        q_sortable += '(' + reFSW.symbol + ')*)';
       }
     }
   }
   //get the variance
-  matches = query.match(new RegExp(q_var, 'g'));
+  matches = query.match(new RegExp(re.var, 'g'));
   if (matches) {
     fuzz = matches.toString().slice(1) * 1;
   }
-  //this gets all symbols with or without location
-  fsw_pattern = q_sym + q_coord;
-  matches = query.match(new RegExp(fsw_pattern, 'g'));
+  //this gets all symbols and ranges with or without location
+  matches = query.match(new RegExp(re.list + re.coord, 'g'));
   if (matches) {
     for (i = 0; i < matches.length; i += 1) {
-      part = matches[i].toString();
-      base = part.slice(1, 4);
-      segment = 'S' + base;
-      fill = part.slice(4, 5);
-      if (fill == 'u') {
-        segment += '[0-5]';
-      } else {
-        segment += fill;
+      orList = [];
+      matchesOr = matches[i].match(new RegExp('(' + re.symbol + '|' + re.range + ')', 'g'));
+      if (matchesOr) {
+        for (j = 0; j < matchesOr.length; j += 1) {
+          matched = matchesOr[j].match(new RegExp(re.symbol));
+          if (matched) {
+            orList.push(regexSymbol(matched[0]));
+          } else {
+            orList.push(regexRange(matchesOr[j]));
+          }
+        }
+        if (orList.length==1){
+          segment = orList[0];
+        } else {
+          segment = '(' + orList.join('|') + ')';
+        }
       }
-      rotate = part.slice(5, 6);
-      if (rotate == 'u') {
-        segment += '[0-9a-f]';
-      } else {
-        segment += rotate;
-      }
-      if (part.length > 6) {
-        x = part.slice(6, 9) * 1;
-        y = part.slice(10, 13) * 1;
-        //now get the x segment range+++
+      if (matches[i].includes('x')) {
+        coord = fsw2coord(matches[i].slice(-7))
+        x = coord[0];
+        y = coord[1];
         segment += range((x - fuzz), (x + fuzz));
         segment += 'x';
         segment += range((y - fuzz), (y + fuzz));
       } else {
-        segment += re_coord;
+        segment += reFSW.coord;
       }
-      //now I have the specific search symbol
-      // add to general ksw word
-      segment = re_word + segment + '(' + re_sym + re_coord + ')*';
+
+      // add to general fsw word
+      segment = reFSW.signbox + segment + '(' + reFSW.symbol + reFSW.coord + ')*';
       if (sortable) {
         segment = q_sortable + segment;
       } else {
-        segment = re_sortable + "?" + segment;
+        segment = reFSW.prefix + "?" + segment;
       }
       if (query.indexOf('-') > 0) {
         segment += q_style;
@@ -149,44 +162,12 @@ const regex = (query) => {
       segments.push(segment);
     }
   }
-  //this gets all ranges
-  fsw_pattern = q_range + q_coord;
-  matches = query.match(new RegExp(fsw_pattern, 'g'));
-  if (matches) {
-    for (i = 0; i < matches.length; i += 1) {
-      part = matches[i].toString();
-      from = part.slice(1, 4);
-      to = part.slice(5, 8);
-      re_range = range(from, to, "hex");
-      segment = 'S' + re_range + '[0-5][0-9a-f]';
-      if (part.length > 8) {
-        x = part.slice(8, 11) * 1;
-        y = part.slice(12, 15) * 1;
-        //now get the x segment range+++
-        segment += range((x - fuzz), (x + fuzz));
-        segment += 'x';
-        segment += range((y - fuzz), (y + fuzz));
-      } else {
-        segment += re_coord;
-      }
-      // add to general ksw word
-      segment = re_word + segment + '(' + re_sym + re_coord + ')*';
-      if (sortable) {
-        segment = q_sortable + segment;
-      } else {
-        segment = re_sortable + "?" + segment;
-      }
-      if (query.indexOf('-') > 0) {
-        segment += q_style;
-      }
-      segments.push(segment);
-    }
-  }
+
   if (!segments.length) {
     if (query.indexOf('-') > 0) {
       segment += q_style;
     }
-    segments.push(q_sortable + re_word);
+    segments.push(q_sortable + reFSW.signbox);
   }
   return segments;
 }

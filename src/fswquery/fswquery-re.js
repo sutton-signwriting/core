@@ -2,7 +2,7 @@
 /**
  * Object of regular expressions for FSW query strings
  * 
- *   { base, coord, var, symbol, range, prefix, signbox, full }
+ *   { base, coord, var, symbol, range, item, list, prefix, signbox, full }
  * @alias fswquery.re
  * @type {object}
  */
@@ -14,8 +14,10 @@ let re = {
 
 re.symbol = `S${re.base}[0-5u][0-9a-fu]`;
 re.range = `R${re.base}t${re.base}`;
-re.prefix = `(?:A(?:${re.symbol}|${re.range})+)?T`;
-re.signbox = `(?:${re.symbol}${re.coord}|${re.range}${re.coord})*`;
+re.item = `(?:${re.symbol}|${re.range})`;
+re.list = `${re.item}(?:o${re.item})*`;
+re.prefix = `(?:A(?:${re.list})+)?T`;
+re.signbox = `(?:${re.list}${re.coord})*`;
 re.full = `Q(${re.prefix})?(${re.signbox})?(${re.var})?(-?)`
 
 export { re }

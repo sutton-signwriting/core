@@ -9,8 +9,8 @@ import { coord2swu } from '../convert';
  * @param {boolean} swuQueryObject.query - required true for SWU query object
  * @param {object} swuQueryObject.prefix - an object for prefix elements
  * @param {boolean} swuQueryObject.prefix.required - true if sorting prefix is required
- * @param {(string|string[])[]} swuQueryObject.prefix.parts - array of symbol strings and range arrays
- * @param {({symbol:string,coord:number[]}|{range:string[],coord:number[]})[]} swuQueryObject.signbox - array of objects for symbols and ranges with optional coordinates
+ * @param {(string|string[]|(string|string[])[])[]} swuQueryObject.prefix.parts - array of symbol strings, range arrays, and OR arrays of strings and range arrays
+ * @param {({symbol:string,coord:number[]}|{range:string[],coord:number[]}|{or:(string|string[])[],coord:number[]})[]} swuQueryObject.signbox - array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates
  * @param {number} swuQueryObject.variance - amount that x or y coordinates can vary and find a match, defaults to 20
  * @param {boolean} swuQueryObject.style - boolean value for including style string in matches
  * @returns {string} SWU query string 
@@ -54,6 +54,17 @@ const compose = (swuQueryObject) => {
         } else {
           if (Array.isArray(part) && part.length == 2) {
             return `R${part[0]}${part[1]}`;
+          } else  if (Array.isArray(part) && part.length > 2 && part[0] == 'or') {
+            part.shift();
+            return part.map(part => {
+              if (typeof part === 'string') {
+                return part;
+              } else {
+                if (Array.isArray(part) && part.length == 2) {
+                  return `R${part[0]}${part[1]}`;
+                }
+              }
+            }).join('o')
           }
         }
       }).join('')
@@ -64,7 +75,17 @@ const compose = (swuQueryObject) => {
   if (Array.isArray(swuQueryObject.signbox)) {
     query += swuQueryObject.signbox.map(part => {
       let out;
-      if (part.symbol) {
+      if (part.or) {
+        out = part.or.map(item => {
+          if (typeof item === 'string') {
+            return item;
+          } else {
+            if (Array.isArray(item) && item.length == 2) {
+              return `R${item[0]}${item[1]}`;
+            }
+          }
+        }).join('o');
+      } else if (part.symbol) {
         out = part.symbol;
       } else {
         if (part.range && Array.isArray(part.range) && part.range.length == 2) {

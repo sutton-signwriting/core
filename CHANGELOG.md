@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Todo
 - update parse for style string that drops empty style of '-'
+- clean up generated regular expressions for consistency
+
+## [1.3.0] - 2021-06-26
+### Added
+- OR searching improvement for FSW and SWU query string
 
 ## [1.2.1] - 2021-06-24
 ### Fixed
@@ -37,7 +42,8 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.3.0
 [1.2.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.2.1
 [1.2.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.1.0

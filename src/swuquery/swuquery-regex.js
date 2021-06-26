@@ -1,10 +1,18 @@
 
 import { re } from './swuquery-re';
-import { re as reSwu } from '../swu/swu-re';
+import { re as reSWU } from '../swu/swu-re';
 import { re as reStyle } from '../style/style-re';
 import { range } from './swuquery-range';
 import { symbolRanges } from './swuquery-symbol-ranges';
-import { swu2coord, coord2swu, swu2key, key2swu } from '../convert';
+import { swu2coord, num2swu, swu2key, key2swu } from '../convert';
+
+const regexRange = (symRange) => {
+  from = swu2key(symRange.slice(1, 3));
+  to = swu2key(symRange.slice(-2));
+  from = key2swu(from.slice(0, 4) + '00');
+  to = key2swu(to.slice(0, 4) + '5f');
+  return range(from, to);
+}
 
 //needs rewritten, but it works
 /**
@@ -26,7 +34,11 @@ const regex = (query) => {
     return '';
   }
   let matches;
+  let matchesOr;
+  let matched;
+  let orList;
   let i;
+  let j;
   let swu_pattern;
   let part;
   let from;
@@ -41,10 +53,10 @@ const regex = (query) => {
   let rotate;
   let fuzz = 20;
 
-  let re_sym = reSwu.symbol;
-  let re_coord = reSwu.coord;
-  let re_signbox = reSwu.box;
-  let re_seq = reSwu.sort;
+  let re_sym = reSWU.symbol;
+  let re_coord = reSWU.coord;
+  let re_signbox = reSWU.box;
+  let re_seq = reSWU.sort;
   let re_word = re_signbox + re_coord + '(' + re_sym + re_coord + ')*';
   let re_sortable = '(' + re_seq + '(' + re_sym + ')+)';
 
@@ -56,116 +68,106 @@ const regex = (query) => {
   let q_sortable;
 
   if (query == 'Q') {
-    return [reSwu.sign];
+    return [reSWU.sign];
   }
   if (query == 'Q-') {
-    return [reSwu.sign + "(" + reStyle.full + ")?"];
+    return [reSWU.sign + "(" + reStyle.full + ")?"];
   }
   if (query == 'QT') {
-    return [reSwu.sortable];
+    return [reSWU.sortable];
   }
   if (query == 'QT-') {
-    return [reSwu.sortable + "(" + reStyle.full + ")?"];
+    return [reSWU.sortable + "(" + reStyle.full + ")?"];
   }
   let segments = [];
   let sym, key;
   let sortable = query.indexOf('T') + 1;
   if (sortable) {
-    q_sortable = '(' + reSwu.sort;
+    q_sortable = '(' + reSWU.sort;
     let qat = query.slice(0, sortable);
     query = query.replace(qat, '');
     if (qat == 'QT') {
       q_sortable += '(' + re_sym + ')+)';
     } else {
-      matches = qat.match(new RegExp('(' + q_sym + '|' + q_range + ')', 'g'));
+      matches = qat.match(new RegExp('(' + re.list + ')', 'g'));
       if (matches) {
-        let matched;
         for (i = 0; i < matches.length; i += 1) {
-          matched = matches[i].match(new RegExp('^' + q_sym));
-          if (matched) {
-            q_sortable += symbolRanges(matched[0]);
-          } else {
-            from = swu2key(matches[i].slice(1, 3));
-            to = swu2key(matches[i].slice(-2));
-            from = key2swu(from.slice(0, 4) + '00');
-            to = key2swu(to.slice(0, 4) + '5f');
-            q_sortable += range(from, to);
+          orList = [];
+          matchesOr = matches[i].match(new RegExp('(' + re.symbol + '|' + re.range + ')', 'g'));
+          if (matchesOr) {
+            for (j = 0; j < matchesOr.length; j += 1) {
+              matched = matchesOr[j].match(new RegExp(re.symbol));
+              if (matched) {
+                orList.push(symbolRanges(matched[0]));
+              } else {
+                orList.push(regexRange(matchesOr[j]));
+              }
+            }
+            if (orList.length==1){
+              q_sortable += orList[0];
+            } else {
+              q_sortable += '(' + orList.join('|') + ')';
+            }
           }
         }
-        q_sortable += '(' + re_sym + ')*)';
+        q_sortable += '(' + reSWU.symbol + ')*)';
       }
     }
   }
+
   //get the variance
   matches = query.match(new RegExp(q_var, 'g'));
   if (matches) {
     fuzz = matches.toString().slice(1) * 1;
   }
-  //this gets all symbols with or without location
-  swu_pattern = q_sym + q_coord;
-  matches = query.match(new RegExp("(" + q_range + q_coord + "|" + q_sym + q_coord + ")", 'g'));
 
+  //this gets all symbols and ranges with or without location
+  matches = query.match(new RegExp(re.list + re.coord, 'g'));
   if (matches) {
     for (i = 0; i < matches.length; i += 1) {
-      part = matches[i].toString();
-      if (part[0] != "R") {
-        sym = part.match(new RegExp(q_sym))[0];
-        segment = symbolRanges(sym);
-        if (sym.length > part.length) {
-          coord = swu2coord(part.slice(-4));
-          x = coord[0];
-          y = coord[1];
-          //now get the x segment range+++
-          segment += range(coord2swu([x - fuzz, x + fuzz]));
-          segment += range(coord2swu([y - fuzz, y + fuzz]));
+      orList = [];
+      matchesOr = matches[i].match(new RegExp('(' + re.symbol + '|' + re.range + ')', 'g'));
+      if (matchesOr) {
+        for (j = 0; j < matchesOr.length; j += 1) {
+          matched = matchesOr[j].match(new RegExp(re.symbol));
+          if (matched) {
+            orList.push(symbolRanges(matched[0]));
+          } else {
+            orList.push(regexRange(matchesOr[j]));
+          }
+        }
+        if (orList.length==1){
+          segment = orList[0];
         } else {
-          segment += re_coord;
+          segment = '(' + orList.join('|') + ')';
         }
-        //now I have the specific search symbol
-        // add to general swu word
-        segment = re_word + segment + '(' + re_sym + re_coord + ')*';
-        if (sortable) {
-          segment = q_sortable + segment;
-        } else {
-          segment = re_sortable + "?" + segment;
-        }
-        if (query.indexOf('-') > 0) {
-          segment += q_style;
-        }
-        segments.push(segment);
-      } else {
-        //ranges
-        part = matches[i].toString();
-        from = swu2key(part.slice(1, 3));
-        to = swu2key(part.slice(3, 5));
-        from = key2swu(from.slice(0, 4) + '00');
-        to = key2swu(to.slice(0, 4) + '5f');
-        segment = range(from, to);
-
-        if (part.length > 5) {
-          coord = swu2coord(part.slice(5, 9));
-          x = coord[0];
-          y = coord[1];
-          //now get the x segment range+++
-          segment += range(coord2swu([x - fuzz, x + fuzz]));
-          segment += range(coord2swu([y - fuzz, y + fuzz]));
-        } else {
-          segment += re_coord;
-        }
-        // add to general swu word
-        segment = re_word + segment + '(' + re_sym + re_coord + ')*';
-        if (sortable) {
-          segment = q_sortable + segment;
-        } else {
-          segment = re_sortable + "?" + segment;
-        }
-        if (query.indexOf('-') > 0) {
-          segment += q_style;
-        }
-        segments.push(segment);
       }
+
+      coord = matches[i].match(new RegExp(`${reSWU.coord}`));
+      if (coord) {
+        coord = swu2coord(coord[0]);
+        x = coord[0];
+        y = coord[1];
+        segment += range(num2swu(x - fuzz), num2swu(x + fuzz));
+        segment += range(num2swu(y - fuzz), num2swu(y + fuzz));
+      } else {
+        segment += reSWU.coord;
+      }
+
+      // add to general swu word
+      segment = re_word + segment + '(' + re_sym + re_coord + ')*';
+      if (sortable) {
+        segment = q_sortable + segment;
+      } else {
+        segment = re_sortable + "?" + segment;
+      }
+      if (query.indexOf('-') > 0) {
+        segment += q_style;
+      }
+      segments.push(segment);
     }
   }
+
   if (!segments.length) {
     if (query.indexOf('-') > 0) {
       segment += q_style;

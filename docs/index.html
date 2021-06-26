@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>@sutton-signwriting/core 1.2.1 | Documentation</title>
+  <title>@sutton-signwriting/core 1.3.0 | Documentation</title>
   <meta name='description' content='a javascript package for node and browsers that supports general processing of the Sutton SignWriting script'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@sutton-signwriting/core</h3>
-          <div class='mb1'><code>1.2.1</code></div>
+          <div class='mb1'><code>1.3.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -1866,7 +1866,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   <p>Object of regular expressions for FSW query strings</p>
-<p>{ base, coord, var, symbol, range, prefix, signbox, full }</p>
+<p>{ base, coord, var, symbol, range, item, list, prefix, signbox, full }</p>
 
     <div class='pre p1 fill-light mt0'>fswquery.re</div>
   
@@ -1970,27 +1970,45 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.parse(<span class="hljs-string">&#x27;QAS10000R100t204S20500TS20000R100t105500x500V5-&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.parse(<span class="hljs-string">&#x27;QAS10000S10500oS20500oR2fft304TS100uuR205t206oS207uu510x510V5-&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
- <span class="hljs-attr">query</span>: <span class="hljs-literal">true</span>,
- <span class="hljs-attr">prefix</span>: {
-   <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
-   <span class="hljs-attr">parts</span>: [
-     <span class="hljs-string">&#x27;S10000&#x27;</span>,
-     [<span class="hljs-string">&#x27;100&#x27;</span>, <span class="hljs-string">&#x27;204&#x27;</span>],
-     <span class="hljs-string">&#x27;S20500&#x27;</span>
-   ]
- },
- <span class="hljs-attr">signbox</span>: [
-   { <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;S20000&#x27;</span> },
-   {
-     <span class="hljs-attr">range</span>: [<span class="hljs-string">&#x27;100&#x27;</span>, <span class="hljs-string">&#x27;105&#x27;</span>],
-     <span class="hljs-attr">coord</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>]
-   }
- ],
- <span class="hljs-attr">variance</span>: <span class="hljs-number">5</span>,
- <span class="hljs-attr">style</span>: <span class="hljs-literal">true</span>
+  <span class="hljs-string">&quot;query&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">&quot;prefix&quot;</span>: {
+    <span class="hljs-string">&quot;required&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;parts&quot;</span>: [
+      <span class="hljs-string">&quot;S10000&quot;</span>,
+      [
+        <span class="hljs-string">&quot;or&quot;</span>,
+        <span class="hljs-string">&quot;S10500&quot;</span>,
+        <span class="hljs-string">&quot;S20500&quot;</span>,
+        [
+          <span class="hljs-string">&quot;2ff&quot;</span>,
+          <span class="hljs-string">&quot;304&quot;</span>
+        ]
+      ]
+    ]
+  },
+  <span class="hljs-string">&quot;signbox&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;symbol&quot;</span>: <span class="hljs-string">&quot;S100uu&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;or&quot;</span>: [
+        [
+          <span class="hljs-string">&quot;205&quot;</span>,
+          <span class="hljs-string">&quot;206&quot;</span>
+        ],
+        <span class="hljs-string">&quot;S207uu&quot;</span>
+      ],
+      <span class="hljs-string">&quot;coord&quot;</span>: [
+        <span class="hljs-number">510</span>,
+        <span class="hljs-number">510</span>
+      ]
+    }
+  ],
+  <span class="hljs-string">&quot;variance&quot;</span>: <span class="hljs-number">5</span>,
+  <span class="hljs-string">&quot;style&quot;</span>: <span class="hljs-literal">true</span>
 }</pre>
     
   
@@ -2084,9 +2102,9 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
   
     <tr>
-  <td class='break-word'><span class='code bold'>fswQueryObject.prefix.parts</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)></code>
+  <td class='break-word'><span class='code bold'>fswQueryObject.prefix.parts</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)>)></code>
   </td>
-  <td class='break-word'><span>array of symbol strings and range arrays
+  <td class='break-word'><span>array of symbol strings, range arrays, and OR arrays of strings and range arrays
 </span></td>
 </tr>
 
@@ -2096,9 +2114,9 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>fswQueryObject.signbox</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;({symbol: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {range: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>})></code>
+  <td class='break-word'><span class='code bold'>fswQueryObject.signbox</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;({symbol: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {range: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {or: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>})></code>
   </td>
-  <td class='break-word'><span>array of objects for symbols and ranges with optional coordinates
+  <td class='break-word'><span>array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates
 </span></td>
 </tr>
 
@@ -2452,8 +2470,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
       <pre class='p1 overflow-auto round fill-light'>fswquery.regex(<span class="hljs-string">&#x27;QS100uuS20500480x520&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
-  <span class="hljs-string">&#x27;(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S100[0-5][0-9a-f][0-9]{3}x[0-9]{3}(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*&#x27;</span>,
-  <span class="hljs-string">&#x27;(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S20500((4[6-9][0-9])|(500))x((5[0-3][0-9])|(540))(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*&#x27;</span>
+  <span class="hljs-string">&#x27;(?:A(?:S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S100[0-5][0-9a-f][0-9]{3}x[0-9]{3}(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*&#x27;</span>,
+  <span class="hljs-string">&#x27;(?:A(?:S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S20500((4[6-9][0-9])|(500))x((5[0-3][0-9])|(540))(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*&#x27;</span>
 ]</pre>
     
   
@@ -3914,7 +3932,7 @@ return &#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐�
   
 
   <p>Object of regular expressions for SWU query strings</p>
-<p>{ base, coord, var, symbol, range, prefix, signbox, full }</p>
+<p>{ base, coord, var, symbol, range, item, list, prefix, signbox, full }</p>
 
     <div class='pre p1 fill-light mt0'>swuquery.re</div>
   
@@ -4132,9 +4150,9 @@ return &#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐�
 
   
     <tr>
-  <td class='break-word'><span class='code bold'>swuQueryObject.prefix.parts</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)></code>
+  <td class='break-word'><span class='code bold'>swuQueryObject.prefix.parts</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)>)></code>
   </td>
-  <td class='break-word'><span>array of symbol strings and range arrays
+  <td class='break-word'><span>array of symbol strings, range arrays, and OR arrays of strings and range arrays
 </span></td>
 </tr>
 
@@ -4144,9 +4162,9 @@ return &#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐�
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>swuQueryObject.signbox</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;({symbol: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {range: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>})></code>
+  <td class='break-word'><span class='code bold'>swuQueryObject.signbox</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;({symbol: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {range: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {or: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>})></code>
   </td>
-  <td class='break-word'><span>array of objects for symbols and ranges with optional coordinates
+  <td class='break-word'><span>array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates
 </span></td>
 </tr>
 

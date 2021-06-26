@@ -2,7 +2,7 @@
 /**
  * Object of regular expressions for SWU query strings
  * 
- *   { base, coord, var, symbol, range, prefix, signbox, full }
+ *   { base, coord, var, symbol, range, item, list, prefix, signbox, full }
  * @alias swuquery.re
  * @type {object}
  */
@@ -14,8 +14,10 @@ let re = {
 
 re.symbol = `${re.base}f?r?`;
 re.range = `R${re.base}${re.base}`;
-re.prefix = `(?:A(?:${re.symbol}|${re.range})+)?T`;
-re.signbox = `(?:${re.symbol}${re.coord}|${re.range}${re.coord})*`;
+re.item = `(?:${re.symbol}|${re.range})`;
+re.list = `${re.item}(?:o${re.item})*`;
+re.prefix = `(?:A(?:${re.list})+)?T`;
+re.signbox = `(?:${re.list}${re.coord})*`;
 re.full = `Q(${re.prefix})?(${re.signbox})?(${re.var})?(-?)`
 
 export { re }

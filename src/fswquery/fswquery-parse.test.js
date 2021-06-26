@@ -32,6 +32,20 @@ it('should parse prefix queries', () => {
       ]
     }
   })
+  expect(parse('QAS10000R100t204oS20500T')).toEqual({
+    query: true,
+    prefix: {
+      required: true,
+      parts: [
+        'S10000',
+        [
+          'or',
+          ['100', '204'],
+          'S20500'
+        ]
+      ]
+    }
+  })
 })
 
 it('should parse signbox queries', () => {
@@ -71,6 +85,18 @@ it('should parse signbox queries', () => {
       { symbol: 'S20000' },
       {
         range: ['100', '105'],
+        coord: [500, 500]
+      }
+    ]
+  })
+  expect(parse('QS20000oR100t105500x500')).toEqual({
+    query: true,
+    signbox: [
+      {
+        or: [
+          'S20000',
+          ['100', '105']
+        ],
         coord: [500, 500]
       }
     ]

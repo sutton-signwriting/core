@@ -32,6 +32,20 @@ it('should parse prefix queries', () => {
       ]
     }
   })
+  expect(parse('QA񀀁oR񀀁񆆑񆇡T')).toEqual({
+    query: true,
+    prefix: {
+      required: true,
+      parts: [
+        [
+          'or',
+          '񀀁',
+          ['񀀁', '񆆑']
+        ],
+        '񆇡'
+      ]
+    }
+  })
 })
 
 it('should parse signbox queries', () => {
@@ -71,6 +85,18 @@ it('should parse signbox queries', () => {
       { symbol: '񆀁r' },
       {
         range: ['񀀁', '񀇡'],
+        coord: [500, 500]
+      }
+    ]
+  })
+  expect(parse('Q񆀁roR񀀁񀇡𝤆𝤆')).toEqual({
+    query: true,
+    signbox: [
+      {
+        or: [
+          '񆀁r',
+          ['񀀁', '񀇡']
+        ],
         coord: [500, 500]
       }
     ]

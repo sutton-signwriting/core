@@ -31,6 +31,20 @@ it('should compose prefix queries', () => {
       ]
     }
   })).toBe('QAS10000R100t204S20500T');
+  expect(compose({
+    query: true,
+    prefix: {
+      required: true,
+      parts: [
+        'S10000',
+        [
+          'or',
+          ['100', '204'],
+          'S20500'
+        ]
+      ]
+    }
+  })).toBe('QAS10000R100t204oS20500T');
 })
 
 it('should compose signbox queries', () => {
@@ -74,6 +88,18 @@ it('should compose signbox queries', () => {
       }
     ]
   })).toBe('QS20000R100t105500x500');
+  expect(compose({
+    query: true,
+    signbox: [
+      {
+        or: [
+          'S20000',
+          ['100', '105']
+        ],
+        coord: [500, 500]
+      }
+    ]
+  })).toBe('QS20000oR100t105500x500');
 })
 
 it('should not break on invalid input', () => {

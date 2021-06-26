@@ -36,6 +36,20 @@ it('should compose prefix queries', () => {
       ]
     }
   })).toBe('QA񀀁R񀀁񆆑񆇡T');
+  expect(compose({
+    query: true,
+    prefix: {
+      required: true,
+      parts: [
+        [
+          'or',
+          '񀀁',
+          ['񀀁', '񆆑']
+        ],
+        '񆇡'
+      ]
+    }
+  })).toBe('QA񀀁oR񀀁񆆑񆇡T');
 })
 
 it('should compose signbox queries', () => {
@@ -79,6 +93,18 @@ it('should compose signbox queries', () => {
       }
     ]
   })).toBe('Q񆀁rR񀀁񀇡𝤆𝤆');
+  expect(compose({
+    query: true,
+    signbox: [
+      {
+        or: [
+          '񆀁r',
+          ['񀀁', '񀇡']
+        ],
+        coord: [500, 500]
+      }
+    ]
+  })).toBe('Q񆀁roR񀀁񀇡𝤆𝤆');
 })
 
 it('should not break on invalid input', () => {

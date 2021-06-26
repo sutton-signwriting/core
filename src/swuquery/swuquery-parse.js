@@ -1,26 +1,49 @@
 
 import { re } from './swuquery-re';
+import { re as reSWU } from '../swu/swu-re';
 import { swu2coord } from '../convert';
 
 const parsePrefix = (text) => {
   return {
     required: true,
     parts: text == 'T' ? undefined :
-      text.match(new RegExp(`(${re.symbol}|${re.range})`, 'g'))
-        .map(part => part[0] != 'R' ? part : [part.slice(1, 3), part.slice(3, 5)])
+      text.match(new RegExp(`(${re.list})`, 'g'))
+      .map(part => {
+        if (part.includes('o')) {
+          return ['or'].concat(part.match(new RegExp(`(${re.item})`, 'g'))
+          .map(part => part[0] != 'R' ? part : [part.slice(1, 3), part.slice(3, 5)]))
+        } else {
+          return part[0] != 'R' ? part : [part.slice(1, 3), part.slice(3, 5)]
+        }
+      })
   }
 }
 const parseSignbox = (text) => {
-  return text.match(new RegExp(`(${re.symbol}${re.coord}|${re.range}${re.coord})`, 'g'))
+  return text.match(new RegExp(`(${re.list}${re.coord})`, 'g'))
     .map(part => {
       let coord, front;
-      if (part.length > 5) {
-        coord = swu2coord(part.slice(-4));
+      coord = part.match(new RegExp(`${reSWU.coord}`));
+
+      if (coord) {
+        coord = swu2coord(coord[0]);
         front = part.slice(0, -4);
       } else {
+        coord = undefined;
         front = part;
       }
-      if (!front.includes('R')) {
+
+      if (front.includes('o')) {
+        return {
+          or: front.split('o').map(part => {
+            if (!part.includes('R')) {
+              return part;
+            } else {
+              return [part.slice(1, 3), part.slice(3, 5)];
+            } 
+          }),
+          coord, coord
+        }
+      } else if (!front.includes('R')) {
         return {
           symbol: front,
           coord: coord

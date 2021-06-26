@@ -6,12 +6,19 @@ const parsePrefix = (text) => {
   return {
     required: true,
     parts: text == 'T' ? undefined :
-      text.match(new RegExp(`(${re.symbol}|${re.range})`, 'g'))
-        .map(part => part[0] == 'S' ? part : part.slice(1).split('t'))
+      text.match(new RegExp(`${re.list}`, 'g'))
+        .map(part => {
+          if (part.includes('o')) {
+            return ['or'].concat(part.match(new RegExp(`(${re.item})`, 'g'))
+            .map(part => part[0] == 'S' ? part : part.slice(1).split('t')))
+          } else {
+            return part[0] == 'S' ? part : part.slice(1).split('t')
+          }
+        })
   }
 }
 const parseSignbox = (text) => {
-  return text.match(new RegExp(`(${re.symbol}${re.coord}|${re.range}${re.coord})`, 'g'))
+  return text.match(new RegExp(`(${re.list}${re.coord})`, 'g'))
     .map(part => {
       let coord, front;
       if (part.includes('x')) {
@@ -20,7 +27,18 @@ const parseSignbox = (text) => {
       } else {
         front = part;
       }
-      if (front.includes('S')) {
+      if (front.includes('o')) {
+        return {
+          or: front.split('o').map(part => {
+            if (part.includes('S')) {
+              return part;
+            } else {
+              return part.slice(1).split('t');
+            } 
+          }),
+          coord, coord
+        }
+      } else if (front.includes('S')) {
         return {
           symbol: front,
           coord: coord
@@ -40,27 +58,45 @@ const parseSignbox = (text) => {
  * @param {string} fswQueryString - an FSW query string
  * @returns {object} elements of an FSW query string
  * @example
- * fswquery.parse('QAS10000R100t204S20500TS20000R100t105500x500V5-')
+ * fswquery.parse('QAS10000S10500oS20500oR2fft304TS100uuR205t206oS207uu510x510V5-')
  * 
  * return {
- *  query: true,
- *  prefix: {
- *    required: true,
- *    parts: [
- *      'S10000',
- *      ['100', '204'],
- *      'S20500'
- *    ]
- *  },
- *  signbox: [
- *    { symbol: 'S20000' },
- *    {
- *      range: ['100', '105'],
- *      coord: [500, 500]
- *    }
- *  ],
- *  variance: 5,
- *  style: true
+ *   "query": true,
+ *   "prefix": {
+ *     "required": true,
+ *     "parts": [
+ *       "S10000",
+ *       [
+ *         "or",
+ *         "S10500",
+ *         "S20500",
+ *         [
+ *           "2ff",
+ *           "304"
+ *         ]
+ *       ]
+ *     ]
+ *   },
+ *   "signbox": [
+ *     {
+ *       "symbol": "S100uu"
+ *     },
+ *     {
+ *       "or": [
+ *         [
+ *           "205",
+ *           "206"
+ *         ],
+ *         "S207uu"
+ *       ],
+ *       "coord": [
+ *         510,
+ *         510
+ *       ]
+ *     }
+ *   ],
+ *   "variance": 5,
+ *   "style": true
  * }
  */
 const parse = (fswQueryString) => {
