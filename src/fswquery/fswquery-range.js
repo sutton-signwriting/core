@@ -8,7 +8,7 @@
  * @param {boolean?} hex - if true, the regular expression will match a hexidecimal range
  * @returns {string} a regular expression that matches a range
  * @example
- * fswquery.range(500,749)
+ * fswquery.range(500,750)
  * 
  * return '(([56][0-9][0-9])|(7[0-4][0-9])|(750))'
  * @example

@@ -47,7 +47,7 @@ const compose = {
     * @returns {string} an swu sign string
     * @example
     * swu.compose.sign({
-    *  sequence: ['񀀒','񀀚','񋚥','񋛩''],
+    *  sequence: ['񀀒','񀀚','񋚥','񋛩'],
     *  box: '𝠃',
     *  max: [525, 535],
     *  spatials: [

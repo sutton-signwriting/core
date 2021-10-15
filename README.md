@@ -8,7 +8,7 @@
 
 @sutton-signwriting/core is a javascript package for node and browsers that supports general processing of SignWriting text.
 
-This package supports both Formal SignWriting in ASCII (FSW) and SignWriting in Unicode (SWU) character sets, along with the associated query languages and style string.  See [draft-slevinski-formal-signwriting](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-07.html) for detailed specification.
+This package supports both Formal SignWriting in ASCII (FSW) and SignWriting in Unicode (SWU) character sets, along with the associated query languages and style string.  See [draft-slevinski-formal-signwriting](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-08.html) for detailed specification.
 
 > Author: https://SteveSlevinski.me  
 > Channel: https://www.youtube.com/channel/UCXu4AXlG0rXFtk_5SzumDow  
@@ -21,7 +21,6 @@ This package supports both Formal SignWriting in ASCII (FSW) and SignWriting in 
 - Documentation: https://sutton-signwriting.github.io/core/
 - Issue Tracker: https://github.com/sutton-signwriting/core/issues
 - Online Discussion: https://gitter.im/sutton-signwriting/community
-- Online Training: https://katacoda.com/sutton-signwriting/courses/core
 
 ## Types of files
 The source is written in small ES Modules available in the `src` directory along with the associated tests.
@@ -70,11 +69,11 @@ The distribution is available in three flavors.  20 KB for the whole library min
 #### Unpkg
     // import entire library
     // available as ssw.core
-    <script src="https://unpkg.com/@sutton-signwriting/core@1.2.0"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.3.1"></script>
 
     // import individual module
     // available as ssw.fsw
-    <script src="https://unpkg.com/@sutton-signwriting/core@1.2.0/fsw/fsw.js"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.3.1/fsw/fsw.js"></script>
 
 ## License
 MIT
