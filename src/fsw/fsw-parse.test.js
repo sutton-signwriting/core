@@ -118,3 +118,25 @@ it('should not break on invalid sign or input', () => {
   expect(parse.sign(['a'])).toEqual({})
 })
 
+it('should parse a text', () => {
+  expect(parse.text('AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496')).toEqual([
+    'AS14c20S27106M518x529S14c20481x471S27106503x489',
+    'AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468',
+    'S38800464x496'
+  ])
+})
+
+it('should parse a text with style', () => {
+  expect(parse.text('AS14c20S27106M518x529S14c20481x471S27106503x489-C AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496-Z2')).toEqual([
+    'AS14c20S27106M518x529S14c20481x471S27106503x489-C',
+    'AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468',
+    'S38800464x496-Z2'
+  ])
+})
+
+it('should not break on invalid text or input', () => {
+  expect(parse.text()).toEqual([])
+  expect(parse.text('a')).toEqual([])
+  expect(parse.text({ 'a': 5 })).toEqual([])
+  expect(parse.text(['a'])).toEqual([])
+})

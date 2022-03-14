@@ -12,7 +12,6 @@ let re = {
   'colorname': '[a-zA-Z]+',
   'padding': 'P[0-9]{2}',
   'zoom': 'Z(?:[0-9]+(?:\\.[0-9]+)?|x)',
-  'zoomsym': 'Z[0-9]{2},[0-9]+(?:\\.[0-9]+)?(?:,[0-9]{3}x[0-9]{3})?',
   'classbase': '-?[_a-zA-Z][_a-zA-Z0-9-]{0,100}',
   'id': '[a-zA-Z][_a-zA-Z0-9-]{0,100}',
 }
@@ -24,6 +23,6 @@ re.background = `G${re.color}`;
 re.detail = `D${re.colors}`;
 re.detailsym = `D[0-9]{2}${re.colors}`;
 re.classes = `${re.classbase}(?: ${re.classbase})*`;
-re.full = `-(${re.colorize})?(${re.padding})?(${re.background})?(${re.detail})?(${re.zoom})?(?:-((?:${re.detailsym})*)((?:${re.zoomsym})*))?(?:-(${re.classes})?!(?:(${re.id})!)?)?`;
+re.full = `-(${re.colorize})?(${re.padding})?(${re.background})?(${re.detail})?(${re.zoom})?(?:-((?:${re.detailsym})*))?(?:-(${re.classes})?!(?:(${re.id})!)?)?`;
 
 export { re }

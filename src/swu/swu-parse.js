@@ -78,6 +78,26 @@ const parse = {
     } else {
       return {};
     }
+  },
+  /**
+   * Function to parse an swu text
+   * @function swu.parse.text
+   * @param {string} swuText - an swu text
+   * @returns {array} swu signs and punctuations
+   * @example
+   * swu.parse.text('𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻 𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦 񏌁𝣢𝤂')
+   * 
+   * return [
+   *  '𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻',
+   *  '𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦',
+   *  '񏌁𝣢𝤂'
+   * ]
+   */
+  text: (swuText) => {
+    if (typeof swuText !== 'string') return [];
+    const regex = `(${re.sign}(${style.re.full})?|${re.spatial}(${style.re.full})?)`;
+    const matches = swuText.match(new RegExp(regex,'g'))
+    return matches?[...matches]:[]
   }
 }
 

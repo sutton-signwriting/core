@@ -52,20 +52,9 @@ it('should compose style strings', () => {
         'detail': ['yellow', 'green']
       }
     ],
-    'zoomsym': [
-      {
-        'index': 1,
-        'zoom': 10,
-        'offset': [0, 0]
-      },
-      {
-        'index': 2,
-        'zoom': 5.5
-      }
-    ],
     'classes': 'primary blinking',
     'id': 'cursor'
-  })).toBe('-CP10G_blue_D_red,Cyan_Z1.1-D01_ff00ff_D02_yellow,green_Z01,10,500x500Z02,5.5-primary blinking!cursor!');
+  })).toBe('-CP10G_blue_D_red,Cyan_Z1.1-D01_ff00ff_D02_yellow,green_-primary blinking!cursor!');
 })
 
 it('should compose without breaking on bad data', () => {

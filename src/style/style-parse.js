@@ -6,6 +6,10 @@ const prefixColor = (color) => {
   return (regex.test(color) ? '#' : '') + color;
 }
 
+const definedProps = obj => Object.fromEntries(
+  Object.entries(obj).filter(([k, v]) => v !== undefined)
+);
+
 /**
  * Function to parse style string to object
  * @function style.parse
@@ -25,7 +29,7 @@ const parse = (styleString) => {
   const regex = `^${re.full}`;
   const m = ((typeof styleString === 'string') ? styleString.match(new RegExp(regex)) : []) || [];
 
-  return {
+  return definedProps({
     'colorize': !m[1] ? undefined : !!m[1],
     'padding': !m[2] ? undefined : parseInt(m[2].slice(1)),
     'background': !m[3] ? undefined : prefixColor(m[3].slice(2, -1)),
@@ -39,17 +43,9 @@ const parse = (styleString) => {
         'detail': detail
       }
     }),
-    'zoomsym': !m[7] ? undefined : m[7].match(new RegExp(re.zoomsym, 'g')).map((val) => {
-      const parts = val.split(',');
-      return {
-        'index': parseInt(parts[0].slice(1)),
-        'zoom': parseFloat(parts[1]),
-        'offset': !parts[2] ? undefined : parts[2].split('x').map((val) => parseInt(val) - 500)
-      }
-    }),
-    'classes': !m[8] ? undefined : m[8],
-    'id': !m[9] ? undefined : m[9]
-  }
+    'classes': !m[7] ? undefined : m[7],
+    'id': !m[8] ? undefined : m[8]
+  })
 }
 
 export { parse }

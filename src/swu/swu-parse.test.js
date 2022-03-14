@@ -122,6 +122,29 @@ it('should not break on invalid sign or input', () => {
   expect(parse.sign(['a'])).toEqual({})
 })
 
+it('should parse a text', () => {
+  expect(parse.text('𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻 𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦 񏌁𝣢𝤂')).toEqual([
+    '𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻',
+    '𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦',
+    '񏌁𝣢𝤂'
+  ])
+})
+
+it('should parse a text with style', () => {
+  expect(parse.text('𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻-C 𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦 񏌁𝣢𝤂-Z2')).toEqual([
+    '𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻-C',
+    '𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦',
+    '񏌁𝣢𝤂-Z2'
+  ])
+})
+
+it('should not break on invalid text or input', () => {
+  expect(parse.text()).toEqual([])
+  expect(parse.text('a')).toEqual([])
+  expect(parse.text({ 'a': 5 })).toEqual([])
+  expect(parse.text(['a'])).toEqual([])
+})
+
 it('should encode swu characters', () => {
   expect(encode('񀀁𝤆𝤆')).toBe('\\uD8C0\\uDC01\\uD836\\uDD06\\uD836\\uDD06');
 })

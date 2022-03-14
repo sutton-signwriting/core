@@ -1,6 +1,6 @@
 
 /** The fswquery module contains functions for handling the FSW query language.
- * [Query Language definition](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-07.html#rfc.section.2.6)
+ * [Query Language definition](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-09.html#name-query-language)
  * @module fswquery
  */
 

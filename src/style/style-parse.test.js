@@ -37,7 +37,7 @@ it('should parse style strings', () => {
   expect(parse('---!myid!')).toEqual({
     'id': 'myid'
   });
-  expect(parse('-CP10G_blue_D_red,Cyan_Z1.1-D01_blue_D02_yellow,green_Z01,10,500x500Z02,5.5-primary blinking!cursor!')).toEqual({
+  expect(parse('-CP10G_blue_D_red,Cyan_Z1.1-D01_blue_D02_yellow,green_-primary blinking!cursor!')).toEqual({
     'colorize': true,
     'padding': 10,
     'background': 'blue',
@@ -51,17 +51,6 @@ it('should parse style strings', () => {
       {
         'index': 2,
         'detail': ['yellow', 'green']
-      }
-    ],
-    'zoomsym': [
-      {
-        'index': 1,
-        'zoom': 10,
-        'offset': [0, 0]
-      },
-      {
-        'index': 2,
-        'zoom': 5.5
       }
     ],
     'classes': 'primary blinking',

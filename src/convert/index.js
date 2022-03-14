@@ -1,6 +1,6 @@
 
 /** The convert module contains functions to convert between Formal SignWriitng in ASCII (FSW) and SignWriting in Unicode (SWU) characters, along with other types of data.
- * [Characters set definitions](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-07.html#rfc.section.2.2)
+ * [Characters set definitions](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-09.html#name-characters)
  * @module convert
  */
 

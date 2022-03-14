@@ -11,7 +11,6 @@ import { re } from './style-re';
  * @param {string[]} styleObject.detail - css name or hex color for line and optional fill
  * @param {number} styleObject.zoom - decimal value for zoom level
  * @param {{index:number,detail:string[]}[]} styleObject.detailsym - array of symbol indexes and detail color array
- * @param {{index:number,zoom:number,offset:number[]}[]} styleObject.zoomsym - array of symbol indexes and zoom levels with optional x,y offset
  * @param {string} styleObject.classes - list of class names separated with spaces used for SVG
  * @param {string} styleObject.id - id name used for SVG
  * @returns {string} style string 
@@ -32,22 +31,11 @@ import { re } from './style-re';
  *      'detail': ['yellow', 'green']
  *    }
  *  ],
- *  'zoomsym': [
- *    {
- *      'index': 1,
- *      'zoom': 10,
- *      'offset': [0, 0]
- *    },
- *    {
- *      'index': 2,
- *      'zoom': 5.5
- *    }
- *  ],
  *  'classes': 'primary blinking',
  *  'id': 'cursor'
  * })
  *
- * return '-CP10G_blue_D_red,Cyan_Z1.1-D01_ff00ff_D02_yellow,green_Z01,10,500x500Z02,5.5-primary blinking!cursor!'
+ * return '-CP10G_blue_D_red,Cyan_Z1.1-D01_ff00ff_D02_yellow,green_-primary blinking!cursor!'
  */
 const compose = (styleObject) => {
   if (typeof styleObject !== 'object' || styleObject === null) return undefined;
@@ -94,23 +82,6 @@ const compose = (styleObject) => {
     return style;
   })
   style2 += detailsym.join('');
-
-  const zoomsym = (!styleObject.zoomsym || !Array.isArray(styleObject.zoomsym)) ? [] : styleObject.zoomsym.map((styleObject) => {
-    const index = parseInt(styleObject.index);
-    if (!index || index <= 0 || index > 99) return '';
-    let style = 'Z' + (index > 9 ? index : '0' + index);
-    const zoom = parseFloat(styleObject.zoom);
-    style += (!zoom || zoom <= 0) ? '' : ',' + zoom;
-    if (styleObject.offset && (0 in styleObject.offset) && (1 in styleObject.offset)) {
-      const x = parseInt(styleObject.offset[0]) + 500;
-      const y = parseInt(styleObject.offset[1]) + 500;
-      if (x >= 250 && x < 750 && y >= 250 && y < 750) {
-        style += ',' + x + 'x' + y;
-      }
-    }
-    return style;
-  })
-  style2 += zoomsym.join('');
 
   let style3 = '';
   const classes = (!styleObject.classes || !(typeof styleObject.classes === 'string')) ? undefined : styleObject.classes.match(re.classes)[0];

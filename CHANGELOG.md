@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update parse for style string that drops empty style of '-'
 - clean up generated regular expressions for consistency
 
+## [1.4.0] - 2022-03-14
+### Added
+- parse text for FSW and SWU
+- info functions from signs and symbols for FSW and SWU
+- FSW and SWU text to column segments
+
+### Fixed
+- various documentation fixes
+
+### Removed
+- zoom and offset for individual symbols in style string
+
 ## [1.3.1] - 2021-10-15
 ### Fixed
 - tmpl version to 1.0.5
@@ -47,7 +59,8 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.3.1...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.4.0
 [1.3.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.3.1
 [1.3.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.3.0
 [1.2.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.2.1

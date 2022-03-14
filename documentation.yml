@@ -5,8 +5,11 @@ toc:
   - fsw.re
   - fsw.parse.symbol
   - fsw.parse.sign
+  - fsw.parse.text
   - fsw.compose.symbol
   - fsw.compose.sign
+  - fsw.info
+  - fsw.columns
   - fsw.kind
   - fsw.category
   - fsw.group
@@ -24,14 +27,17 @@ toc:
   - fswquery.results
   - fswquery.lines
   - swu
-  - swu.re
-  - swu.parse.symbol
-  - swu.parse.sign
   - swu.encode
   - swu.decode
   - swu.pair
+  - swu.re
+  - swu.parse.symbol
+  - swu.parse.sign
+  - swu.parse.text
   - swu.compose.symbol
   - swu.compose.sign
+  - swu.info
+  - swu.columns
   - swu.kind
   - swu.category
   - swu.group

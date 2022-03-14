@@ -37,42 +37,43 @@ const compose = {
     return undefined;
   },
   /**
-    * Function to compose an swu sign with style string
-    * @function swu.compose.sign
-    * @param {string[]} swuSignObject.sequence - an ordered array of symbols
-    * @param {string} swuSignObject.box - a choice BLMR: horizontal Box, Left, Middle, and Right lane
-    * @param {number[]} swuSymObject.max - max bottom left coordinate of the signbox space
-    * @param {{symbol:string,coord:number[]}[]} swuSymObject.spatials - array of symbols with top-left coordinate placement
-    * @param {string} swuSymObject.style - a style string for custom appearance
-    * @returns {string} an swu sign string
-    * @example
-    * swu.compose.sign({
-    *  sequence: ['񀀒','񀀚','񋚥','񋛩'],
-    *  box: '𝠃',
-    *  max: [525, 535],
-    *  spatials: [
-    *    {
-    *      symbol: '񋛩',
-    *      coord: [483, 510]
-    *    },
-    *    {
-    *      symbol: '񀀒',
-    *      coord: [501, 466]
-    *    },
-    *    {
-    *      symbol: '񋚥',
-    *      coord: [510, 500]
-    *    },
-    *    {
-    *      symbol: '񀀚',
-    *      coord: [476, 475]
-    *    }
-    *  ],
-    *  style: '-C'
-    * })
-    * 
-    * return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭-C'
-    */
+   * Function to compose an swu sign with style string
+   * @function swu.compose.sign
+   * @param {object} swuSignObject - an swu sign object
+   * @param {string[]} swuSignObject.sequence - an ordered array of symbols
+   * @param {string} swuSignObject.box - a choice of signbox marker: horizontal Box, Left, Middle, and Right lane
+   * @param {number[]} swuSignObject.max - max bottom-right coordinate of the signbox space
+   * @param {{symbol:string,coord:number[]}[]} swuSignObject.spatials - array of symbols with top-left coordinate placement
+   * @param {string} swuSignObject.style - a style string for custom appearance
+   * @returns {string} an swu sign string
+   * @example
+   * swu.compose.sign({
+   *  sequence: ['񀀒','񀀚','񋚥','񋛩'],
+   *  box: '𝠃',
+   *  max: [525, 535],
+   *  spatials: [
+   *    {
+   *      symbol: '񋛩',
+   *      coord: [483, 510]
+   *    },
+   *    {
+   *      symbol: '񀀒',
+   *      coord: [501, 466]
+   *    },
+   *    {
+   *      symbol: '񋚥',
+   *      coord: [510, 500]
+   *    },
+   *    {
+   *      symbol: '񀀚',
+   *      coord: [476, 475]
+   *    }
+   *  ],
+   *  style: '-C'
+   * })
+   * 
+   * return '𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭-C'
+   */
   sign: (swuSignObject) => {
     if (typeof swuSignObject !== 'object' || swuSignObject === null) return undefined;
     let box = (typeof swuSignObject.box !== 'string') ? '𝠃' : (swuSignObject.box + '𝠃').match(re.box)
