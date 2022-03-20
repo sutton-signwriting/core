@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update parse for style string that drops empty style of '-'
 - clean up generated regular expressions for consistency
 
+### Fixed
+- documentation for fsw.columns and swu.columns
+
 ## [1.4.0] - 2022-03-14
 ### Added
 - parse text for FSW and SWU

@@ -31,14 +31,14 @@ const columnDefaults = {
  * @param {number} options.offset - the lane offset for left and right lanes
  * @param {number} options.pad - amount of padding before and after signs as well as at top, left, and right of columns
  * @param {number} options.margin - amount of space at bottom of column that is not available
- * @param {number} options.dynamic - enables variable width columns
+ * @param {boolean} options.dynamic - enables variable width columns
  * @param {string} options.background - background color for columns
  * @param {object} options.punctuation - an object of punctuation options
  * @param {boolean} options.punctuation.spacing - enables special spacing for punctuation with no space above and custom space below
  * @param {number} options.punctuation.pad - the amount of spacing after a punctuation if punctuation spacing is enabled
  * @param {boolean} options.punctuation.pull - prevents line breaks before punctuation by reducing spacing between signs in a column
  * @param {object} options.style - an object of style options
- * @returns {{options:object,widths:number[],columns:array[]}} array of SWU text for columns
+ * @returns {{options:object,widths:number[],columns:array[]}} object of options object, widths array, and columns array
  * @example
  * swu.columns('𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻 𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦 񏌁𝣢𝤂', {height: 500,width:150})
  * 
