@@ -9,8 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update parse for style string that drops empty style of '-'
 - clean up generated regular expressions for consistency
 
+## [1.4.1] - 2022-03-30
 ### Fixed
 - documentation for fsw.columns and swu.columns
+- security fix for dependency
 
 ## [1.4.0] - 2022-03-14
 ### Added
@@ -62,7 +64,8 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.4.1...HEAD
+[1.4.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.4.1
 [1.4.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.4.0
 [1.3.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.3.1
 [1.3.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.3.0
