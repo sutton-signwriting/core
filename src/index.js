@@ -41,6 +41,6 @@ export { fsw, fswquery, swu, swuquery, style, convert }
  * @property {number} lane - Left as -1, Middle as 0, Right as 1
  * @property {number} padding - the padding of the text segment affects colored background
  * @property {string} segment - "sign" or "symbol"
- * @property {string} text - the text of the FSW sign or symbol with optional style string
+ * @property {string} text - the text of the sign or symbol with optional style string
  * @property {number} zoom - the zoom size of the segment
  */
