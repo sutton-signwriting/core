@@ -589,6 +589,16 @@
               
                 
                 <li><a
+                  href='#styleobject'
+                  class="">
+                  StyleObject
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#stylere'
                   class="">
                   style.re
@@ -807,6 +817,36 @@
                 
                 </li>
               
+                
+                <li><a
+                  href='#columnoptions'
+                  class="">
+                  ColumnOptions
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#columndata'
+                  class="">
+                  ColumnData
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#columnsegment'
+                  class="">
+                  ColumnSegment
+                  
+                </a>
+                
+                </li>
+              
             </ul>
           </div>
           <div class='mt1 h6 quiet'>
@@ -990,57 +1030,65 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>re</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+          <span class='code bold'>symbol</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expressions for a symbol
+
           
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>coord</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expressions for a coordinate
+
           
-            <ul>
-              
-                <li><code>re.symbol</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expressions for a symbol</p>
-</li>
-              
-                <li><code>re.coord</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expressions for a coordinate</p>
-</li>
-              
-                <li><code>re.sort</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expressions for the sorting marker</p>
-</li>
-              
-                <li><code>re.box</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a signbox marker</p>
-</li>
-              
-                <li><code>re.prefix</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a sorting marker followed by one or more symbols</p>
-</li>
-              
-                <li><code>re.spatial</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a symbol followed by a coordinate</p>
-</li>
-              
-                <li><code>re.signbox</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a signbox marker, max coordinate and zero or more spatial symbols</p>
-</li>
-              
-                <li><code>re.sign</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for an optional prefix followed by a signbox</p>
-</li>
-              
-                <li><code>re.sortable</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a mandatory prefix followed by a signbox</p>
-</li>
-              
-            </ul>
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>sort</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expressions for the sorting marker
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>box</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a signbox marker
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>prefix</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a sorting marker followed by one or more symbols
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>spatial</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a symbol followed by a coordinate
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>signbox</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a signbox marker, max coordinate and zero or more spatial symbols
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>sign</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for an optional prefix followed by a signbox
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>sortable</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a mandatory prefix followed by a signbox
+
           
         </div>
       
@@ -1672,7 +1720,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
   <p>Function to transform an FSW text to an array of columns</p>
 
-    <div class='pre p1 fill-light mt0'>fsw.columns(fswText: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): {options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, widths: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, columns: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>>}</div>
+    <div class='pre p1 fill-light mt0'>fsw.columns(fswText: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="#columnoptions">ColumnOptions</a>): {options: <a href="#columnoptions">ColumnOptions</a>, widths: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, columns: <a href="#columndata">ColumnData</a>}</div>
   
   
 
@@ -1698,136 +1746,10 @@ const fsw = require('@sutton-signwriting/core/fsw');
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="#columnoptions">ColumnOptions</a>)</code>
 	    object of column options
 
           </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.height</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>the height of the columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.width</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>the widths of the columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.offset</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>the lane offset for left and right lanes
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.pad</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>amount of padding before and after signs as well as at top, left, and right of columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.margin</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>amount of space at bottom of column that is not available
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.dynamic</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>enables variable width columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.background</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-  </td>
-  <td class='break-word'><span>background color for columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.punctuation</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
-  </td>
-  <td class='break-word'><span>an object of punctuation options
-</span></td>
-</tr>
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>options.punctuation.spacing</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>enables special spacing for punctuation with no space above and custom space below
-</span></td>
-</tr>
-
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>options.punctuation.pad</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>the amount of spacing after a punctuation if punctuation spacing is enabled
-</span></td>
-</tr>
-
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>options.punctuation.pull</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>prevents line breaks before punctuation by reducing spacing between signs in a column
-</span></td>
-</tr>
-
-
-  
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.style</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
-  </td>
-  <td class='break-word'><span>an object of style options
-</span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
           
         </div>
       
@@ -1839,8 +1761,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>{options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, widths: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, columns: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>>}</code>:
-        object of options object, widths array, and columns array
+      <code>{options: <a href="#columnoptions">ColumnOptions</a>, widths: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, columns: <a href="#columndata">ColumnData</a>}</code>:
+        object of column options, widths array, and column data
 
       
     
@@ -3579,57 +3501,65 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>re</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+          <span class='code bold'>symbol</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expressions for a symbol
+
           
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>coord</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expressions for a coordinate
+
           
-            <ul>
-              
-                <li><code>re.symbol</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expressions for a symbol</p>
-</li>
-              
-                <li><code>re.coord</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expressions for a coordinate</p>
-</li>
-              
-                <li><code>re.sort</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expressions for the sorting marker</p>
-</li>
-              
-                <li><code>re.box</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a signbox marker</p>
-</li>
-              
-                <li><code>re.prefix</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a sorting marker followed by one or more symbols</p>
-</li>
-              
-                <li><code>re.spatial</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a symbol followed by a coordinate</p>
-</li>
-              
-                <li><code>re.signbox</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a signbox marker, max coordinate and zero or more spatial symbols</p>
-</li>
-              
-                <li><code>re.sign</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for an optional prefix followed by a signbox</p>
-</li>
-              
-                <li><code>re.sortable</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-                  
-                  <p>regular expression for a mandatory prefix followed by a signbox</p>
-</li>
-              
-            </ul>
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>sort</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expressions for the sorting marker
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>box</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a signbox marker
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>prefix</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a sorting marker followed by one or more symbols
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>spatial</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a symbol followed by a coordinate
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>signbox</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a signbox marker, max coordinate and zero or more spatial symbols
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>sign</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for an optional prefix followed by a signbox
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>sortable</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for a mandatory prefix followed by a signbox
+
           
         </div>
       
@@ -4322,7 +4252,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
 
   <p>Function to transform an SWU text to an array of columns</p>
 
-    <div class='pre p1 fill-light mt0'>swu.columns(swuText: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): {options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, widths: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, columns: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>>}</div>
+    <div class='pre p1 fill-light mt0'>swu.columns(swuText: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="#columnoptions">ColumnOptions</a>): {options: <a href="#columnoptions">ColumnOptions</a>, widths: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, columns: <a href="#columndata">ColumnData</a>}</div>
   
   
 
@@ -4348,136 +4278,10 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="#columnoptions">ColumnOptions</a>)</code>
 	    object of column options
 
           </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.height</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>the height of the columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.width</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>the widths of the columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.offset</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>the lane offset for left and right lanes
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.pad</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>amount of padding before and after signs as well as at top, left, and right of columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.margin</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>amount of space at bottom of column that is not available
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.dynamic</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>enables variable width columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.background</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-  </td>
-  <td class='break-word'><span>background color for columns
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.punctuation</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
-  </td>
-  <td class='break-word'><span>an object of punctuation options
-</span></td>
-</tr>
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>options.punctuation.spacing</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>enables special spacing for punctuation with no space above and custom space below
-</span></td>
-</tr>
-
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>options.punctuation.pad</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>the amount of spacing after a punctuation if punctuation spacing is enabled
-</span></td>
-</tr>
-
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>options.punctuation.pull</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>prevents line breaks before punctuation by reducing spacing between signs in a column
-</span></td>
-</tr>
-
-
-  
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>options.style</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
-  </td>
-  <td class='break-word'><span>an object of style options
-</span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
           
         </div>
       
@@ -4489,8 +4293,8 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>{options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, widths: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, columns: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>>}</code>:
-        object of options object, widths array, and columns array
+      <code>{options: <a href="#columnoptions">ColumnOptions</a>, widths: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>, columns: <a href="#columndata">ColumnData</a>}</code>:
+        object of column options, widths array, and column data
 
       
     
@@ -6032,6 +5836,136 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='styleobject'>
+      StyleObject
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>The elements of a style string</p>
+
+    <div class='pre p1 fill-light mt0'>StyleObject</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>colorize</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+          : boolean to use standardized colors for symbol groups
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>padding</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : integer value for padding around symbol or sign
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>background</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : css name or hex color for background
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>detail</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+          : array for css name or hex color for line and optional fill
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>zoom</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : decimal value for zoom level
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>detailsym</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
+          : custom colors for individual symbols
+
+          
+            <ul>
+              
+                <li><code>detailsym.index</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+                  
+                  <p>symbol index in sign box</p>
+</li>
+              
+                <li><code>detailsym.detail</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>
+                  
+                  <p>array for css name or hex color for line and optional fill</p>
+</li>
+              
+            </ul>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>classes</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : list of class names separated with spaces used for SVG
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : id name used for SVG
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='stylere'>
       style.re
     </h3>
@@ -6041,7 +5975,6 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
 
   <p>Object of regular expressions for style strings</p>
-<p>{ colorize, colorhex, colorname, padding, zoom, zoomsym, classbase, id, colorbase, color, colors, background, detail, detailsym, classes, full }</p>
 
     <div class='pre p1 fill-light mt0'>style.re</div>
   
@@ -6061,6 +5994,116 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>colorize</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for colorize section
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>colorhex</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for color hex values with 3 or 6 characters
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>colorname</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for css color name
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>padding</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for padding section
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>zoom</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for zoom section
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>classbase</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for class name definition
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for id definition
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>colorbase</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for color hex or color name
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>color</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for single color entry
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>colors</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for double color entry
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>background</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for background section
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>detail</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for color details for line and optional fill
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>detailsym</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for color details for individual symbols
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>classes</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : regular expression for one or more class names
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>full</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : full regular expression for style string
+
+          
+        </div>
+      
+    </div>
   
 
   
@@ -6098,7 +6141,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
 
   <p>Function to parse style string to object</p>
 
-    <div class='pre p1 fill-light mt0'>style.parse(styleString: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+    <div class='pre p1 fill-light mt0'>style.parse(styleString: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#styleobject">StyleObject</a></div>
   
   
 
@@ -6130,7 +6173,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#styleobject">StyleObject</a></code>:
         elements of style string
 
       
@@ -6183,7 +6226,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
 
   <p>Function to compose style string from object</p>
 
-    <div class='pre p1 fill-light mt0'>style.compose(styleObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>style.compose(styleObject: <a href="#styleobject">StyleObject</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -6200,98 +6243,10 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>styleObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>styleObject</span> <code class='quiet'>(<a href="#styleobject">StyleObject</a>)</code>
 	    an object of style options
 
           </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>styleObject.colorize</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>boolean to use standardized colors for symbol groups
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>styleObject.padding</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>integer value for padding around symbol or sign
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>styleObject.background</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-  </td>
-  <td class='break-word'><span>css name or hex color for background
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>styleObject.detail</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>
-  </td>
-  <td class='break-word'><span>css name or hex color for line and optional fill
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>styleObject.zoom</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>decimal value for zoom level
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>styleObject.detailsym</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;{index: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, detail: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>}></code>
-  </td>
-  <td class='break-word'><span>array of symbol indexes and detail color array
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>styleObject.classes</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-  </td>
-  <td class='break-word'><span>list of class names separated with spaces used for SVG
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>styleObject.id</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-  </td>
-  <td class='break-word'><span>id name used for SVG
-</span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
           
         </div>
       
@@ -7831,6 +7786,337 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span></pre>
     
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='columnoptions'>
+      ColumnOptions
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>ColumnOptions</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>height</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the height of the columns
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>width</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the widths of the columns
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>offset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the lane offset for left and right lanes
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>pad</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : amount of padding before and after signs as well as at top, left, and right of columns
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>margin</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : amount of space at bottom of column that is not available
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>dynamic</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+          : enables variable width columns
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>background</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : background color for columns
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>style</span> <code class='quiet'>(<a href="#styleobject">StyleObject</a>)</code>
+          : an object of style options
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>punctuation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+          : an object of punctuation options
+
+          
+            <ul>
+              
+                <li><code>punctuation.spacing</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+                  
+                  <p>enables special spacing for punctuation with no space above and custom space below</p>
+</li>
+              
+                <li><code>punctuation.pad</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+                  
+                  <p>the amount of spacing after a punctuation if punctuation spacing is enabled</p>
+</li>
+              
+                <li><code>punctuation.pull</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+                  
+                  <p>prevents line breaks before punctuation by reducing spacing between signs in a column</p>
+</li>
+              
+            </ul>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='columndata'>
+      ColumnData
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>ColumnData</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="#columnsegment">ColumnSegment</a>>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='columnsegment'>
+      ColumnSegment
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>ColumnSegment</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>x</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the x position in the column
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>y</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the y position in the column
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>minX</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the min x value within the segment
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>minY</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the min y value within the segment
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>width</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the width of the text segment
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>height</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the height of the text segment
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>lane</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : Left as -1, Middle as 0, Right as 1
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>padding</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the padding of the text segment affects colored background
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>segment</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : "sign" or "symbol"
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>text</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : the text of the FSW sign or symbol with optional style string
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>zoom</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : the zoom size of the segment
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
   
 
   

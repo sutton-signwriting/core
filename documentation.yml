@@ -56,6 +56,7 @@ toc:
   - swuquery.results
   - swuquery.lines
   - style
+  - StyleObject
   - style.re
   - style.parse
   - style.compose
@@ -78,3 +79,6 @@ toc:
   - convert.key2swu
   - convert.swu2fsw
   - convert.fsw2swu
+  - ColumnOptions
+  - ColumnData
+  - ColumnSegment

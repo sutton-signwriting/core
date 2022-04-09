@@ -4,15 +4,7 @@ import { re } from './style-re';
 /**
  * Function to compose style string from object
  * @function style.compose
- * @param {object} styleObject - an object of style options
- * @param {boolean} styleObject.colorize - boolean to use standardized colors for symbol groups
- * @param {number} styleObject.padding - integer value for padding around symbol or sign
- * @param {string} styleObject.background - css name or hex color for background
- * @param {string[]} styleObject.detail - css name or hex color for line and optional fill
- * @param {number} styleObject.zoom - decimal value for zoom level
- * @param {{index:number,detail:string[]}[]} styleObject.detailsym - array of symbol indexes and detail color array
- * @param {string} styleObject.classes - list of class names separated with spaces used for SVG
- * @param {string} styleObject.id - id name used for SVG
+ * @param {StyleObject} styleObject - an object of style options
  * @returns {string} style string 
  * @example 
  * style.compose({

@@ -25,20 +25,8 @@ const columnDefaults = {
  * 
  * @function fsw.columns
  * @param {string} fswText - FSW text of signs and punctuation
- * @param {object} options - object of column options
- * @param {number} options.height - the height of the columns
- * @param {number} options.width - the widths of the columns
- * @param {number} options.offset - the lane offset for left and right lanes
- * @param {number} options.pad - amount of padding before and after signs as well as at top, left, and right of columns
- * @param {number} options.margin - amount of space at bottom of column that is not available
- * @param {boolean} options.dynamic - enables variable width columns
- * @param {string} options.background - background color for columns
- * @param {object} options.punctuation - an object of punctuation options
- * @param {boolean} options.punctuation.spacing - enables special spacing for punctuation with no space above and custom space below
- * @param {number} options.punctuation.pad - the amount of spacing after a punctuation if punctuation spacing is enabled
- * @param {boolean} options.punctuation.pull - prevents line breaks before punctuation by reducing spacing between signs in a column
- * @param {object} options.style - an object of style options
- * @returns {{options:object,widths:number[],columns:array[]}} object of options object, widths array, and columns array
+ * @param {ColumnOptions} options - object of column options
+ * @returns {{options:ColumnOptions,widths:number[],columns:ColumnData}} object of column options, widths array, and column data
  * @example
  * fsw.columns('AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496', {height: 500,width:150})
  * 

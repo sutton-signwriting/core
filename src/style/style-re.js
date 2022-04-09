@@ -2,9 +2,23 @@
 /**
  * Object of regular expressions for style strings
  * 
- *   { colorize, colorhex, colorname, padding, zoom, zoomsym, classbase, id, colorbase, color, colors, background, detail, detailsym, classes, full }
  * @alias style.re
  * @type {object}
+ * @property {string} colorize - regular expression for colorize section
+ * @property {string} colorhex - regular expression for color hex values with 3 or 6 characters
+ * @property {string} colorname - regular expression for css color name
+ * @property {string} padding - regular expression for padding section
+ * @property {string} zoom - regular expression for zoom section
+ * @property {string} classbase - regular expression for class name definition
+ * @property {string} id - regular expression for id definition
+ * @property {string} colorbase - regular expression for color hex or color name
+ * @property {string} color - regular expression for single color entry
+ * @property {string} colors - regular expression for double color entry
+ * @property {string} background - regular expression for background section
+ * @property {string} detail - regular expression for color details for line and optional fill
+ * @property {string} detailsym - regular expression for color details for individual symbols
+ * @property {string} classes - regular expression for one or more class names
+ * @property {string} full - full regular expression for style string
  */
 let re = {
   'colorize': 'C',

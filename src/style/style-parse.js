@@ -14,7 +14,7 @@ const definedProps = obj => Object.fromEntries(
  * Function to parse style string to object
  * @function style.parse
  * @param {string} styleString - a style string
- * @returns {object} elements of style string
+ * @returns {StyleObject} elements of style string
  * @example
  * style.parse('-CP10G_blue_D_red,Cyan_')
  * 
