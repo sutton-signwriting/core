@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>@sutton-signwriting/core 1.4.1 | Documentation</title>
+  <title>@sutton-signwriting/core 1.4.2 | Documentation</title>
   <meta name='description' content='a javascript package for node and browsers that supports general processing of the Sutton SignWriting script'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@sutton-signwriting/core</h3>
-          <div class='mb1'><code>1.4.1</code></div>
+          <div class='mb1'><code>1.4.2</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -112,6 +112,16 @@
                   href='#fswinfo'
                   class="">
                   fsw.info
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#fswcolumndefaultsmerge'
+                  class="">
+                  fsw.columnDefaultsMerge
                   
                 </a>
                 
@@ -392,6 +402,16 @@
                   href='#swuinfo'
                   class="">
                   swu.info
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#swucolumndefaultsmerge'
+                  class="">
+                  swu.columnDefaultsMerge
                   
                 </a>
                 
@@ -1689,6 +1709,105 @@ const fsw = require('@sutton-signwriting/core/fsw');
   <span class="hljs-attr">padding</span>: <span class="hljs-number">10</span>,
   <span class="hljs-attr">segment</span>: <span class="hljs-string">&#x27;sign&#x27;</span>,
   <span class="hljs-attr">lane</span>: -<span class="hljs-number">1</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='fswcolumndefaultsmerge'>
+      fsw.columnDefaultsMerge
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to an object of column options with default values</p>
+
+    <div class='pre p1 fill-light mt0'>fsw.columnDefaultsMerge(options: <a href="#columnoptions">ColumnOptions</a>): <a href="#columnoptions">ColumnOptions</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="#columnoptions">ColumnOptions</a>)</code>
+	    object of column options
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#columnoptions">ColumnOptions</a></code>:
+        object of column options merged with column defaults
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>fsw.columnDefaultsMerge({<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
+
+<span class="hljs-keyword">return</span> {
+  <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">500</span>,
+  <span class="hljs-string">&quot;width&quot;</span>: <span class="hljs-number">150</span>,
+  <span class="hljs-string">&quot;offset&quot;</span>: <span class="hljs-number">50</span>,
+  <span class="hljs-string">&quot;pad&quot;</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-string">&quot;margin&quot;</span>: <span class="hljs-number">5</span>,
+  <span class="hljs-string">&quot;dynamic&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;punctuation&quot;</span>: {
+    <span class="hljs-string">&quot;spacing&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;pad&quot;</span>: <span class="hljs-number">30</span>,
+    <span class="hljs-string">&quot;pull&quot;</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-string">&quot;style&quot;</span>: {
+    <span class="hljs-string">&quot;detail&quot;</span>: [
+      <span class="hljs-string">&quot;black&quot;</span>,
+      <span class="hljs-string">&quot;white&quot;</span>
+    ],
+    <span class="hljs-string">&quot;zoom&quot;</span>: <span class="hljs-number">1</span>
+  }
 }</pre>
     
   
@@ -4221,6 +4340,105 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   <span class="hljs-attr">lane</span>: -<span class="hljs-number">1</span>
   <span class="hljs-attr">padding</span>: <span class="hljs-number">10</span>,
   <span class="hljs-attr">zoom</span>: <span class="hljs-number">2</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='swucolumndefaultsmerge'>
+      swu.columnDefaultsMerge
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Function to an object of column options with default values</p>
+
+    <div class='pre p1 fill-light mt0'>swu.columnDefaultsMerge(options: <a href="#columnoptions">ColumnOptions</a>): <a href="#columnoptions">ColumnOptions</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="#columnoptions">ColumnOptions</a>)</code>
+	    object of column options
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#columnoptions">ColumnOptions</a></code>:
+        object of column options merged with column defaults
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>swu.columnDefaultsMerge({<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
+
+<span class="hljs-keyword">return</span> {
+  <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">500</span>,
+  <span class="hljs-string">&quot;width&quot;</span>: <span class="hljs-number">150</span>,
+  <span class="hljs-string">&quot;offset&quot;</span>: <span class="hljs-number">50</span>,
+  <span class="hljs-string">&quot;pad&quot;</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-string">&quot;margin&quot;</span>: <span class="hljs-number">5</span>,
+  <span class="hljs-string">&quot;dynamic&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;punctuation&quot;</span>: {
+    <span class="hljs-string">&quot;spacing&quot;</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">&quot;pad&quot;</span>: <span class="hljs-number">30</span>,
+    <span class="hljs-string">&quot;pull&quot;</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-string">&quot;style&quot;</span>: {
+    <span class="hljs-string">&quot;detail&quot;</span>: [
+      <span class="hljs-string">&quot;black&quot;</span>,
+      <span class="hljs-string">&quot;white&quot;</span>
+    ],
+    <span class="hljs-string">&quot;zoom&quot;</span>: <span class="hljs-number">1</span>
+  }
 }</pre>
     
   

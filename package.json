@@ -1,7 +1,7 @@
 {
   "name": "@sutton-signwriting/core",
   "description": "a javascript package for node and browsers that supports general processing of the Sutton SignWriting script",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "keywords": [
     "SignWriting",
     "sign language",

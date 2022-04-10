@@ -1,6 +1,96 @@
 
-import { columnDefaults, columns } from './swu-columns';
+import { columnDefaultsMerge, columns } from './swu-columns';
 import { sample } from './swu-sample';
+
+it('should return the column defaults', () => {
+  expect(columnDefaultsMerge()).toEqual({
+    "height": 500,
+    "width": 150,
+    "offset": 50,
+    "pad": 20,
+    "margin": 5,
+    "dynamic": false,
+    "punctuation": {
+      "pad": 30,
+      "pull": true,
+      "spacing": true
+    },
+    "style": {
+      "detail": [
+        "black",
+        "white"
+      ],
+      "zoom": 1
+    }
+  })
+})
+
+it('should merge top level with the column defaults', () => {
+  expect(columnDefaultsMerge({width:200})).toEqual({
+    "height": 500,
+    "width": 200,
+    "offset": 50,
+    "pad": 20,
+    "margin": 5,
+    "dynamic": false,
+    "punctuation": {
+      "pad": 30,
+      "pull": true,
+      "spacing": true
+    },
+    "style": {
+      "detail": [
+        "black",
+        "white"
+      ],
+      "zoom": 1
+    }
+  })
+})
+
+it('should merge deep level with the column defaults', () => {
+  expect(columnDefaultsMerge({punctuation:{pad:20},width:200})).toEqual({
+    "height": 500,
+    "width": 200,
+    "offset": 50,
+    "pad": 20,
+    "margin": 5,
+    "dynamic": false,
+    "punctuation": {
+      "pad": 20,
+      "pull": true,
+      "spacing": true
+    },
+    "style": {
+      "detail": [
+        "black",
+        "white"
+      ],
+      "zoom": 1
+    }
+  })
+  expect(columnDefaultsMerge({style:{background:"555"},width:200})).toEqual({
+    "height": 500,
+    "width": 200,
+    "offset": 50,
+    "pad": 20,
+    "margin": 5,
+    "dynamic": false,
+    "punctuation": {
+      "pad": 30,
+      "pull": true,
+      "spacing": true
+    },
+    "style": {
+      "detail": [
+        "black",
+        "white"
+      ],
+      "zoom": 1,
+      "background": "555"
+    }
+  })
+})
 
 it('should return an array of columns', () => {
   let helloWorld = sample.helloWorld;

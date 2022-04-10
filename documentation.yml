@@ -9,6 +9,7 @@ toc:
   - fsw.compose.symbol
   - fsw.compose.sign
   - fsw.info
+  - fsw.columnDefaultsMerge
   - fsw.columns
   - fsw.kind
   - fsw.category
@@ -37,6 +38,7 @@ toc:
   - swu.compose.symbol
   - swu.compose.sign
   - swu.info
+  - swu.columnDefaultsMerge
   - swu.columns
   - swu.kind
   - swu.category

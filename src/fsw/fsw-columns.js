@@ -20,6 +20,53 @@ const columnDefaults = {
   }
 }
 
+
+/**
+ * Function to an object of column options with default values
+ * 
+ * @function fsw.columnDefaultsMerge
+ * @param {ColumnOptions} options - object of column options
+ * @returns {ColumnOptions} object of column options merged with column defaults
+ * @example
+ * fsw.columnDefaultsMerge({height: 500,width:150})
+ * 
+ * return {
+ *   "height": 500,
+ *   "width": 150,
+ *   "offset": 50,
+ *   "pad": 20,
+ *   "margin": 5,
+ *   "dynamic": false,
+ *   "punctuation": {
+ *     "spacing": true,
+ *     "pad": 30,
+ *     "pull": true
+ *   },
+ *   "style": {
+ *     "detail": [
+ *       "black",
+ *       "white"
+ *     ],
+ *     "zoom": 1
+ *   }
+ * }
+ */
+const columnDefaultsMerge = (options) => {
+  if (typeof options !== 'object') options = {};
+  return {
+    ...columnDefaults,
+    ...options,
+    punctuation: {
+      ...columnDefaults.punctuation,
+      ...options.punctuation
+    },
+    style: {
+      ...columnDefaults.style,
+      ...options.style
+    }
+  }
+}
+
 /**
  * Function to transform an FSW text to an array of columns
  * 
@@ -101,19 +148,7 @@ const columnDefaults = {
  */
 const columns = (fswText, options) => {
   if (typeof fswText !== 'string') return {};
-  if (typeof options !== 'object') options = {};
-  const values = {
-    ...columnDefaults,
-    ...options,
-    punctuation: {
-      ...columnDefaults.punctuation,
-      ...options.punctuation
-    },
-    style: {
-      ...columnDefaults.style,
-      ...options.style
-    }
-  }
+  const values = columnDefaultsMerge(options);
 
   let input = parse.text(fswText);
   let cursor = 0;
@@ -214,4 +249,4 @@ const columns = (fswText, options) => {
   };
 }
 
-export { columnDefaults, columns }
+export { columnDefaults, columnDefaultsMerge, columns }

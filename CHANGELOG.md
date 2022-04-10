@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Todo
 - update parse for style string that drops empty style of '-'
 - clean up generated regular expressions for consistency
+- 
+
+## [1.4.2] - 2022-04-10
+### Added
+- documentation types of ColumnOptions, ColumnData, ColumnSegment
+- function columnDefaultsMerge
 
 ## [1.4.1] - 2022-03-30
 ### Fixed
@@ -64,7 +70,8 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.4.1...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.4.2...HEAD
+[1.4.2]: https://github.com/sutton-signwriting/core/releases/tag/v1.4.2
 [1.4.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.4.1
 [1.4.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.4.0
 [1.3.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.3.1
