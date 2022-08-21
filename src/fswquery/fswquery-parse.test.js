@@ -125,6 +125,13 @@ it('should parse full example', () => {
     style: true
   })
 })
+
+
+it('should parse complex example', () => {
+  expect(parse('QAS10000S10500oS20500oR2fft304TS100uuR205t206oS207uu510x510V5')).toEqual({
+  })
+})
+
 it('should not break on invalid sign or input', () => {
   expect(parse()).toEqual({})
   expect(parse('a')).toEqual({})

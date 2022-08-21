@@ -56,7 +56,7 @@ const parseSignbox = (text) => {
  * Function to parse FSW query string to object
  * @function fswquery.parse
  * @param {string} fswQueryString - an FSW query string
- * @returns {object} elements of an FSW query string
+ * @returns {QueryObject} elements of a of query string identified by regular expression
  * @example
  * fswquery.parse('QAS10000S10500oS20500oR2fft304TS100uuR205t206oS207uu510x510V5-')
  * 

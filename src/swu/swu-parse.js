@@ -8,7 +8,7 @@ const parse = {
    * Function to parse an swu symbol with optional coordinate and style string
    * @function swu.parse.symbol
    * @param {string} swuSym - an swu symbol
-   * @returns {object} elements of swu symbol
+   * @returns {QueryObject} elements of a of query string identified by regular expression
    * @example
    * swu.parse.symbol('񀀁𝤆𝤆-C')
    * 

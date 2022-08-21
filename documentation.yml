@@ -19,6 +19,7 @@ toc:
   - fsw.colors
   - fsw.colorize
   - fswquery
+  - QueryObject
   - fswquery.re
   - fswquery.parse
   - fswquery.compose
@@ -81,6 +82,7 @@ toc:
   - convert.key2swu
   - convert.swu2fsw
   - convert.fsw2swu
+  - QueryObject
   - ColumnOptions
   - ColumnData
   - ColumnSegment

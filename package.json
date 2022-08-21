@@ -1,7 +1,7 @@
 {
   "name": "@sutton-signwriting/core",
   "description": "a javascript package for node and browsers that supports general processing of the Sutton SignWriting script",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "keywords": [
     "SignWriting",
     "sign language",
@@ -43,11 +43,19 @@
   "module": "core.min.mjs",
   "browser": "core.min.js",
   "unpkg": "core.min.js",
+  "exports": {
+    "require": "./core.min.cjs",
+    "import": "./core.min.mjs",
+    "default": "./core.min.js"
+  },
+  "types": "./core.d.ts",
   "scripts": {
     "prebuild": "rimraf core.* style fsw fswquery swu swuquery convert",
     "build": "rollup -c",
-    "postbuild": "node subpackages.js",
+    "postbuild": "./tsc.sh && node subpackages.js",
+    "ttt": "./tsc.sh",
     "test": "jest || true",
+    "testit": "jest",
     "test:watch": "jest --watchAll || true",
     "docs": "npx documentation build src/index.js --config documentation.yml -f html -o docs",
     "postdocs": "node addstyle.js",
@@ -60,6 +68,7 @@
     "jest": "^27.0.5",
     "rimraf": "^3.0.2",
     "rollup": "^2.52.2",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.7.4"
   }
 }

@@ -9,6 +9,17 @@ import * as convert from './convert';
 export { fsw, fswquery, swu, swuquery, style, convert }
 
 
+/**
+ * Object of query elements with regular expression identification.
+ * @typedef {object} QueryObject
+ * @property {boolean} query - required true for FSW query object
+ * @property {object} prefix - an object for prefix elements
+ * @property {boolean} prefix.required - true if sorting prefix is required
+ * @property {(string|string[]|(string|string[])[])[]} prefix.parts - array of symbol strings, range arrays, and OR arrays of strings and range arrays
+ * @property {({symbol:string,coord:number[]}|{range:string[],coord:number[]}|{or:(string|string[])[],coord:number[]})[]} signbox - array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates
+ * @property {number} variance - amount that x or y coordinates can vary and find a match, defaults to 20
+ * @property {boolean} style - boolean value for including style string in matches
+ */
 
 /**
  * @typedef {object} ColumnOptions

@@ -4,11 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
+
 ## [Unreleased]
 ### Todo
 - update parse for style string that drops empty style of '-'
 - clean up generated regular expressions for consistency
-- 
+
+## [1.5.0] - 2022-08-21
+### Added
+- type definitions for TypeScript as .d.ts
+- export map in package.json
+
+## Changed
+- return types from generic object to QueryObject
+
+## Fixed
+- library import for security warning
 
 ## [1.4.2] - 2022-04-10
 ### Added
@@ -70,7 +82,8 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.4.2...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.0
 [1.4.2]: https://github.com/sutton-signwriting/core/releases/tag/v1.4.2
 [1.4.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.4.1
 [1.4.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.4.0
