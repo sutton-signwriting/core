@@ -160,3 +160,6 @@ code,
 .code {
   font-family: Source Code Pro, Menlo, Consolas, Liberation Mono, monospace, SuttonSignWritingOneD;
 }
+p > img {
+  width: 100%;
+}

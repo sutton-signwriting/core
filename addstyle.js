@@ -19,6 +19,9 @@ code,
 .code {
   font-family: Source Code Pro, Menlo, Consolas, Liberation Mono, monospace, SuttonSignWritingOneD;
 }
+p > img {
+  width: 100%;
+}
 `;
 
 fs.appendFile('docs/assets/style.css', appendStyle, function (err) {

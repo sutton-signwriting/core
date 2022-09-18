@@ -8,7 +8,7 @@ const parse = {
    * Function to parse an fsw symbol with optional coordinate and style string
    * @function fsw.parse.symbol
    * @param {string} fswSym - an fsw symbol
-   * @returns {object} elements of fsw symbol
+   * @returns {SymbolObject} elements of fsw symbol
    * @example
    * fsw.parse.symbol('S10000500x500-C')
    * 
@@ -31,7 +31,7 @@ const parse = {
    * Function to parse an fsw sign with style string
    * @function fsw.parse.sign
    * @param {string} fswSign - an fsw sign
-   * @returns {object} elements of fsw sign
+   * @returns { SignObject } elements of fsw sign
    * @example
    * fsw.parse.sign('AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C')
    * 
@@ -84,7 +84,7 @@ const parse = {
    * Function to parse an fsw text
    * @function fsw.parse.text
    * @param {string} fswText - an fsw text
-   * @returns {array} fsw signs and punctuations
+   * @returns {string[]} fsw signs and punctuations
    * @example
    * fsw.parse.text('AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496')
    * 

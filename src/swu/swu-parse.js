@@ -59,7 +59,8 @@ const parse = {
    *  ],
    *  style: '-C'
    * }
-   */  sign: (swuSign) => {
+   */  
+  sign: (swuSign) => {
     const regex = `^(${re.prefix})?(${re.signbox})(${style.re.full})?`;
     const sign = (typeof swuSign === 'string') ? swuSign.match(new RegExp(regex)) : undefined;
     if (sign) {
@@ -83,7 +84,7 @@ const parse = {
    * Function to parse an swu text
    * @function swu.parse.text
    * @param {string} swuText - an swu text
-   * @returns {array} swu signs and punctuations
+   * @returns {string[]} swu signs and punctuations
    * @example
    * swu.parse.text('𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻 𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦 񏌁𝣢𝤂')
    * 
@@ -111,7 +112,7 @@ const parse = {
  * 
  * return '\\uD8C0\\uDC01\\uD836\\uDD06\\uD836\\uDD06'
  */
-const encode = (text) => text.replace(/[\u007F-\uFFFF]/g, function (chr) {
+const encode = (swu) => swu.replace(/[\u007F-\uFFFF]/g, function (chr) {
   return "\\u" + ("0000" + chr.charCodeAt(0).toString(16)).substr(-4).toUpperCase();
 });
 

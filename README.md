@@ -4,7 +4,7 @@
 [![version](https://img.shields.io/npm/v/@sutton-signwriting/core)](https://www.npmjs.com/package/@sutton-signwriting/core)
 [![npm downloads](https://img.shields.io/npm/dm/@sutton-signwriting/core)](https://npm-stat.com/charts.html?package=@sutton-signwriting/core&from=2019-10-31)
 
-<img alt="Core Package Mindmap" src="./Core.jpg" width="100%">
+![Core Package Mindmap](./Core.jpg)
 
 @sutton-signwriting/core is a javascript package for node and browsers that supports general processing of SignWriting text.
 
@@ -74,11 +74,11 @@ The distribution is available in three flavors.  26 KB for the whole library min
 #### Unpkg
     // import entire library
     // available as ssw.core
-    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.0"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.1"></script>
 
     // import individual module
     // available as ssw.fsw
-    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.0/fsw/fsw.js"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.1/fsw/fsw.js"></script>
 
 ## License
 MIT

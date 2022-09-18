@@ -4,21 +4,21 @@ import { parse } from './fsw-parse';
 /**
  * Array of numbers for kinds of symbols: writing, location, and punctuation.
  * @alias fsw.kind
- * @type {array}
+ * @type {number[]}
  */
 const kind = [0x100, 0x37f, 0x387];
 
 /**
  * Array of numbers for categories of symbols: hand, movement, dynamics, head, trunk & limb, location, and punctuation.
  * @alias fsw.category
- * @type {array}
+ * @type {number[]}
  */
 const category = [0x100, 0x205, 0x2f7, 0x2ff, 0x36d, 0x37f, 0x387];
 
 /**
  * Array of numbers for the 30 symbol groups.
  * @alias fsw.group
- * @type {array}
+ * @type {number[]}
  */
 const group = [0x100, 0x10e, 0x11e, 0x144, 0x14c, 0x186, 0x1a4, 0x1ba, 0x1cd, 0x1f5, 0x205, 0x216, 0x22a, 0x255, 0x265, 0x288, 0x2a6, 0x2b7, 0x2d5, 0x2e3, 0x2f7, 0x2ff, 0x30a, 0x32a, 0x33b, 0x359, 0x36d, 0x376, 0x37f, 0x387];
 

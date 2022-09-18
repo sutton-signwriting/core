@@ -1,7 +1,7 @@
 {
   "name": "@sutton-signwriting/core",
   "description": "a javascript package for node and browsers that supports general processing of the Sutton SignWriting script",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "keywords": [
     "SignWriting",
     "sign language",
@@ -53,11 +53,11 @@
     "prebuild": "rimraf core.* style fsw fswquery swu swuquery convert",
     "build": "rollup -c",
     "postbuild": "./tsc.sh && node subpackages.js",
-    "ttt": "./tsc.sh",
+    "tsdef": "./tsc.sh",
     "test": "jest || true",
     "testit": "jest",
     "test:watch": "jest --watchAll || true",
-    "docs": "npx documentation build src/index.js --config documentation.yml -f html -o docs",
+    "docs": "npx documentation build src/*.js --config documentation.yml -f html -o docs",
     "postdocs": "node addstyle.js",
     "docs:server": "npx documentation serve --watch src/index.js --config documentation.yml"
   },

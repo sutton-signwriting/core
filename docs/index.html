@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>@sutton-signwriting/core 1.5.0 | Documentation</title>
+  <title>@sutton-signwriting/core 1.5.1 | Documentation</title>
   <meta name='description' content='a javascript package for node and browsers that supports general processing of the Sutton SignWriting script'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@sutton-signwriting/core</h3>
-          <div class='mb1'><code>1.5.0</code></div>
+          <div class='mb1'><code>1.5.1</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -879,9 +879,19 @@
               
                 
                 <li><a
-                  href='#fswquery'
+                  href='#symbolobject'
                   class="">
-                  FswQuery
+                  SymbolObject
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#signobject'
+                  class="">
+                  SignObject
                   
                 </a>
                 
@@ -908,7 +918,7 @@
 <p><a href="https://gitter.im/sutton-signwriting/community?utm_source=badge&#x26;utm_medium=badge&#x26;utm_campaign=pr-badge&#x26;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
 <a href="https://www.npmjs.com/package/@sutton-signwriting/core"><img src="https://img.shields.io/npm/v/@sutton-signwriting/core" alt="version"></a>
 <a href="https://npm-stat.com/charts.html?package=@sutton-signwriting/core&#x26;from=2019-10-31"><img src="https://img.shields.io/npm/dm/@sutton-signwriting/core" alt="npm downloads"></a></p>
-<img alt="Core Package Mindmap" src="./Core.jpg" width="100%">
+<p><img src="./Core.jpg" alt="Core Package Mindmap"></p>
 <p>@sutton-signwriting/core is a javascript package for node and browsers that supports general processing of SignWriting text.</p>
 <p>This package supports both Formal SignWriting in ASCII (FSW) and SignWriting in Unicode (SWU) character sets, along with the associated query languages and style string.  See <a href="https://tools.ietf.org/id/draft-slevinski-formal-signwriting-09.html">draft-slevinski-formal-signwriting</a> for detailed specification.</p>
 <blockquote>
@@ -968,11 +978,11 @@ const fsw = require('@sutton-signwriting/core/fsw');
 <h4>Unpkg</h4>
 <pre><code>// import entire library
 // available as ssw.core
-&#x3C;script src="https://unpkg.com/@sutton-signwriting/core@1.5.0">&#x3C;/script>
+&#x3C;script src="https://unpkg.com/@sutton-signwriting/core@1.5.1">&#x3C;/script>
 
 // import individual module
 // available as ssw.fsw
-&#x3C;script src="https://unpkg.com/@sutton-signwriting/core@1.5.0/fsw/fsw.js">&#x3C;/script>
+&#x3C;script src="https://unpkg.com/@sutton-signwriting/core@1.5.1/fsw/fsw.js">&#x3C;/script>
 </code></pre>
 <h2>License</h2>
 <p>MIT</p>
@@ -1174,7 +1184,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
   <p>Function to parse an fsw symbol with optional coordinate and style string</p>
 
-    <div class='pre p1 fill-light mt0'>fsw.parse.symbol(fswSym: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+    <div class='pre p1 fill-light mt0'>fsw.parse.symbol(fswSym: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#symbolobject">SymbolObject</a></div>
   
   
 
@@ -1206,7 +1216,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#symbolobject">SymbolObject</a></code>:
         elements of fsw symbol
 
       
@@ -1221,7 +1231,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.parse.symbol(<span class="hljs-string">&#x27;S10000500x500-C&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-property">parse</span>.<span class="hljs-title function_">symbol</span>(<span class="hljs-string">&#x27;S10000500x500-C&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
  <span class="hljs-string">&#x27;symbol&#x27;</span>: <span class="hljs-string">&#x27;S10000&#x27;</span>,
@@ -1258,7 +1268,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
   <p>Function to parse an fsw sign with style string</p>
 
-    <div class='pre p1 fill-light mt0'>fsw.parse.sign(fswSign: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+    <div class='pre p1 fill-light mt0'>fsw.parse.sign(fswSign: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#signobject">SignObject</a></div>
   
   
 
@@ -1290,7 +1300,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#signobject">SignObject</a></code>:
         elements of fsw sign
 
       
@@ -1305,7 +1315,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.parse.sign(<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-property">parse</span>.<span class="hljs-title function_">sign</span>(<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-C&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
  <span class="hljs-attr">sequence</span>: [<span class="hljs-string">&#x27;S10011&#x27;</span>, <span class="hljs-string">&#x27;S10019&#x27;</span>, <span class="hljs-string">&#x27;S2e704&#x27;</span>, <span class="hljs-string">&#x27;S2e748&#x27;</span>],
@@ -1361,7 +1371,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
   <p>Function to parse an fsw text</p>
 
-    <div class='pre p1 fill-light mt0'>fsw.parse.text(fswText: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></div>
+    <div class='pre p1 fill-light mt0'>fsw.parse.text(fswText: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
   
   
 
@@ -1393,7 +1403,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>:
         fsw signs and punctuations
 
       
@@ -1408,7 +1418,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.parse.text(<span class="hljs-string">&#x27;AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-property">parse</span>.<span class="hljs-title function_">text</span>(<span class="hljs-string">&#x27;AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
  <span class="hljs-string">&#x27;AS14c20S27106M518x529S14c20481x471S27106503x489&#x27;</span>,
@@ -1445,7 +1455,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
   <p>Function to compose an fsw symbol with optional coordinate and style string</p>
 
-    <div class='pre p1 fill-light mt0'>fsw.compose.symbol(fswSymObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>fsw.compose.symbol(fswSymObject: <a href="#symbolobject">SymbolObject</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -1462,53 +1472,10 @@ const fsw = require('@sutton-signwriting/core/fsw');
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fswSymObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>fswSymObject</span> <code class='quiet'>(<a href="#symbolobject">SymbolObject</a>)</code>
 	    an fsw symbol object
 
           </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>fswSymObject.symbol</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-  </td>
-  <td class='break-word'><span>an fsw symbol key
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>fswSymObject.coord</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>></code>
-  </td>
-  <td class='break-word'><span>top-left coordinate of symbol
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>fswSymObject.style</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-  </td>
-  <td class='break-word'><span>a style string for custom appearance
-</span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
           
         </div>
       
@@ -1535,7 +1502,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.compose.symbol({
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-property">compose</span>.<span class="hljs-title function_">symbol</span>({
  <span class="hljs-string">&#x27;symbol&#x27;</span>: <span class="hljs-string">&#x27;S10000&#x27;</span>,
  <span class="hljs-string">&#x27;coord&#x27;</span>: [<span class="hljs-number">480</span>, <span class="hljs-number">480</span>],
  <span class="hljs-string">&#x27;style&#x27;</span>: <span class="hljs-string">&#x27;-C&#x27;</span>
@@ -1572,7 +1539,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
   <p>Function to compose an fsw sign with style string</p>
 
-    <div class='pre p1 fill-light mt0'>fsw.compose.sign(fswSymObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>fsw.compose.sign(fswSignObject: <a href="#signobject">SignObject</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -1589,8 +1556,8 @@ const fsw = require('@sutton-signwriting/core/fsw');
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fswSymObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    an fsw sign object
+            <span class='code bold'>fswSignObject</span> <code class='quiet'>(<a href="#signobject">SignObject</a>)</code>
+	    an fsw symbol object
 
           </div>
           
@@ -1619,7 +1586,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.compose.sign({
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-property">compose</span>.<span class="hljs-title function_">sign</span>({
  <span class="hljs-attr">sequence</span>: [<span class="hljs-string">&#x27;S10011&#x27;</span>, <span class="hljs-string">&#x27;S10019&#x27;</span>, <span class="hljs-string">&#x27;S2e704&#x27;</span>, <span class="hljs-string">&#x27;S2e748&#x27;</span>],
  <span class="hljs-attr">box</span>: <span class="hljs-string">&#x27;M&#x27;</span>,
  <span class="hljs-attr">max</span>: [<span class="hljs-number">525</span>, <span class="hljs-number">535</span>],
@@ -1722,7 +1689,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.info(<span class="hljs-string">&#x27;AS14c20S27106L518x529S14c20481x471S27106503x489-P10Z2&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-title function_">info</span>(<span class="hljs-string">&#x27;AS14c20S27106L518x529S14c20481x471S27106503x489-P10Z2&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
   <span class="hljs-attr">minX</span>: <span class="hljs-number">481</span>,
@@ -1811,7 +1778,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.columnDefaultsMerge({<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-title function_">columnDefaultsMerge</span>({<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
 
 <span class="hljs-keyword">return</span> {
   <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">500</span>,
@@ -1919,7 +1886,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.columns(<span class="hljs-string">&#x27;AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496&#x27;</span>, {<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-title function_">columns</span>(<span class="hljs-string">&#x27;AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496&#x27;</span>, {<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
 
 <span class="hljs-keyword">return</span> {
   <span class="hljs-string">&quot;options&quot;</span>: {
@@ -2023,7 +1990,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
     <p>
       Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>
     </p>
   
   
@@ -2078,7 +2045,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
     <p>
       Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>
     </p>
   
   
@@ -2133,7 +2100,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
     <p>
       Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>
     </p>
   
   
@@ -2296,7 +2263,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.isType(<span class="hljs-string">&#x27;S10000&#x27;</span>, <span class="hljs-string">&#x27;hand&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-title function_">isType</span>(<span class="hljs-string">&#x27;S10000&#x27;</span>, <span class="hljs-string">&#x27;hand&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span></pre>
     
@@ -2333,7 +2300,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
     <p>
       Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>
     </p>
   
   
@@ -2431,7 +2398,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fsw.colorize(<span class="hljs-string">&#x27;S10000&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fsw.<span class="hljs-title function_">colorize</span>(<span class="hljs-string">&#x27;S10000&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;#0000CC&#x27;</span></pre>
     
@@ -2514,13 +2481,12 @@ const fsw = require('@sutton-signwriting/core/fsw');
   
 
   <p>Object of regular expressions for FSW query strings</p>
-<p>{ base, coord, var, symbol, range, item, list, prefix, signbox, full }</p>
 
     <div class='pre p1 fill-light mt0'>fswquery.re</div>
   
     <p>
       Type:
-      <a href="#fswquery">FswQuery</a>
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
     </p>
   
   
@@ -2534,6 +2500,81 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>base</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : FSW symbol base with neither fill or rotation
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>coord</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : FSW coordinate of X and Y values separated by 'x'
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>var</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : variance string for searching sign box
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>symbol</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : FSW symbol key starting with 'S'
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>range</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : FSW range starting with 'R'
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>item</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : FSW symbol or range query string
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>list</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : several FSW symbols and FSW ranges as a logical OR for searching
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>prefix</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : a sequential list of FSW symbol keys starting with 'A'
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>signbox</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : several groups of FSW lists, each group having a coordinate
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>full</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : a query string to search prefix in order and the signbox with variance
+
+          
+        </div>
+      
+    </div>
   
 
   
@@ -2618,7 +2659,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.parse(<span class="hljs-string">&#x27;QAS10000S10500oS20500oR2fft304TS100uuR205t206oS207uu510x510V5-&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.<span class="hljs-title function_">parse</span>(<span class="hljs-string">&#x27;QAS10000S10500oS20500oR2fft304TS100uuR205t206oS207uu510x510V5-&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
   <span class="hljs-string">&quot;query&quot;</span>: <span class="hljs-literal">true</span>,
@@ -2688,7 +2729,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
 
   <p>Function to compose FSW query string from object</p>
 
-    <div class='pre p1 fill-light mt0'>fswquery.compose(fswQueryObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>fswquery.compose(fswQueryObject: <a href="#queryobject">QueryObject</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -2705,91 +2746,10 @@ const fsw = require('@sutton-signwriting/core/fsw');
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fswQueryObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    an object of style options
+            <span class='code bold'>fswQueryObject</span> <code class='quiet'>(<a href="#queryobject">QueryObject</a>)</code>
+	    an object of query options
 
           </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>fswQueryObject.query</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>required true for FSW query object
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>fswQueryObject.prefix</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
-  </td>
-  <td class='break-word'><span>an object for prefix elements
-</span></td>
-</tr>
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>fswQueryObject.prefix.required</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>true if sorting prefix is required
-</span></td>
-</tr>
-
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>fswQueryObject.prefix.parts</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)>)></code>
-  </td>
-  <td class='break-word'><span>array of symbol strings, range arrays, and OR arrays of strings and range arrays
-</span></td>
-</tr>
-
-
-  
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>fswQueryObject.signbox</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;({symbol: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {range: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {or: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>})></code>
-  </td>
-  <td class='break-word'><span>array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>fswQueryObject.variance</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>amount that x or y coordinates can vary and find a match, defaults to 20
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>fswQueryObject.style</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>boolean value for including style string in matches
-</span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
           
         </div>
       
@@ -2816,7 +2776,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.compose({
+      <pre class='p1 overflow-auto round fill-light'>fswquery.<span class="hljs-title function_">compose</span>({
  <span class="hljs-attr">query</span>: <span class="hljs-literal">true</span>,
  <span class="hljs-attr">prefix</span>: {
    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
@@ -2932,7 +2892,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.fsw2query(<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span>, <span class="hljs-string">&#x27;ASL&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.<span class="hljs-title function_">fsw2query</span>(<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span>, <span class="hljs-string">&#x27;ASL&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;QAS10011S10019S2e704S2e748TS2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span></pre>
     
@@ -3030,12 +2990,12 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.range(<span class="hljs-number">500</span>,<span class="hljs-number">750</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.<span class="hljs-title function_">range</span>(<span class="hljs-number">500</span>,<span class="hljs-number">750</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;(([56][0-9][0-9])|(7[0-4][0-9])|(750))&#x27;</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.range(<span class="hljs-string">&#x27;100&#x27;</span>,<span class="hljs-string">&#x27;10e&#x27;</span>,<span class="hljs-literal">true</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.<span class="hljs-title function_">range</span>(<span class="hljs-string">&#x27;100&#x27;</span>,<span class="hljs-string">&#x27;10e&#x27;</span>,<span class="hljs-literal">true</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;10[0-9a-e]&#x27;</span></pre>
     
@@ -3115,7 +3075,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.regex(<span class="hljs-string">&#x27;QS100uuS20500480x520&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.<span class="hljs-title function_">regex</span>(<span class="hljs-string">&#x27;QS100uuS20500480x520&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
   <span class="hljs-string">&#x27;(?:A(?:S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*S100[0-5][0-9a-f][0-9]{3}x[0-9]{3}(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*&#x27;</span>,
@@ -3207,7 +3167,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.results(<span class="hljs-string">&#x27;QAS10011T&#x27;</span>,<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 AS15a21S15a07S21100S2df04S2df14M521x538S15a07494x488S15a21498x489S2df04498x517S2df14497x461S21100479x486 AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>fswquery.<span class="hljs-title function_">results</span>(<span class="hljs-string">&#x27;QAS10011T&#x27;</span>,<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 AS15a21S15a07S21100S2df04S2df14M521x538S15a07494x488S15a21498x489S2df04498x517S2df14497x461S21100479x486 AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
   <span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span>
@@ -3298,7 +3258,7 @@ const fsw = require('@sutton-signwriting/core/fsw');
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>fswquery.lines(<span class="hljs-string">&#x27;QAS10011T&#x27;</span>,<span class="hljs-string">`AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 line one
+      <pre class='p1 overflow-auto round fill-light'>fswquery.<span class="hljs-title function_">lines</span>(<span class="hljs-string">&#x27;QAS10011T&#x27;</span>,<span class="hljs-string">`AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 line one
 AS15a21S15a07S21100S2df04S2df14M521x538S15a07494x488S15a21498x489S2df04498x517S2df14497x461S21100479x486 line two
 AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</span>)
 
@@ -3433,7 +3393,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.encode(<span class="hljs-string">&#x27;񀀁𝤆𝤆&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-title function_">encode</span>(<span class="hljs-string">&#x27;񀀁𝤆𝤆&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\\uD8C0\\uDC01\\uD836\\uDD06\\uD836\\uDD06&#x27;</span></pre>
     
@@ -3513,7 +3473,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.decode(<span class="hljs-string">&#x27;\\uD8C0\\uDC01\\uD836\\uDD06\\uD836\\uDD06&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-title function_">decode</span>(<span class="hljs-string">&#x27;\\uD8C0\\uDC01\\uD836\\uDD06\\uD836\\uDD06&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;񀀁𝤆𝤆&#x27;</span></pre>
     
@@ -3593,7 +3553,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.pair(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-title function_">pair</span>(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [<span class="hljs-string">&#x27;D8C0&#x27;</span>, <span class="hljs-string">&#x27;DC01&#x27;</span>]</pre>
     
@@ -3791,7 +3751,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.parse.symbol(<span class="hljs-string">&#x27;񀀁𝤆𝤆-C&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-property">parse</span>.<span class="hljs-title function_">symbol</span>(<span class="hljs-string">&#x27;񀀁𝤆𝤆-C&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
  <span class="hljs-string">&#x27;symbol&#x27;</span>: <span class="hljs-string">&#x27;񀀁&#x27;</span>,
@@ -3875,7 +3835,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.parse.sign(<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭-C&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-property">parse</span>.<span class="hljs-title function_">sign</span>(<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭-C&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
  <span class="hljs-attr">sequence</span>: [<span class="hljs-string">&#x27;񀀒&#x27;</span>,<span class="hljs-string">&#x27;񀀚&#x27;</span>,<span class="hljs-string">&#x27;񋚥&#x27;</span>,<span class="hljs-string">&#x27;񋛩&#x27;</span>],
@@ -3931,7 +3891,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
 
   <p>Function to parse an swu text</p>
 
-    <div class='pre p1 fill-light mt0'>swu.parse.text(swuText: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></div>
+    <div class='pre p1 fill-light mt0'>swu.parse.text(swuText: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
   
   
 
@@ -3963,7 +3923,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>:
         swu signs and punctuations
 
       
@@ -3978,7 +3938,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.parse.text(<span class="hljs-string">&#x27;𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻 𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦 񏌁𝣢𝤂&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-property">parse</span>.<span class="hljs-title function_">text</span>(<span class="hljs-string">&#x27;𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻 𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦 񏌁𝣢𝤂&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
  <span class="hljs-string">&#x27;𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻&#x27;</span>,
@@ -4105,7 +4065,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.compose.symbol({
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-property">compose</span>.<span class="hljs-title function_">symbol</span>({
  <span class="hljs-string">&#x27;symbol&#x27;</span>: <span class="hljs-string">&#x27;񀀁&#x27;</span>,
  <span class="hljs-string">&#x27;coord&#x27;</span>: [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>],
  <span class="hljs-string">&#x27;style&#x27;</span>: <span class="hljs-string">&#x27;-C&#x27;</span>
@@ -4250,7 +4210,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.compose.sign({
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-property">compose</span>.<span class="hljs-title function_">sign</span>({
  <span class="hljs-attr">sequence</span>: [<span class="hljs-string">&#x27;񀀒&#x27;</span>,<span class="hljs-string">&#x27;񀀚&#x27;</span>,<span class="hljs-string">&#x27;񋚥&#x27;</span>,<span class="hljs-string">&#x27;񋛩&#x27;</span>],
  <span class="hljs-attr">box</span>: <span class="hljs-string">&#x27;𝠃&#x27;</span>,
  <span class="hljs-attr">max</span>: [<span class="hljs-number">525</span>, <span class="hljs-number">535</span>],
@@ -4353,7 +4313,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.info(<span class="hljs-string">&#x27;𝠀񁲡񈩧𝠂𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻-P10Z2&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-title function_">info</span>(<span class="hljs-string">&#x27;𝠀񁲡񈩧𝠂𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻-P10Z2&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
   <span class="hljs-attr">minX</span>: <span class="hljs-number">481</span>,
@@ -4442,7 +4402,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.columnDefaultsMerge({<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-title function_">columnDefaultsMerge</span>({<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
 
 <span class="hljs-keyword">return</span> {
   <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">500</span>,
@@ -4550,7 +4510,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.columns(<span class="hljs-string">&#x27;𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻 𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦 񏌁𝣢𝤂&#x27;</span>, {<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-title function_">columns</span>(<span class="hljs-string">&#x27;𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻 𝠀񃊢񃊫񋛕񆇡𝠃𝤘𝤧񃊫𝣻𝤕񃊢𝣴𝣼񆇡𝤎𝤂񋛕𝤆𝣦 񏌁𝣢𝤂&#x27;</span>, {<span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<span class="hljs-attr">width</span>:<span class="hljs-number">150</span>})
 
 <span class="hljs-keyword">return</span> {
   <span class="hljs-string">&quot;options&quot;</span>: {
@@ -4927,7 +4887,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.isType(<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;hand&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-title function_">isType</span>(<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;hand&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span></pre>
     
@@ -5062,7 +5022,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swu.colorize(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swu.<span class="hljs-title function_">colorize</span>(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;#0000CC&#x27;</span></pre>
     
@@ -5145,7 +5105,6 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
 
   <p>Object of regular expressions for SWU query strings</p>
-<p>{ base, coord, var, symbol, range, item, list, prefix, signbox, full }</p>
 
     <div class='pre p1 fill-light mt0'>swuquery.re</div>
   
@@ -5165,6 +5124,81 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>base</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : SWU symbol
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>coord</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : SWU coordinate of X and Y number characters
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>var</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : variance string for searching sign box
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>symbol</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : SWU symbol character with ignore fill and rotation flags
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>range</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : SWU range starting with 'R'
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>item</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : SWU symbol or range query string
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>list</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : several SWU symbols and SWU ranges as a logical OR for searching
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>prefix</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : a sequential list of SWU symbol characters starting with SWU 'A' character
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>signbox</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : several groups of SWU lists, each group having a coordinate
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>full</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : a query string to search prefix in order and the signbox with variance
+
+          
+        </div>
+      
+    </div>
   
 
   
@@ -5202,7 +5236,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
 
   <p>Function to parse SWU query string to object</p>
 
-    <div class='pre p1 fill-light mt0'>swuquery.parse(swuQueryString: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+    <div class='pre p1 fill-light mt0'>swuquery.parse(swuQueryString: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#queryobject">QueryObject</a></div>
   
   
 
@@ -5234,7 +5268,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#queryobject">QueryObject</a></code>:
         elements of an SWU query string
 
       
@@ -5249,7 +5283,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.parse(<span class="hljs-string">&#x27;QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">parse</span>(<span class="hljs-string">&#x27;QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-&#x27;</span>)
 
 <span class="hljs-keyword">return</span> { 
   <span class="hljs-attr">query</span>: <span class="hljs-literal">true</span>,
@@ -5301,7 +5335,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
 
   <p>Function to compose SWU query string from object</p>
 
-    <div class='pre p1 fill-light mt0'>swuquery.compose(swuQueryObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>swuquery.compose(swuQueryObject: <a href="#queryobject">QueryObject</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -5318,91 +5352,10 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>swuQueryObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    an object of style options
+            <span class='code bold'>swuQueryObject</span> <code class='quiet'>(<a href="#queryobject">QueryObject</a>)</code>
+	    an object of query options
 
           </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>swuQueryObject.query</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>required true for SWU query object
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>swuQueryObject.prefix</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
-  </td>
-  <td class='break-word'><span>an object for prefix elements
-</span></td>
-</tr>
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>swuQueryObject.prefix.required</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>true if sorting prefix is required
-</span></td>
-</tr>
-
-
-  
-    <tr>
-  <td class='break-word'><span class='code bold'>swuQueryObject.prefix.parts</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)>)></code>
-  </td>
-  <td class='break-word'><span>array of symbol strings, range arrays, and OR arrays of strings and range arrays
-</span></td>
-</tr>
-
-
-  
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>swuQueryObject.signbox</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;({symbol: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {range: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>} | {or: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>})></code>
-  </td>
-  <td class='break-word'><span>array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>swuQueryObject.variance</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
-  </td>
-  <td class='break-word'><span>amount that x or y coordinates can vary and find a match, defaults to 20
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>swuQueryObject.style</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
-  </td>
-  <td class='break-word'><span>boolean value for including style string in matches
-</span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
           
         </div>
       
@@ -5429,7 +5382,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.compose({ 
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">compose</span>({ 
   <span class="hljs-attr">query</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">prefix</span>: {
     <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
@@ -5545,7 +5498,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.swu2query(<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span>, <span class="hljs-string">&#x27;ASL&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">swu2query</span>(<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span>, <span class="hljs-string">&#x27;ASL&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;QA񀀒񀀚񋚥񋛩T񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span></pre>
     
@@ -5634,12 +5587,12 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.range(<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;񀇡&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">range</span>(<span class="hljs-string">&#x27;񀀁&#x27;</span>, <span class="hljs-string">&#x27;񀇡&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD8C0[\uDC01-\uDDE1]&#x27;</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.range(<span class="hljs-string">&#x27;𝣔&#x27;</span>, <span class="hljs-string">&#x27;𝤸&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">range</span>(<span class="hljs-string">&#x27;𝣔&#x27;</span>, <span class="hljs-string">&#x27;𝤸&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD836[\uDCD4-\uDD38]&#x27;</span></pre>
     
@@ -5720,25 +5673,25 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     
       <p><p>Match an exact symbol</p>
 </p>
-      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">symbolRanges</span>(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD8C0\uDC01&#x27;</span>);</pre>
     
       <p><p>Match a symbol with any fill</p>
 </p>
-      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">&#x27;񀀁f&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">symbolRanges</span>(<span class="hljs-string">&#x27;񀀁f&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;(\uD8C0\uDC01|\uD8C0\uDC11|\uD8C0\uDC21|\uD8C0\uDC31|\uD8C0\uDC41|\uD8C0\uDC51)&#x27;</span></pre>
     
       <p><p>Match a symbol with any rotation</p>
 </p>
-      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">&#x27;񀀁r&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">symbolRanges</span>(<span class="hljs-string">&#x27;񀀁r&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD8C0[\uDC01-\uDC10]&#x27;</span></pre>
     
       <p><p>Match a symbol with any fill or rotation</p>
 </p>
-      <pre class='p1 overflow-auto round fill-light'>swuquery.symbolRanges(<span class="hljs-string">&#x27;񀀁fr&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">symbolRanges</span>(<span class="hljs-string">&#x27;񀀁fr&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;\uD8C0[\uDC01-\uDC60]&#x27;</span></pre>
     
@@ -5818,7 +5771,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.regex(<span class="hljs-string">&#x27;QA񀀒T&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">regex</span>(<span class="hljs-string">&#x27;QA񀀒T&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
   <span class="hljs-string">&#x27;(\uD836\uDC00\uD8C0\uDC12((?:(?:\uD8C0[\uDC01-\uDFFF])|(?:[\uD8C1-\uD8FC][\uDC00-\uDFFF])|(?:\uD8FD[\uDC00-\uDC80])))*)\uD836[\uDC01-\uDC04](?:\uD836[\uDC0C-\uDDFF]){2}((?:(?:\uD8C0[\uDC01-\uDFFF])|(?:[\uD8C1-\uD8FC][\uDC00-\uDFFF])|(?:\uD8FD[\uDC00-\uDC80]))(?:\uD836[\uDC0C-\uDDFF]){2})*&#x27;</span>
@@ -5909,7 +5862,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.results(<span class="hljs-string">&#x27;QA񀀒T&#x27;</span>,<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 𝠀񂇢񂇈񆙡񋎥񋎵𝠃𝤛𝤬񂇈𝤀𝣺񂇢𝤄𝣻񋎥𝤄𝤗񋎵𝤃𝣟񆙡𝣱𝣸 𝠀񅨑񀀙񆉁𝠃𝤙𝤞񀀙𝣷𝤀񅨑𝣼𝤀񆉁𝣳𝣮&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">results</span>(<span class="hljs-string">&#x27;QA񀀒T&#x27;</span>,<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 𝠀񂇢񂇈񆙡񋎥񋎵𝠃𝤛𝤬񂇈𝤀𝣺񂇢𝤄𝣻񋎥𝤄𝤗񋎵𝤃𝣟񆙡𝣱𝣸 𝠀񅨑񀀙񆉁𝠃𝤙𝤞񀀙𝣷𝤀񅨑𝣼𝤀񆉁𝣳𝣮&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [
   <span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span>
@@ -6000,7 +5953,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>swuquery.lines(<span class="hljs-string">&#x27;QA񀀒T&#x27;</span>,<span class="hljs-string">`𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 line one
+      <pre class='p1 overflow-auto round fill-light'>swuquery.<span class="hljs-title function_">lines</span>(<span class="hljs-string">&#x27;QA񀀒T&#x27;</span>,<span class="hljs-string">`𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭 line one
 𝠀񂇢񂇈񆙡񋎥񋎵𝠃𝤛𝤬񂇈𝤀𝣺񂇢𝤄𝣻񋎥𝤄𝤗񋎵𝤃𝣟񆙡𝣱𝣸 line two
 𝠀񅨑񀀙񆉁𝠃𝤙𝤞񀀙𝣷𝤀񅨑𝣼𝤀񆉁𝣳𝣮 line three`</span>)
 
@@ -6132,7 +6085,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>detail</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+          <span class='code bold'>detail</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</code>
           : array for css name or hex color for line and optional fill
 
           
@@ -6157,7 +6110,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
                   <p>symbol index in sign box</p>
 </li>
               
-                <li><code>detailsym.detail</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>
+                <li><code>detailsym.detail</code> <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>
                   
                   <p>array for css name or hex color for line and optional fill</p>
 </li>
@@ -6430,7 +6383,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>style.parse(<span class="hljs-string">&#x27;-CP10G_blue_D_red,Cyan_&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>style.<span class="hljs-title function_">parse</span>(<span class="hljs-string">&#x27;-CP10G_blue_D_red,Cyan_&#x27;</span>)
 
 <span class="hljs-keyword">return</span> {
  <span class="hljs-string">&#x27;colorize&#x27;</span>: <span class="hljs-literal">true</span>,
@@ -6515,7 +6468,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>style.compose({
+      <pre class='p1 overflow-auto round fill-light'>style.<span class="hljs-title function_">compose</span>({
  <span class="hljs-string">&#x27;colorize&#x27;</span>: <span class="hljs-literal">true</span>,
  <span class="hljs-string">&#x27;padding&#x27;</span>: <span class="hljs-number">10</span>,
  <span class="hljs-string">&#x27;background&#x27;</span>: <span class="hljs-string">&#x27;blue&#x27;</span>,
@@ -6664,7 +6617,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2mark(<span class="hljs-string">&#x27;𝠀&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">swu2mark</span>(<span class="hljs-string">&#x27;𝠀&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;A&#x27;</span></pre>
     
@@ -6744,7 +6697,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.mark2swu(<span class="hljs-string">&#x27;A&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">mark2swu</span>(<span class="hljs-string">&#x27;A&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;𝠀&#x27;</span></pre>
     
@@ -6824,7 +6777,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2num(<span class="hljs-string">&#x27;𝤆&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">swu2num</span>(<span class="hljs-string">&#x27;𝤆&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-number">500</span></pre>
     
@@ -6904,7 +6857,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.num2swu(<span class="hljs-number">500</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">num2swu</span>(<span class="hljs-number">500</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;𝤆&#x27;</span></pre>
     
@@ -6984,7 +6937,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2coord(<span class="hljs-string">&#x27;𝤆𝤆&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">swu2coord</span>(<span class="hljs-string">&#x27;𝤆𝤆&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>]</pre>
     
@@ -7064,7 +7017,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.coord2swu([<span class="hljs-number">500</span>, <span class="hljs-number">500</span>])
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">coord2swu</span>([<span class="hljs-number">500</span>, <span class="hljs-number">500</span>])
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;𝤆𝤆&#x27;</span></pre>
     
@@ -7144,7 +7097,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.fsw2coord(<span class="hljs-string">&#x27;500x500&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">fsw2coord</span>(<span class="hljs-string">&#x27;500x500&#x27;</span>)
 
 <span class="hljs-keyword">return</span> [<span class="hljs-number">500</span>, <span class="hljs-number">500</span>]</pre>
     
@@ -7224,7 +7177,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.coord2fsw([<span class="hljs-number">500</span>, <span class="hljs-number">500</span>])
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">coord2fsw</span>([<span class="hljs-number">500</span>, <span class="hljs-number">500</span>])
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;500x500&#x27;</span></pre>
     
@@ -7304,7 +7257,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2code(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">swu2code</span>(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-number">0x40001</span></pre>
     
@@ -7384,7 +7337,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.code2swu(<span class="hljs-number">0x40001</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">code2swu</span>(<span class="hljs-number">0x40001</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;񀀁&#x27;</span></pre>
     
@@ -7464,7 +7417,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2id(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">swu2id</span>(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-number">1</span></pre>
     
@@ -7544,7 +7497,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.id2swu(<span class="hljs-number">1</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">id2swu</span>(<span class="hljs-number">1</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;񀀁&#x27;</span></pre>
     
@@ -7624,7 +7577,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.key2id(<span class="hljs-string">&#x27;S10000&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">key2id</span>(<span class="hljs-string">&#x27;S10000&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-number">1</span></pre>
     
@@ -7704,7 +7657,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.id2key(<span class="hljs-number">1</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">id2key</span>(<span class="hljs-number">1</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;S10000&#x27;</span></pre>
     
@@ -7784,7 +7737,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2key(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">swu2key</span>(<span class="hljs-string">&#x27;񀀁&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;S10000&#x27;</span></pre>
     
@@ -7864,7 +7817,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.key2swu(<span class="hljs-string">&#x27;S10000&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">key2swu</span>(<span class="hljs-string">&#x27;S10000&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;񀀁&#x27;</span></pre>
     
@@ -7944,7 +7897,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.swu2fsw(<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">swu2fsw</span>(<span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span></pre>
     
@@ -8024,7 +7977,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>convert.fsw2swu(<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span>)
+      <pre class='p1 overflow-auto round fill-light'>convert.<span class="hljs-title function_">fsw2swu</span>(<span class="hljs-string">&#x27;AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475&#x27;</span>)
 
 <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭&#x27;</span></pre>
     
@@ -8081,7 +8034,7 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
       
         <div class='space-bottom0'>
           <span class='code bold'>query</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
-          : required true for FSW query object
+          : required true for query object
 
           
         </div>
@@ -8487,17 +8440,17 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='fswquery'>
-      FswQuery
+    <h3 class='fl m0' id='symbolobject'>
+      SymbolObject
     </h3>
     
     
   </div>
   
 
-  <p>Object of query elements with regular expression identification.</p>
+  <p>The elements of a symbol string</p>
 
-    <div class='pre p1 fill-light mt0'>FswQuery</div>
+    <div class='pre p1 fill-light mt0'>SymbolObject</div>
   
     <p>
       Type:
@@ -8520,71 +8473,117 @@ AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 line three`</
     <div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>base</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : FSW symbol base with neither fill or rotation
-
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>coord</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : FSW coordinate of X and Y values separated by 'x'
-
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <span class='code bold'>var</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : variance string for searching sign box
-
-          
-        </div>
-      
-        <div class='space-bottom0'>
           <span class='code bold'>symbol</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : FSW symbol key starting with 'S'
+          : symbol identifier
 
           
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>range</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : FSW range starting with 'R'
+          <span class='code bold'>coord</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+          : x,y coordinate
 
           
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>item</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : FSW symbol or range query string
+          <span class='code bold'>style</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : style string
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='signobject'>
+      SignObject
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>The elements of a sign string</p>
+
+    <div class='pre p1 fill-light mt0'>SignObject</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>sequence</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</code>
+          : array of symbols
 
           
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>list</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : several FSW symbols and FSW ranges as a logical OR for searching
+          <span class='code bold'>box</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : signbox marker or lane
 
           
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>prefix</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : a sequential list of FSW symbol keys starting with 'A'
+          <span class='code bold'>max</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+          : preprocessed x,y coordinate
 
           
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>signbox</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : several groups of FSW lists, each group having a coordinate
+          <span class='code bold'>spatials</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;{symbol: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, coord: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>}>)</code>
+          : array of symbols with coordinates
 
           
         </div>
       
         <div class='space-bottom0'>
-          <span class='code bold'>full</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-          : a query string to search prefix in order and the signbox with variance
+          <span class='code bold'>style</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : style string
 
           
         </div>

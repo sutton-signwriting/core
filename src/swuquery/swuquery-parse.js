@@ -61,7 +61,7 @@ const parseSignbox = (text) => {
  * Function to parse SWU query string to object
  * @function swuquery.parse
  * @param {string} swuQueryString - an SWU query string
- * @returns {object} elements of an SWU query string
+ * @returns {QueryObject} elements of an SWU query string
  * @example
  * swuquery.parse('QA񀀁R񀀁񆆑񆇡T񆀁R񀀁񀇱𝤆𝤆V5-')
  * 

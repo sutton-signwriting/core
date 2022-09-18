@@ -86,3 +86,5 @@ toc:
   - ColumnOptions
   - ColumnData
   - ColumnSegment
+  - SymbolObject
+  - SignObject

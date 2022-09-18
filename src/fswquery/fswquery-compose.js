@@ -4,14 +4,7 @@ import { re } from './fswquery-re';
 /**
  * Function to compose FSW query string from object
  * @function fswquery.compose
- * @param {object} fswQueryObject - an object of style options
- * @param {boolean} fswQueryObject.query - required true for FSW query object
- * @param {object} fswQueryObject.prefix - an object for prefix elements
- * @param {boolean} fswQueryObject.prefix.required - true if sorting prefix is required
- * @param {(string|string[]|(string|string[])[])[]} fswQueryObject.prefix.parts - array of symbol strings, range arrays, and OR arrays of strings and range arrays
- * @param {({symbol:string,coord:number[]}|{range:string[],coord:number[]}|{or:(string|string[])[],coord:number[]})[]} fswQueryObject.signbox - array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates
- * @param {number} fswQueryObject.variance - amount that x or y coordinates can vary and find a match, defaults to 20
- * @param {boolean} fswQueryObject.style - boolean value for including style string in matches
+ * @param {QueryObject} fswQueryObject - an object of query options
  * @returns {string} FSW query string 
  * @example 
  * fswquery.compose({

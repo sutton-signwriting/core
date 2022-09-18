@@ -5,14 +5,7 @@ import { coord2swu } from '../convert';
 /**
  * Function to compose SWU query string from object
  * @function swuquery.compose
- * @param {object} swuQueryObject - an object of style options
- * @param {boolean} swuQueryObject.query - required true for SWU query object
- * @param {object} swuQueryObject.prefix - an object for prefix elements
- * @param {boolean} swuQueryObject.prefix.required - true if sorting prefix is required
- * @param {(string|string[]|(string|string[])[])[]} swuQueryObject.prefix.parts - array of symbol strings, range arrays, and OR arrays of strings and range arrays
- * @param {({symbol:string,coord:number[]}|{range:string[],coord:number[]}|{or:(string|string[])[],coord:number[]})[]} swuQueryObject.signbox - array of objects for symbols, ranges, and list of symbols or ranges, with optional coordinates
- * @param {number} swuQueryObject.variance - amount that x or y coordinates can vary and find a match, defaults to 20
- * @param {boolean} swuQueryObject.style - boolean value for including style string in matches
+ * @param {QueryObject} swuQueryObject - an object of query options
  * @returns {string} SWU query string 
  * @example 
  * swuquery.compose({ 

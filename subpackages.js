@@ -1,12 +1,9 @@
 
 const fs = require('fs');
 
-// fs.copyFile(`src/index.d.ts`, `core.d.ts`, (err) => {
-//   if (err) throw err;
-// })
-
 var package = JSON.parse(fs.readFileSync('package.json'));
 
+console.log("write subpackages");
 ['style', 'fsw', 'fswquery', 'swu', 'swuquery', 'convert'].map(section => {
   fs.writeFile(`${section}/package.json`, JSON.stringify({
     name: `${package.name}/${section}`,
@@ -30,7 +27,4 @@ var package = JSON.parse(fs.readFileSync('package.json'));
       console.log(err)
     }
   });
-//  fs.copyFile(`src/${section}/index.d.ts`, `${section}/${section}.d.ts`, (err) => {
-//    if (err) throw err;
-//  })
 })

@@ -5,7 +5,7 @@ import { parse } from './fsw-parse';
 /**
  * Array of colors associated with the seven symbol categories.
  * @alias fsw.colors
- * @type {array}
+ * @type {string[]}
  */
 const colors = ['#0000CC', '#CC0000', '#FF0099', '#006600', '#000000', '#884411', '#FF9900'];
 

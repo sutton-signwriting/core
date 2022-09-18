@@ -7,10 +7,7 @@ const compose = {
   /**
    * Function to compose an fsw symbol with optional coordinate and style string
    * @function fsw.compose.symbol
-   * @param {object} fswSymObject - an fsw symbol object
-   * @param {string} fswSymObject.symbol - an fsw symbol key
-   * @param {number[]} fswSymObject.coord - top-left coordinate of symbol
-   * @param {string} fswSymObject.style - a style string for custom appearance
+   * @param {SymbolObject} fswSymObject - an fsw symbol object
    * @returns {string} an fsw symbol string
    * @example
    * fsw.compose.symbol({
@@ -38,12 +35,7 @@ const compose = {
   /**
    * Function to compose an fsw sign with style string
    * @function fsw.compose.sign
-   * @param {object} fswSymObject - an fsw sign object
-   * @param {string[]} fswSignObject.sequence - an ordered array of symbols
-   * @param {string} fswSignObject.box - a choice BLMR: horizontal Box, Left, Middle, and Right lane
-   * @param {number[]} fswSignObject.max - max bottom-right coordinate of the signbox space
-   * @param {{symbol:string,coord:number[]}[]} fswSignObject.spatials - array of symbols with top-left coordinate placement
-   * @param {string} fswSignObject.style - a style string for custom appearance
+   * @param {SignObject} fswSignObject - an fsw symbol object
    * @returns {string} an fsw sign string
    * @example
    * fsw.compose.sign({
