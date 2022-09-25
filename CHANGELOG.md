@@ -11,6 +11,10 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 - update parse for style string that drops empty style of '-'
 - clean up generated regular expressions for consistency
 
+## [1.5.3] - 2022-09-25
+### Fixed
+- README.md links
+
 ## [1.5.2] - 2022-09-25
 ### Fixed
 - typescript definition script
@@ -100,7 +104,8 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.5.2...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.5.3...HEAD
+[1.5.3]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.3
 [1.5.2]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.2
 [1.5.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.1
 [1.5.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.0
