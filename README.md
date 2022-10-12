@@ -74,11 +74,11 @@ The distribution is available in three flavors.  26 KB for the whole library min
 #### Unpkg
     // import entire library
     // available as ssw.core
-    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.3"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.4"></script>
 
     // import individual module
     // available as ssw.fsw
-    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.3/fsw/fsw.js"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.4/fsw/fsw.js"></script>
 
 ## License
 MIT

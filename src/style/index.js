@@ -7,5 +7,7 @@
 import { re } from './style-re';
 import { parse } from './style-parse';
 import { compose } from './style-compose';
+import { merge } from './style-merge';
+import { rgb2hex, rgba2hex } from './style-rgb';
 
-export { re, parse, compose }
+export { re, parse, compose, merge, rgb2hex, rgba2hex }

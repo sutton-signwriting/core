@@ -63,6 +63,9 @@ toc:
   - style.re
   - style.parse
   - style.compose
+  - style.merge
+  - style.rgb2hex
+  - style.rgba2hex
   - convert
   - convert.swu2mark
   - convert.mark2swu
@@ -83,6 +86,9 @@ toc:
   - convert.swu2fsw
   - convert.fsw2swu
   - QueryObject
+  - QuerySignboxSymbol
+  - QuerySignboxRange
+  - QuerySignboxOr
   - ColumnOptions
   - ColumnData
   - ColumnSegment

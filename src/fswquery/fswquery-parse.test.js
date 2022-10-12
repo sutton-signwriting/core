@@ -126,9 +126,45 @@ it('should parse full example', () => {
   })
 })
 
-
 it('should parse complex example', () => {
   expect(parse('QAS10000S10500oS20500oR2fft304TS100uuR205t206oS207uu510x510V5')).toEqual({
+    "prefix": {
+      "parts": [
+        "S10000",
+        [
+          "or",
+          "S10500",
+          "S20500",
+          [
+            "2ff",
+            "304",
+          ],
+        ],
+      ],
+      "required": true,
+    },
+    "query": true,
+    "signbox": [
+      {
+        "coord": undefined,
+        "symbol": "S100uu",
+      },
+      {
+        "coord": [
+          510,
+          510,
+        ],
+        "or": [
+          [
+            "205",
+            "206",
+          ],
+          "S207uu",
+        ],
+      },
+    ],
+    "style": undefined,
+    "variance": 5
   })
 })
 

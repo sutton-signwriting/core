@@ -10,6 +10,15 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 ### Todo
 - update parse for style string that drops empty style of '-'
 - clean up generated regular expressions for consistency
+- copy QuerySignbox types for QueryPrefix
+
+## [1.5.4] - 2022-10-12
+### Added
+- additional style functions for merge and rgb
+
+### Fixed
+- type definitions for optional properties
+- swu.parse.symbol, swu.compose return type
 
 ## [1.5.3] - 2022-09-25
 ### Fixed
@@ -24,7 +33,6 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 
 ### Removed
 - types and exports from package.json
-
 
 ## [1.5.1] - 2022-09-18
 ### Added
@@ -104,7 +112,8 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.5.3...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.5.4...HEAD
+[1.5.4]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.4
 [1.5.3]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.3
 [1.5.2]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.2
 [1.5.1]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.1

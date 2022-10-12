@@ -5,7 +5,7 @@ import { parse as parseStyle } from '../style/style-parse';
  * Function to gather sizing information about an swu sign or symbol
  * @function swu.info
  * @param {string} swu - an swu sign or symbol
- * @returns {object} information about the swu string
+ * @returns {SegmentInfo} information about the swu string
  * @example
  * swu.info('𝠀񁲡񈩧𝠂𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻-P10Z2')
  * 
@@ -14,9 +14,9 @@ import { parse as parseStyle } from '../style/style-parse';
  *   minY: 471,
  *   width: 37,
  *   height: 58,
- *   segment: 'sign',
- *   lane: -1
+ *   lane: -1,
  *   padding: 10,
+ *   segment: 'sign',
  *   zoom: 2
  * }
  */

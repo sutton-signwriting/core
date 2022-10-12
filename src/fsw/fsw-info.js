@@ -5,7 +5,7 @@ import { parse as parseStyle } from '../style/style-parse';
  * Function to gather sizing information about an fsw sign or symbol
  * @function fsw.info
  * @param {string} fsw - an fsw sign or symbol
- * @returns {object} information about the fsw string
+ * @returns {SegmentInfo} information about the fsw string
  * @example
  * fsw.info('AS14c20S27106L518x529S14c20481x471S27106503x489-P10Z2')
  * 
@@ -14,10 +14,10 @@ import { parse as parseStyle } from '../style/style-parse';
  *   minY: 471,
  *   width: 37,
  *   height: 58,
- *   zoom: 2,
+ *   lane: -1,
  *   padding: 10,
  *   segment: 'sign',
- *   lane: -1
+ *   zoom: 2
  * }
  */
   const info = (fsw) => {

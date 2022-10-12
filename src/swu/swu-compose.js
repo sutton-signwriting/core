@@ -7,10 +7,7 @@ const compose = {
   /**
    * Function to compose an swu symbol with optional coordinate and style string
    * @function swu.compose.symbol
-   * @param {object} swuSymObject - an swu symbol object
-   * @param {string} swuSymObject.symbol - an swu symbol key
-   * @param {number[]} swuSymObject.coord - top-left coordinate of symbol with 500,500 center
-   * @param {string} swuSymObject.style - a style string for custom appearance
+   * @param {SymbolObject} swuSymObject - an swu symbol object
    * @returns {string} an swu symbol string
    * @example
    * swu.compose.symbol({
@@ -39,12 +36,7 @@ const compose = {
   /**
    * Function to compose an swu sign with style string
    * @function swu.compose.sign
-   * @param {object} swuSignObject - an swu sign object
-   * @param {string[]} swuSignObject.sequence - an ordered array of symbols
-   * @param {string} swuSignObject.box - a choice of signbox marker: horizontal Box, Left, Middle, and Right lane
-   * @param {number[]} swuSignObject.max - max bottom-right coordinate of the signbox space
-   * @param {{symbol:string,coord:number[]}[]} swuSignObject.spatials - array of symbols with top-left coordinate placement
-   * @param {string} swuSignObject.style - a style string for custom appearance
+   * @param {SignObject} swuSignObject - an swu sign object
    * @returns {string} an swu sign string
    * @example
    * swu.compose.sign({
