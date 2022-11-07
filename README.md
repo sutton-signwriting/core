@@ -13,7 +13,7 @@ This package supports both Formal SignWriting in ASCII (FSW) and SignWriting in 
 > Author: https://SteveSlevinski.me  
 > Channel: https://www.youtube.com/channel/UCXu4AXlG0rXFtk_5SzumDow  
 > Support: https://www.patreon.com/signwriting  
-> Donate: https://paypal.me/signwriting
+> Donate: https://donate.sutton-signwriting.io
 
 ## Useful links
 
@@ -74,11 +74,11 @@ The distribution is available in three flavors.  26 KB for the whole library min
 #### Unpkg
     // import entire library
     // available as ssw.core
-    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.4"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.5"></script>
 
     // import individual module
     // available as ssw.fsw
-    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.4/fsw/fsw.js"></script>
+    <script src="https://unpkg.com/@sutton-signwriting/core@1.5.5/fsw/fsw.js"></script>
 
 ## License
 MIT

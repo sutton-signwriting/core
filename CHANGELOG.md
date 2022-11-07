@@ -12,6 +12,10 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 - clean up generated regular expressions for consistency
 - copy QuerySignbox types for QueryPrefix
 
+## [1.5.5] - 2022-11-07
+### Changed
+- donate link
+
 ## [1.5.4] - 2022-10-12
 ### Added
 - additional style functions for merge and rgb
