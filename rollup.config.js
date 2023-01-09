@@ -10,7 +10,7 @@ const banner = (name) => '/**' +
   '\n* Author: Steve Slevinski  (https://SteveSlevinski.me)' +
   '\n* ' + name + ' is released under the MIT License.' +
   '\n*/\n';
-const footer = '\n/* support ongoing development on https://patreon.com/signwriting */';
+const footer = '\n/* support ongoing development */\n/*   https://patreon.com/signwriting */\n/*   https://donate.sutton-signwriting.io */';
 const bannerMin = () => '/* Sutton SignWriting Core Module v' + version + ' (https://github.com/sutton-signwriting/core)' +
   ', author: Steve Slevinski (https://SteveSlevinski.me), license: MIT */';
 const footerMin = '/* the end */';

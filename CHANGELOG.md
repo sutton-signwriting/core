@@ -12,7 +12,12 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 - clean up generated regular expressions for consistency
 - copy QuerySignbox types for QueryPrefix
 
+## [1.5.6] - 2023-01-09
+### Fixed
+- security issue
+
 ## [1.5.5] - 2022-11-07
+
 ### Changed
 - donate link
 
