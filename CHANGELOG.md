@@ -12,6 +12,13 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 - clean up generated regular expressions for consistency
 - copy QuerySignbox types for QueryPrefix
 
+## [1.5.7] - 2023-03-13
+### Fixed
+- swuquery for ranges
+
+### Added
+- swuquery range tests
+
 ## [1.5.6] - 2023-01-09
 ### Fixed
 - security issue
@@ -121,7 +128,10 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.5.4...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.5.7...HEAD
+[1.5.7]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.7
+[1.5.6]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.6
+[1.5.5]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.5
 [1.5.4]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.4
 [1.5.3]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.3
 [1.5.2]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.2

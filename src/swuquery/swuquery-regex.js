@@ -7,8 +7,8 @@ import { symbolRanges } from './swuquery-symbol-ranges';
 import { swu2coord, num2swu, swu2key, key2swu } from '../convert';
 
 const regexRange = (symRange) => {
-  from = swu2key(symRange.slice(1, 3));
-  to = swu2key(symRange.slice(-2));
+  let from = swu2key(symRange.slice(1, 3));
+  let to = swu2key(symRange.slice(-2));
   from = key2swu(from.slice(0, 4) + '00');
   to = key2swu(to.slice(0, 4) + '5f');
   return range(from, to);
@@ -93,14 +93,14 @@ const regex = (query) => {
       if (matches) {
         for (i = 0; i < matches.length; i += 1) {
           orList = [];
-          matchesOr = matches[i].match(new RegExp('(' + re.symbol + '|' + re.range + ')', 'g'));
+          matchesOr = matches[i].match(new RegExp('(' + re.range + '|' + re.symbol + ')', 'g'));
           if (matchesOr) {
             for (j = 0; j < matchesOr.length; j += 1) {
-              matched = matchesOr[j].match(new RegExp(re.symbol));
+              matched = matchesOr[j].match(new RegExp(re.range));
               if (matched) {
-                orList.push(symbolRanges(matched[0]));
-              } else {
                 orList.push(regexRange(matchesOr[j]));
+              } else {
+                orList.push(symbolRanges(matchesOr[j]));
               }
             }
             if (orList.length==1){
@@ -126,14 +126,14 @@ const regex = (query) => {
   if (matches) {
     for (i = 0; i < matches.length; i += 1) {
       orList = [];
-      matchesOr = matches[i].match(new RegExp('(' + re.symbol + '|' + re.range + ')', 'g'));
+      matchesOr = matches[i].match(new RegExp('(' + re.range + '|' + re.symbol + ')', 'g'));
       if (matchesOr) {
         for (j = 0; j < matchesOr.length; j += 1) {
-          matched = matchesOr[j].match(new RegExp(re.symbol));
+          matched = matchesOr[j].match(new RegExp(re.range));
           if (matched) {
-            orList.push(symbolRanges(matched[0]));
-          } else {
             orList.push(regexRange(matchesOr[j]));
+          } else {
+            orList.push(symbolRanges(matchesOr[j]));
           }
         }
         if (orList.length==1){

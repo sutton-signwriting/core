@@ -8,3 +8,4 @@ node_modules
 /style
 /convert
 *.d.ts
+test.html
