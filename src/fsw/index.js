@@ -1,5 +1,5 @@
 
-/** The fsw module contains functions for handling Formal SignWriitng in ASCII (FSW) characters.
+/** The fsw module contains functions for handling Formal SignWriting in ASCII (FSW) characters.
  * [FSW characters definition](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-09.html#name-formal-signwriting-in-ascii)
  * @module fsw
  */
