@@ -13,10 +13,13 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 - copy QuerySignbox types for QueryPrefix
 - investigate why types: core.d.ts in package.json causes problems and how to fix
 
+## [1.5.9] - 2023-10-01
+### Fixed
+- total download count
+
 ## [1.5.8] - 2023-10-01
 ### Fixed
 - security issue
-
 
 ## [1.5.7] - 2023-03-13
 ### Fixed
@@ -134,7 +137,9 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.5.7...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.5.9...HEAD
+[1.5.9]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.9
+[1.5.8]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.8
 [1.5.7]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.7
 [1.5.6]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.6
 [1.5.5]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.5
