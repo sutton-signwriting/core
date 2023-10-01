@@ -11,6 +11,12 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 - update parse for style string that drops empty style of '-'
 - clean up generated regular expressions for consistency
 - copy QuerySignbox types for QueryPrefix
+- investigate why types: core.d.ts in package.json causes problems and how to fix
+
+## [1.5.8] - 2023-10-01
+### Fixed
+- security issue
+
 
 ## [1.5.7] - 2023-03-13
 ### Fixed
