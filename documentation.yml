@@ -85,6 +85,11 @@ toc:
   - convert.key2swu
   - convert.swu2fsw
   - convert.fsw2swu
+  - convert.symidArr
+  - convert.symidMax
+  - convert.symidMin
+  - convert.symid2key
+  - convert.key2symid
   - QueryObject
   - QuerySignboxSymbol
   - QuerySignboxRange

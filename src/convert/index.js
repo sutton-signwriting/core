@@ -6,6 +6,7 @@
 
 import { re as reFsw } from '../fsw/fsw-re';
 import { re as reSwu } from '../swu/swu-re';
+import { symidArr } from './symidArr';
 
 /**
  * Function to convert an SWU structural marker to FSW equivalent
@@ -282,4 +283,119 @@ const fsw2swu = (fswText) => {
   return fswText;
 }
 
-export { swu2mark, mark2swu, swu2num, num2swu, swu2coord, coord2swu, fsw2coord, coord2fsw, swu2code, code2swu, swu2id, id2swu, key2id, id2key, swu2key, key2swu, swu2fsw, fsw2swu }
+/**
+ * Function to convert base or full symid Min to symid Max
+ * @function convert.symidMax
+ * @param {string} symidMin - Symbol ID minimized
+ * @returns {string} Symbol ID maximized
+ * @example
+ * convert.symidMax('101011')
+ * 
+ * return '01-01-001-01'
+ * @example
+ * convert.symidMax('101011616')
+ * 
+ * return '01-01-001-01-06-16'
+ */
+const symidMax = (symidMin) => {
+  if (!/^\d{6}(?:\d{3})?$/.test(symidMin)) {
+    return '';
+  }
+  let max = `0${symidMin.charAt(0)}-${symidMin.charAt(1)}${symidMin.charAt(2)}-0${symidMin.charAt(3)}${symidMin.charAt(4)}-0${symidMin.charAt(5)}`;
+  if (symidMin.length>6) {
+    max += `-0${symidMin.charAt(6)}-${symidMin.charAt(7)}${symidMin.charAt(8)}`
+  }
+  return max;
+}
+
+/**
+ * Function to convert base or full symid Max to symid Min
+ * @function convert.symidMin
+ * @param {string} symidMax - Symbol ID maximized
+ * @returns {string} Symbol ID minimized
+ * @example
+ * convert.symidMin('01-01-001-01')
+ * 
+ * return '101011'
+ * @example
+ * convert.symidMin('01-01-001-01-06-16')
+ * 
+ * return '101011616'
+ */
+const symidMin = (symidMax) => {
+  const matches = symidMax.match(/^0(\d)-(\d{2})-0(\d{2})-0(\d)(?:-0(\d)-(\d{2}))?$/);
+  if (!matches) {
+      return '';
+  }
+  if (matches[5]) {
+    return matches[1] + matches[2] + matches[3] + matches[4] + matches[5] + matches[6];
+  } else {
+    return matches[1] + matches[2] + matches[3] + matches[4];
+  }
+};
+
+/**
+ * Function to convert base or full symid to key
+ * @function convert.symid2key
+ * @param {string} symid - Symbol ID
+ * @returns {string} Symbol key
+ * @example
+ * convert.symid2key('01-01-001-01')
+ * 
+ * return 'S100'
+ * @example
+ * convert.symid2key('01-01-001-01-06-16')
+ * 
+ * return 'S1005f'
+ */
+const symid2key = (symid) => {
+  const matches = symid.match(/^0(\d)-(\d{2})-0(\d{2})-0(\d)(?:-0(\d)-(\d{2}))?$/);
+  if (!matches) {
+      return '';
+  }
+  const symidMin = matches[1] + matches[2] + matches[3] + matches[4];
+  const i = symidArr.indexOf(symidMin);
+  if (i === -1) {
+    return '';
+  }
+
+  if (matches[5]) {
+    return 'S' + (256+i).toString(16) + (parseInt(matches[5],10)-1) + (parseInt(matches[6],10) -1).toString(16);
+  } else {
+    return 'S' + (256+i).toString(16);
+  }
+
+};
+
+/**
+ * Function to convert base or full key to symid
+ * @function convert.key2symid
+ * @param {string} key - Symbol key
+ * @returns {string} Symbol ID
+ * @example
+ * convert.key2symid('S100')
+ * 
+ * return '01-01-001-01'
+ * @example
+ * convert.key2symid('S1005f')
+ * 
+ * return '01-01-001-01-06-16'
+ */
+const key2symid = (key) => {
+  const matches = key.match(/^S([1-3][0-9a-f]{2})(?:([0-5])([0-9a-f]))?$/);
+  if (!matches) {
+      return '';
+  }
+  const i = parseInt(matches[1],16) - 256;
+  if (i >= symidArr.length){
+    return '';
+  }
+
+  if (matches[3]){
+    return symidMax(symidArr[i]) + '-0' + (1 + parseInt(matches[2])) + '-' + (parseInt(matches[3],16)+1).toString().padStart(2,'0');
+  } else {
+    return symidMax(symidArr[i]);
+  }
+}
+
+export { swu2mark, mark2swu, swu2num, num2swu, swu2coord, coord2swu, fsw2coord, coord2fsw, swu2code, code2swu, swu2id, id2swu, key2id, id2key, swu2key, key2swu, swu2fsw, fsw2swu, symidArr, symidMax, symidMin, symid2key, key2symid }
