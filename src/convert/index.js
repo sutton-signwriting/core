@@ -167,7 +167,10 @@ const id2swu = (id) => code2swu(id + 0x40000);
  * 
  * return 1
  */
-const key2id = (key) => 1 + ((parseInt(key.slice(1, 4), 16) - 256) * 96) + ((parseInt(key.slice(4, 5), 16)) * 16) + parseInt(key.slice(5, 6), 16);
+const key2id = (key) =>
+  key === "S00000"
+    ? 0
+    : 1 + ((parseInt(key.slice(1, 4), 16) - 256) * 96) + ((parseInt(key.slice(4, 5), 16)) * 16) + parseInt(key.slice(5, 6), 16);
 
 /**
  * Function to convert a 16-bit ID to an FSW symbol key
@@ -180,6 +183,9 @@ const key2id = (key) => 1 + ((parseInt(key.slice(1, 4), 16) - 256) * 96) + ((par
  * return 'S10000'
  */
 const id2key = (id) => {
+  if (id === 0) {
+    return "S00000";
+  }
   const symcode = id - 1;
   const base = parseInt(symcode / 96);
   const fill = parseInt((symcode - (base * 96)) / 16);
@@ -198,6 +204,9 @@ const id2key = (id) => {
  * return 'S10000'
  */
 const swu2key = (swuSym) => {
+  if (swuSym === "񀀀") {
+    return "S00000";
+  }
   const symcode = swu2code(swuSym) - 0x40001;
   const base = parseInt(symcode / 96);
   const fill = parseInt((symcode - (base * 96)) / 16);
@@ -215,7 +224,17 @@ const swu2key = (swuSym) => {
  * 
  * return '񀀁'
  */
-const key2swu = (key) => code2swu(0x40001 + ((parseInt(key.slice(1, 4), 16) - 256) * 96) + ((parseInt(key.slice(4, 5), 16)) * 16) + parseInt(key.slice(5, 6), 16));
+const key2swu = (key) => {
+  if (key === "S00000") {
+    return code2swu(0x40000);
+  }
+  return code2swu(
+    0x40001 +
+    ((parseInt(key.slice(1, 4), 16) - 256) * 96) +
+    (parseInt(key.slice(4, 5), 16) * 16) +
+    parseInt(key.slice(5, 6), 16)
+  );
+};
 
 /**
  * Function to convert SWU text to FSW text
@@ -230,7 +249,7 @@ const key2swu = (key) => code2swu(0x40001 + ((parseInt(key.slice(1, 4), 16) - 25
 const swu2fsw = (swuText) => {
   if (!swuText) return '';
   let fsw = swuText.replace(/𝠀/g, "A").replace(/𝠁/g, "B").replace(/𝠂/g, "L").replace(/𝠃/g, "M").replace(/𝠄/g, "R");
-  const syms = fsw.match(new RegExp(reSwu.symbol, 'g'));
+  const syms = fsw.match(new RegExp(reSwu.nullorsymbol, 'g'));
   if (syms) {
     syms.forEach(function (sym) {
       fsw = fsw.replace(sym, swu2key(sym));

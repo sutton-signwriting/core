@@ -39,32 +39,17 @@ const regex = (query) => {
   let orList;
   let i;
   let j;
-  let swu_pattern;
-  let part;
-  let from;
-  let to;
   let coord;
-  let re_range;
   let segment;
   let x;
   let y;
-  let base;
-  let fill;
-  let rotate;
   let fuzz = 20;
 
-  let re_sym = reSWU.symbol;
-  let re_coord = reSWU.coord;
-  let re_signbox = reSWU.box;
-  let re_seq = reSWU.sort;
-  let re_word = re_signbox + re_coord + '(' + re_sym + re_coord + ')*';
-  let re_sortable = '(' + re_seq + '(' + re_sym + ')+)';
+  let re_word = reSWU.box + reSWU.coord + '(?:' + reSWU.symbol + reSWU.coord + ')*';
+  let re_sortable = '(?:' + reSWU.sort + reSWU.nullorsymbol + '+)';
 
-  let q_range = 'R' + re_sym + re_sym;
-  let q_sym = re_sym + 'f?r?';
-  let q_coord = '(' + re_coord + ')?';
-  let q_var = '(V[0-9]+)';
-  let q_style = '(' + reStyle.full + ')?';
+  let q_var = '(?:V[0-9]+)';
+  let q_style = '(?:' + reStyle.full + ')?';
   let q_sortable;
 
   if (query == 'Q') {
@@ -80,20 +65,19 @@ const regex = (query) => {
     return [reSWU.sortable + "(" + reStyle.full + ")?"];
   }
   let segments = [];
-  let sym, key;
   let sortable = query.indexOf('T') + 1;
   if (sortable) {
-    q_sortable = '(' + reSWU.sort;
+    q_sortable = '(?:' + reSWU.sort;
     let qat = query.slice(0, sortable);
     query = query.replace(qat, '');
     if (qat == 'QT') {
-      q_sortable += '(' + re_sym + ')+)';
+      q_sortable += reSWU.nullorsymbol + '+)';
     } else {
-      matches = qat.match(new RegExp('(' + re.list + ')', 'g'));
+      matches = qat.match(new RegExp(re.list, 'g'));
       if (matches) {
         for (i = 0; i < matches.length; i += 1) {
           orList = [];
-          matchesOr = matches[i].match(new RegExp('(' + re.range + '|' + re.symbol + ')', 'g'));
+          matchesOr = matches[i].match(new RegExp(re.item, 'g'));
           if (matchesOr) {
             for (j = 0; j < matchesOr.length; j += 1) {
               matched = matchesOr[j].match(new RegExp(re.range));
@@ -106,11 +90,11 @@ const regex = (query) => {
             if (orList.length==1){
               q_sortable += orList[0];
             } else {
-              q_sortable += '(' + orList.join('|') + ')';
+              q_sortable += '(?:' + orList.join('|') + ')';
             }
           }
         }
-        q_sortable += '(' + reSWU.symbol + ')*)';
+        q_sortable += reSWU.nullorsymbol + '*)';
       }
     }
   }
@@ -139,7 +123,7 @@ const regex = (query) => {
         if (orList.length==1){
           segment = orList[0];
         } else {
-          segment = '(' + orList.join('|') + ')';
+          segment = '(?:' + orList.join('|') + ')';
         }
       }
 
@@ -155,7 +139,7 @@ const regex = (query) => {
       }
 
       // add to general swu word
-      segment = re_word + segment + '(' + re_sym + re_coord + ')*';
+      segment = re_word + segment + '(?:' + reSWU.symbol + reSWU.coord + ')*';
       if (sortable) {
         segment = q_sortable + segment;
       } else {

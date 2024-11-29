@@ -93,6 +93,36 @@ it('should compose a prefixed signbox', () => {
   })).toEqual('AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475')
 })
 
+it('should compose a prefixed signbox with SignWriting Null in prefix', () => {
+  expect(compose.sign({
+    sequence: ['S10011', 'S00000', 'S2e704', 'S2e748'],
+    box: 'M',
+    max: [525, 535],
+    spatials: [
+      {
+        symbol: 'S2e748',
+        coord: [483, 510]
+      },
+
+      {
+        symbol: 'S10011',
+        coord: [501, 466]
+      },
+
+      {
+        symbol: 'S2e704',
+        coord: [510, 500]
+      },
+
+      {
+        symbol: 'S10019',
+        coord: [476, 475]
+      }
+    ]
+  })).toEqual('AS10011S00000S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475')
+})
+
+
 it('should compose a prefixed signbox with style', () => {
   expect(compose.sign({
     sequence: ['S10011', 'S10019', 'S2e704', 'S2e748'],

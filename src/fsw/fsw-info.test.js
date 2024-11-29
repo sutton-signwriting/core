@@ -33,6 +33,16 @@ it('should return an object of information about a sign', () => {
     segment: 'sign',
     lane: 1
   });
+  expect(info("AS14c20S00000S27106R518x529S14c20481x471S27106503x489-P10Z0.2")).toEqual({
+    minX: 481,
+    minY: 471,
+    width: 37,
+    height: 58,
+    zoom: .2,
+    padding: 10,
+    segment: 'sign',
+    lane: 1
+  });
 })
 
 it('should return an object of information about a punctuation', () => {

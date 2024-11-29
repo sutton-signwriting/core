@@ -9,9 +9,16 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 ## [Unreleased]
 ### Todo
 - update parse for style string that drops empty style of '-'
-- clean up generated regular expressions for consistency
 - copy QuerySignbox types for QueryPrefix
 - investigate why types: core.d.ts in package.json causes problems and how to fix
+
+## [2.0.0] - 2024-11-29
+### Added
+- SignWriting null support with FSW and SWU for regular expressions, processing, and conversion
+- Tokenizer and encoding for machine learning 
+
+### Fixed
+- security issues
 
 ## [1.6.0] - 2023-10-29
 ### Added
@@ -149,7 +156,8 @@ correct module and function names
 - documentation
 
 
-[Unreleased]: https://github.com/sutton-signwriting/core/compare/v1.6.0...HEAD
+[Unreleased]: https://github.com/sutton-signwriting/core/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/sutton-signwriting/core/releases/tag/v2.0.0
 [1.6.0]: https://github.com/sutton-signwriting/core/releases/tag/v1.6.0
 [1.5.11]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.11
 [1.5.10]: https://github.com/sutton-signwriting/core/releases/tag/v1.5.10

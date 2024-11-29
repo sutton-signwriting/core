@@ -76,7 +76,7 @@ const compose = {
 
     let prefix = '';
     if (fswSignObject.sequence && Array.isArray(fswSignObject.sequence)) {
-      prefix = fswSignObject.sequence.map(key => (key.match(re.symbol) || [''])[0]).join('')
+      prefix = fswSignObject.sequence.map(key => (key.match(re.nullorsymbol) || [''])[0]).join('');
       prefix = prefix ? 'A' + prefix : ''
     }
 

@@ -18,6 +18,11 @@ toc:
   - fsw.isType
   - fsw.colors
   - fsw.colorize
+  - fsw.tokenize
+  - fsw.detokenize
+  - fsw.createTokenizer
+  - TokenizerObject
+  - fsw.chunkTokens
   - fswquery
   - QueryObject
   - fswquery.re
@@ -99,3 +104,4 @@ toc:
   - ColumnSegment
   - SymbolObject
   - SignObject
+  - SegmentInfo

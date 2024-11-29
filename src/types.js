@@ -107,3 +107,15 @@
  * @property {{symbol: string, coord: number[]}[]} [spatials] - array of symbols with coordinates
  * @property {string} [style] - style string
  */
+
+/**
+ * @typedef {Object} TokenizerObject
+ * @property {Object} i2s - Index to string mapping
+ * @property {Object} s2i - String to index mapping
+ * @property {number} length - Total number of tokens
+ * @property {Function} vocab - Returns array of all tokens
+ * @property {Function} encode - Encodes a string of SignWriting to token indices
+ * @property {Function} decode - Decodes token indices to a string of SignWriting
+ * @property {Function} encodeTokens - Encodes an array of token strings to token indices
+ * @property {Function} decodeTokens - Decodes an array of token indices to token strings
+ */

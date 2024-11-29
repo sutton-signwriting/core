@@ -78,7 +78,7 @@ const compose = {
 
     let prefix = '';
     if (swuSignObject.sequence && Array.isArray(swuSignObject.sequence)) {
-      prefix = swuSignObject.sequence.map(key => (key.match(re.symbol) || [''])[0]).join('')
+      prefix = swuSignObject.sequence.map(key => (key.match(re.nullorsymbol) || [''])[0]).join('')
       prefix = prefix ? '𝠀' + prefix : ''
     }
 

@@ -37,6 +37,16 @@ it('should compose prefix queries', () => {
       required: true,
       parts: [
         'S10000',
+        'S00000'
+      ]
+    }
+  })).toBe('QAS10000S00000T');
+  expect(compose({
+    query: true,
+    prefix: {
+      required: true,
+      parts: [
+        'S10000',
         [
           'or',
           ['100', '204'],

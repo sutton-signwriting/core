@@ -4,11 +4,28 @@
 [![version](https://img.shields.io/npm/v/@sutton-signwriting/core)](https://www.npmjs.com/package/@sutton-signwriting/core)
 [![npm downloads](https://img.shields.io/npm/dm/@sutton-signwriting/core)](https://npm-stat.com/charts.html?package=@sutton-signwriting/core&from=2019-10-31)
 
+
 ![Core Package Mindmap](./Core.jpg)
 
 @sutton-signwriting/core is a javascript package for node and browsers that supports general processing of SignWriting text.
 
 This package supports both Formal SignWriting in ASCII (FSW) and SignWriting in Unicode (SWU) character sets, along with the associated query languages and style string.  See [draft-slevinski-formal-signwriting](https://tools.ietf.org/id/draft-slevinski-formal-signwriting-09.html) for detailed specification.
+
+Version 2 of the core library adds support for the SignWriting Null character as S00000 in Formal SignWriting in ASCII (FSW) and U+40000 in SignWriting in Unicode (SWU).  The SignWriting Null character is allowed in the temporal prefix used for sorting, but the SignWriting Null character is not allowed in the two-dimensional arrangement of symbols.  The fonts do not provide a glyph for the SignWriting Null character yet.  You can use Ø, alt-0216, U+00D8 as a visualization of the SignWriting Null character.
+
+Version 2 of the core library also provides a tokenizer for FSW to be used for machine learning researchers & developers. The default tokenizer follows patterns similar to those used in NLP with special tokens ([CLS], [SEP], [PAD], [UNK]).  It enables converting SignWriting into numerical representations suitable for machine learning models.
+
+Use Cases:
+- Sign language recognition systems
+- Sign language generation
+- Sign language translation models
+
+Key Features:
+- Flexible tokenization options (sequence/signbox flags)
+- Bidirectional conversion (FSW ↔ tokens)
+- Handles complex features (symbols, coordinates, and structures)
+- Well-documented code
+- Modular design allows for different use cases
 
 > Author: https://SteveSlevinski.me  
 > Channel: https://www.youtube.com/channel/UCXu4AXlG0rXFtk_5SzumDow  

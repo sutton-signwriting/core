@@ -9,6 +9,7 @@ it('should return the right color for a symbol key', () => {
   expect(colorize('S36d00')).toBe("#000000");
   expect(colorize('S37f00')).toBe("#884411");
   expect(colorize('S38b00')).toBe("#FF9900");
+  expect(colorize('S00000')).toBe("#000000");
 })
 
 it('should not break colorize on bad input', () => {

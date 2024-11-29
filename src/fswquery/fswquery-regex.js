@@ -53,17 +53,12 @@ const regex = (query) => {
   var orList;
   var i;
   var j;
-  var fsw_pattern;
-  var part;
-  var from;
-  var to;
-  var re_range;
   var segment;
   var coord;
   var x;
   var y;
   var fuzz = 20;
-  var q_style = '(' + reStyle.full + ')?';
+  var q_style = '(?:' + reStyle.full + ')?';
   var q_sortable;
 
   if (query == 'Q') {
@@ -81,20 +76,20 @@ const regex = (query) => {
   var segments = [];
   var sortable = query.indexOf('T') + 1;
   if (sortable) {
-    q_sortable = '(A';
+    q_sortable = '(?:A';
     var qat = query.slice(0, sortable);
     query = query.replace(qat, '');
     if (qat == 'QT') {
-      q_sortable += '(' + reFSW.symbol + ')+)';
+      q_sortable += reFSW.nullorsymbol + '+)';
     } else {
-      matches = qat.match(new RegExp('(' + re.list + ')', 'g'));
+      matches = qat.match(new RegExp(re.list, 'g'));
       if (matches) {
         for (i = 0; i < matches.length; i += 1) {
           orList = [];
-          matchesOr = matches[i].match(new RegExp('(' + re.symbol + '|' + re.range + ')', 'g'));
+          matchesOr = matches[i].match(new RegExp(re.item, 'g'));
           if (matchesOr) {
             for (j = 0; j < matchesOr.length; j += 1) {
-              matched = matchesOr[j].match(new RegExp(re.symbol));
+              matched = matchesOr[j].match(new RegExp(re.nullorsymbol));
               if (matched) {
                 orList.push(regexSymbol(matched[0]));
               } else {
@@ -104,11 +99,11 @@ const regex = (query) => {
             if (orList.length==1){
               q_sortable += orList[0];
             } else {
-              q_sortable += '(' + orList.join('|') + ')';
+              q_sortable += '(?:' + orList.join('|') + ')';
             }
           }
         }
-        q_sortable += '(' + reFSW.symbol + ')*)';
+        q_sortable += reFSW.nullorsymbol + '*)';
       }
     }
   }
@@ -135,7 +130,7 @@ const regex = (query) => {
         if (orList.length==1){
           segment = orList[0];
         } else {
-          segment = '(' + orList.join('|') + ')';
+          segment = '(?:' + orList.join('|') + ')';
         }
       }
       if (matches[i].includes('x')) {
@@ -150,7 +145,7 @@ const regex = (query) => {
       }
 
       // add to general fsw word
-      segment = reFSW.signbox + segment + '(' + reFSW.symbol + reFSW.coord + ')*';
+      segment = reFSW.signbox + segment + '(?:' + reFSW.symbol + reFSW.coord + ')*';
       if (sortable) {
         segment = q_sortable + segment;
       } else {

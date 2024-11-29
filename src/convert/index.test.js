@@ -29,32 +29,64 @@ it('should convert swu symbol to code point', () => {
   expect(swu2code('񀀁')).toBe(0x40001);
 })
 
+it('should convert swu null symbol to code point', () => {
+  expect(swu2code('񀀀')).toBe(0x40000);
+})
+
 it('should convert code point to swu symbol', () => {
   expect(code2swu(0x40001)).toBe('񀀁');
+})
+
+it('should convert code point to swu null symbol', () => {
+  expect(code2swu(0x40000)).toBe('񀀀');
 })
 
 it('should convert swu symbol to 16-bit id', () => {
   expect(swu2id('񀀁')).toBe(1);
 })
 
+it('should convert swu null symbol to 16-bit id', () => {
+  expect(swu2id('񀀀')).toBe(0);
+})
+
 it('should convert 16-bit id to swu symbol', () => {
   expect(id2swu(1)).toBe('񀀁');
+})
+
+it('should convert 16-bit id to swu null symbol', () => {
+  expect(id2swu(0)).toBe('񀀀');
 })
 
 it('should convert fsw symbol key to 16-bit id', () => {
   expect(key2id('S10000')).toBe(1);
 })
 
+it('should convert fsw null symbol key to 16-bit id', () => {
+  expect(key2id('S00000')).toBe(0);
+})
+
 it('should convert 16-bit id to fsw symbol key', () => {
   expect(id2key(1)).toBe('S10000');
+})
+
+it('should convert 16-bit id to fsw null symbol key', () => {
+  expect(id2key(0)).toBe('S00000');
 })
 
 it('should convert swu symbol to fsw key', () => {
   expect(swu2key('񀀁')).toBe('S10000');
 })
 
+it('should convert swu null symbol to fsw key', () => {
+  expect(swu2key('񀀀')).toBe('S00000');
+})
+
 it('should convert fsw key to swu symbol', () => {
   expect(key2swu('S10000')).toBe('񀀁');
+})
+
+it('should convert fsw null symbol key to swu symbol', () => {
+  expect(key2swu('S00000')).toBe('񀀀');
 })
 
 it('should convert an swu string into an fsw string', () => {
@@ -62,9 +94,17 @@ it('should convert an swu string into an fsw string', () => {
   expect(swu2fsw('𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭')).toBe('AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475');
 })
 
+it('should convert an swu string with null symbol into an fsw string', () => {
+  expect(swu2fsw('𝠀񀀒񀀀񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭')).toBe('AS10011S00000S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475');
+})
+
 it('should convert an fsw string into an swu string', () => {
   expect(fsw2swu('S10000500x500')).toBe('񀀁𝤆𝤆');
   expect(fsw2swu('AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475')).toBe('𝠀񀀒񀀚񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭');
+})
+
+it('should convert an fsw string with null symbol into an swu string', () => {
+  expect(fsw2swu('AS10011S00000S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475')).toBe('𝠀񀀒񀀀񋚥񋛩𝠃𝤟𝤩񋛩𝣵𝤐񀀒𝤇𝣤񋚥𝤐𝤆񀀚𝣮𝣭');
 })
 
 it('should not corrupt styling string and other text', () => {
