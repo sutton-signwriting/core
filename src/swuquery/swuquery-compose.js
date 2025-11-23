@@ -89,6 +89,10 @@ const compose = (swuQueryObject) => {
     }).join('')
   }
 
+  if (swuQueryObject.variance) {
+    query += "V" + swuQueryObject.variance;
+  }
+
   query += swuQueryObject.style ? '-' : '';
 
   query = query.match(new RegExp(`^${re.full}`))[0];

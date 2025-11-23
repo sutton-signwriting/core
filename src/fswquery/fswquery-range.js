@@ -1,5 +1,3 @@
-
-//needs rewritten, but it works
 /**
  * Function to transform a range to a regular expression
  * @function fswquery.range
@@ -17,417 +15,124 @@
  * return '10[0-9a-e]'
  */
 const range = (min, max, hex) => {
-  let pattern;
-  let re;
-  let diff;
-  let tmax;
-  let cnt;
-  let minV;
-  let maxV;
-  if (!hex) {
-    hex = '';
-  }
-  min = ("000" + min).slice(-3);
-  max = '' + max;
-  pattern = '';
+  const isHex = hex || false;
+  
+  // Convert to strings and pad to 3 digits
+  if (typeof min === 'number') min = min.toString().padStart(3, '0');
+  else min = ("000" + min).slice(-3);
+  
+  if (typeof max === 'number') max = max.toString().padStart(3, '0');
+  else max = '' + max;
 
-  if (min === max) { return min; }
+  // Split into individual digits
+  const a = min[0], b = min[1], c = min[2];
+  const d = max[0], e = max[1], f = max[2];
 
-  //ending pattern will be series of connected OR ranges
-  re = [];
+  // Define digit sequence based on mode
+  const digitSeq = isHex ? '0123456789abcdef' : '0123456789';
+  const aIndex = digitSeq.indexOf(a);
+  const dIndex = digitSeq.indexOf(d);
+  if (aIndex > dIndex) throw new Error('Start is greater than end');
 
-  //first pattern+  10's don't match and the min 1's are not zero
-  //odd number to 9
-  if (!(min[0] == max[0] && min[1] == max[1])) {
-    if (min[2] != '0') {
-      pattern = min[0] + min[1];
-      if (hex) {
-        //switch for dex
-        switch (min[2]) {
-          case "f":
-            pattern += 'f';
-            break;
-          case "e":
-            pattern += '[ef]';
-            break;
-          case "d":
-          case "c":
-          case "b":
-          case "a":
-            pattern += '[' + min[2] + '-f]';
-            break;
-          default:
-            switch (min[2]) {
-              case "9":
-                pattern += '[9a-f]';
-                break;
-              case "8":
-                pattern += '[89a-f]';
-                break;
-              default:
-                pattern += '[' + min[2] + '-9a-f]';
-                break;
-            }
-            break;
-        }
-        diff = 15 - parseInt(min[2], 16) + 1;
-        min = '' + ((parseInt(min, 16) + diff)).toString(16);
-        re.push(pattern);
-      } else {
-        //switch for dex
-        switch (min[2]) {
-          case "9":
-            pattern += '9';
-            break;
-          case "8":
-            pattern += '[89]';
-            break;
-          default:
-            pattern += '[' + min[2] + '-9]';
-            break;
-        }
-        diff = 9 - min[2] + 1;
-        min = '' + (min * 1 + diff);
-        re.push(pattern);
-      }
-    }
-  }
-  pattern = '';
-
-  //if hundreds are different, get odd to 99 or ff
-  if (min[0] != max[0]) {
-    if (min[1] != '0') {
-      if (hex) {
-        //scrape to ff
-        pattern = min[0];
-        switch (min[1]) {
-          case "f":
-            pattern += 'f';
-            break;
-          case "e":
-            pattern += '[ef]';
-            break;
-          case "d":
-          case "c":
-          case "b":
-          case "a":
-            pattern += '[' + min[1] + '-f]';
-            break;
-          case "9":
-            pattern += '[9a-f]';
-            break;
-          case "8":
-            pattern += '[89a-f]';
-            break;
-          default:
-            pattern += '[' + min[1] + '-9a-f]';
-            break;
-        }
-        pattern += '[0-9a-f]';
-        diff = 15 - parseInt(min[1], 16) + 1;
-        min = '' + (parseInt(min, 16) + diff * 16).toString(16);
-        re.push(pattern);
-      } else {
-        //scrape to 99
-        pattern = min[0];
-        diff = 9 - min[1] + 1;
-        switch (min[1]) {
-          case "9":
-            pattern += '9';
-            break;
-          case "8":
-            pattern += '[89]';
-            break;
-          default:
-            pattern += '[' + min[1] + '-9]';
-            break;
-        }
-        pattern += '[0-9]';
-        diff = 9 - min[1] + 1;
-        min = '' + (min * 1 + diff * 10);
-        re.push(pattern);
-      }
-    }
-  }
-  pattern = '';
-
-  //if hundreds are different, get to same
-  if (min[0] != max[0]) {
-    if (hex) {
-      diff = parseInt(max[0], 16) - parseInt(min[0], 16);
-      tmax = (parseInt(min[0], 16) + diff - 1).toString(16);
-
-      switch (diff) {
-        case 1:
-          pattern = min[0];
-          break;
-        case 2:
-          pattern = '[' + min[0] + tmax + ']';
-          break;
-        default:
-          if (parseInt(min[0], 16) > 9) {
-            minV = 'h';
-          } else {
-            minV = 'd';
-          }
-          if (parseInt(tmax, 16) > 9) {
-            maxV = 'h';
-          } else {
-            maxV = 'd';
-          }
-          switch (minV + maxV) {
-            case "dd":
-              pattern += '[' + min[0] + '-' + tmax + ']';
-              break;
-            case "dh":
-              diff = 9 - min[0];
-              //firs get up to 9
-              switch (diff) {
-                case 0:
-                  pattern += '[9';
-                  break;
-                case 1:
-                  pattern += '[89';
-                  break;
-                default:
-                  pattern += '[' + min[0] + '-9';
-                  break;
-              }
-              switch (tmax[0]) {
-                case 'a':
-                  pattern += 'a]';
-                  break;
-                case 'b':
-                  pattern += 'ab]';
-                  break;
-                default:
-                  pattern += 'a-' + tmax + ']';
-                  break;
-              }
-              break;
-            case "hh":
-              pattern += '[' + min[0] + '-' + tmax + ']';
-              break;
-          }
-      }
-
-      pattern += '[0-9a-f][0-9a-f]';
-      diff = parseInt(max[0], 16) - parseInt(min[0], 16);
-      min = '' + (parseInt(min, 16) + diff * 256).toString(16);
-      re.push(pattern);
-    } else {
-      diff = max[0] - min[0];
-      tmax = min[0] * 1 + diff - 1;
-
-      switch (diff) {
-        case 1:
-          pattern = min[0];
-          break;
-        case 2:
-          pattern = '[' + min[0] + tmax + ']';
-          break;
-        default:
-          pattern = '[' + min[0] + '-' + tmax + ']';
-          break;
-      }
-      pattern += '[0-9][0-9]';
-      min = '' + (min * 1 + diff * 100);
-      re.push(pattern);
-    }
-  }
-  pattern = '';
-
-  //if tens are different, get to same
-  if (min[1] != max[1]) {
-    if (hex) {
-      diff = parseInt(max[1], 16) - parseInt(min[1], 16);
-      tmax = (parseInt(min[1], 16) + diff - 1).toString(16);
-      pattern = min[0];
-      switch (diff) {
-        case 1:
-          pattern += min[1];
-          break;
-        case 2:
-          pattern += '[' + min[1] + tmax + ']';
-          break;
-        default:
-
-          if (parseInt(min[1], 16) > 9) {
-            minV = 'h';
-          } else {
-            minV = 'd';
-          }
-          if (parseInt(tmax, 16) > 9) {
-            maxV = 'h';
-          } else {
-            maxV = 'd';
-          }
-          switch (minV + maxV) {
-            case "dd":
-              pattern += '[' + min[1];
-              if (diff > 1) {
-                pattern += '-';
-              }
-              pattern += tmax + ']';
-              break;
-            case "dh":
-              diff = 9 - min[1];
-              //firs get up to 9
-              switch (diff) {
-                case 0:
-                  pattern += '[9';
-                  break;
-                case 1:
-                  pattern += '[89';
-                  break;
-                default:
-                  pattern += '[' + min[1] + '-9';
-                  break;
-              }
-              switch (max[1]) {
-                case 'a':
-                  pattern += ']';
-                  break;
-                case 'b':
-                  pattern += 'a]';
-                  break;
-                default:
-                  pattern += 'a-' + (parseInt(max[1], 16) - 1).toString(16) + ']';
-                  break;
-              }
-              break;
-            case "hh":
-              pattern += '[' + min[1];
-              if (diff > 1) {
-                pattern += '-';
-              }
-              pattern += (parseInt(max[1], 16) - 1).toString(16) + ']';
-              break;
-          }
-          break;
-      }
-      pattern += '[0-9a-f]';
-      diff = parseInt(max[1], 16) - parseInt(min[1], 16);
-      min = '' + (parseInt(min, 16) + diff * 16).toString(16);
-      re.push(pattern);
-    } else {
-      diff = max[1] - min[1];
-      tmax = min[1] * 1 + diff - 1;
-      pattern = min[0];
-      switch (diff) {
-        case 1:
-          pattern += min[1];
-          break;
-        case 2:
-          pattern += '[' + min[1] + tmax + ']';
-          break;
-        default:
-          pattern += '[' + min[1] + '-' + tmax + ']';
-          break;
-      }
-      pattern += '[0-9]';
-      min = '' + (min * 1 + diff * 10);
-      re.push(pattern);
-    }
-  }
-  pattern = '';
-
-  //if digits are different, get to same
-  if (min[2] != max[2]) {
-    if (hex) {
-      pattern = min[0] + min[1];
-      diff = parseInt(max[2], 16) - parseInt(min[2], 16);
-      if (parseInt(min[2], 16) > 9) {
-        minV = 'h';
-      } else {
-        minV = 'd';
-      }
-      if (parseInt(max[2], 16) > 9) {
-        maxV = 'h';
-      } else {
-        maxV = 'd';
-      }
-      switch (minV + maxV) {
-        case "dd":
-          pattern += '[' + min[2];
-          if (diff > 1) {
-            pattern += '-';
-          }
-          pattern += max[2] + ']';
-          break;
-        case "dh":
-          diff = 9 - min[2];
-          //firs get up to 9
-          switch (diff) {
-            case 0:
-              pattern += '[9';
-              break;
-            case 1:
-              pattern += '[89';
-              break;
-            default:
-              pattern += '[' + min[2] + '-9';
-              break;
-          }
-          switch (max[2]) {
-            case 'a':
-              pattern += 'a]';
-              break;
-            case 'b':
-              pattern += 'ab]';
-              break;
-            default:
-              pattern += 'a-' + max[2] + ']';
-              break;
-          }
-
-          break;
-        case "hh":
-          pattern += '[' + min[2];
-          if (diff > 1) {
-            pattern += '-';
-          }
-          pattern += max[2] + ']';
-          break;
-      }
-      diff = parseInt(max[2], 16) - parseInt(min[2], 16);
-      min = '' + (parseInt(min, 16) + diff).toString(16);
-      re.push(pattern);
-    } else {
-      diff = max[2] - min[2];
-      pattern = min[0] + min[1];
-      switch (diff) {
-        case 0:
-          pattern += min[2];
-          break;
-        case 1:
-          pattern += '[' + min[2] + max[2] + ']';
-          break;
-        default:
-          pattern += '[' + min[2] + '-' + max[2] + ']';
-          break;
-      }
-      min = '' + (min * 1 + diff);
-      re.push(pattern);
-    }
-  }
-  pattern = '';
-
-  //last place is whole hundred
-  if (min[2] == '0' && max[2] == '0') {
-    pattern = max;
-    re.push(pattern);
-  }
-  pattern = '';
-
-  cnt = re.length;
-  if (cnt == 1) {
-    pattern = re[0];
+  // If first digits are the same, match between the last two digits
+  if (a === d) {
+      const betweenPattern = regexBetweenTwoDigits(b + c, e + f, isHex);
+      return betweenPattern.includes('|') ? `${a}(?:${betweenPattern})` : `${a}${betweenPattern}`;
   } else {
-    pattern = re.join(')|(');
-    pattern = '((' + pattern + '))';
+      const parts = [];
+      // Start: first digit 'a', last two digits >= bc
+      const geqPattern = regexGeq(b, c, isHex);
+      parts.push(geqPattern.includes('|') ? `${a}(?:${geqPattern})` : `${a}${geqPattern}`);
+
+      // Middle: first digits between a and d, any two digits
+      if (aIndex + 1 < dIndex) {
+          const middleDigits = digitSeq.slice(aIndex + 1, dIndex);
+          const middlePattern = rangePattern(middleDigits[0], middleDigits[middleDigits.length - 1], isHex);
+          const digitClass = isHex ? '[0-9a-f]' : '[0-9]';
+          parts.push(middlePattern + digitClass + digitClass);
+      }
+
+      // End: first digit 'd', last two digits <= ef
+      const leqPattern = regexLeq(e, f, isHex);
+      parts.push(leqPattern.includes('|') ? `${d}(?:${leqPattern})` : `${d}${leqPattern}`);
+
+      return `(?:${parts.join('|')})`;
   }
-  return pattern;
+};
+
+function rangePattern(low, high, isHex) {
+  if (low === high) return low;
+  if (!isHex) return `[${low}-${high}]`; // Decimal: simple range
+  // Hex: handle ranges like '3' to 'b'
+  const hexDigits = '0123456789abcdef';
+  const lowIndex = hexDigits.indexOf(low);
+  const highIndex = hexDigits.indexOf(high);
+  const range = hexDigits.slice(lowIndex, highIndex + 1);
+  // If range crosses '9' to 'a', split into numeric and alpha parts
+  if (range.includes('9') && range.includes('a')) {
+      const numeric = range.match(/[0-9]+/)[0];
+      const alpha = range.match(/[a-f]+/)[0];
+      return `[${numeric[0]}-${numeric.slice(-1)}${alpha[0]}-${alpha.slice(-1)}]`;
+  } else {
+      return `[${range[0]}-${range.slice(-1)}]`;
+  }
 }
 
-export { range }
+function regexGeq(p, q, isHex) {
+  const digitSeq = isHex ? '0123456789abcdef' : '0123456789';
+  const lastDigit = digitSeq[digitSeq.length - 1];
+  const pIndex = digitSeq.indexOf(p);
+  if (q === digitSeq[0]) {
+      // e.g., >= '00' or '0d': p to last digit, any second digit
+      return rangePattern(p, lastDigit, isHex) + (isHex ? '[0-9a-f]' : '[0-9]');
+  } else {
+      // e.g., >= '0d': '0'[d-f] | [1-f][0-9a-f]
+      const qRange = rangePattern(q, lastDigit, isHex);
+      const nextP = pIndex + 1 < digitSeq.length ? digitSeq[pIndex + 1] : null;
+      if (nextP) {
+          const nextRange = rangePattern(nextP, lastDigit, isHex);
+          return p + qRange + '|' + nextRange + (isHex ? '[0-9a-f]' : '[0-9]');
+      } else {
+          return p + qRange;
+      }
+  }
+}
+
+function regexLeq(r, s, isHex) {
+  const digitSeq = isHex ? '0123456789abcdef' : '0123456789';
+  const firstDigit = digitSeq[0];
+  const rIndex = digitSeq.indexOf(r);
+  if (rIndex > 0) {
+      // e.g., <= 'd4': [0-c][0-9a-f] | d[0-4]
+      const prevR = digitSeq[rIndex - 1];
+      const prevPart = rangePattern(firstDigit, prevR, isHex) + (isHex ? '[0-9a-f]' : '[0-9]') + '|';
+      const sRange = rangePattern(firstDigit, s, isHex);
+      return prevPart + r + sRange;
+  } else {
+      // e.g., <= '04': 0[0-4]
+      const sRange = rangePattern(firstDigit, s, isHex);
+      return r + sRange;
+  }
+}
+
+function regexBetweenTwoDigits(s, t, isHex) {
+  const s1 = s[0], s2 = s[1], t1 = t[0], t2 = t[1];
+  const digitSeq = isHex ? '0123456789abcdef' : '0123456789';
+  const s1Index = digitSeq.indexOf(s1);
+  const t1Index = digitSeq.indexOf(t1);
+  if (s1Index < t1Index) {
+      // e.g., '0d' to '24': 0[d-f] | [1-1][0-9a-f] | 2[0-4]
+      const parts = [`${s1}${rangePattern(s2, digitSeq[digitSeq.length - 1], isHex)}`];
+      const middleDigits = digitSeq.slice(s1Index + 1, t1Index);
+      if (middleDigits.length > 0) {
+          parts.push(rangePattern(middleDigits[0], middleDigits[middleDigits.length - 1], isHex) + (isHex ? '[0-9a-f]' : '[0-9]'));
+      }
+      parts.push(`${t1}${rangePattern(digitSeq[0], t2, isHex)}`);
+      return parts.join('|');
+  } else {
+      // e.g., 'dd' to 'df': d[d-f]
+      return `${s1}${rangePattern(s2, t2, isHex)}`;
+  }
+}
+
+export { range };

@@ -16,8 +16,8 @@
 const merge = (style1, style2) => {
   if (typeof style1 !== 'object') style1 = {};
   if (typeof style2 !== 'object') style2 = {};
-  const zoom1 = ('zoom' in style1)?style1['zoom']:1;
-  const zoom2 = ('zoom' in style2)?style2['zoom']:1;
+  const zoom1 = ('zoom' in style1) ? (style1['zoom'] === 'x' ? 1 : style1['zoom']) : 1;
+  const zoom2 = ('zoom' in style2) ? (style2['zoom'] === 'x' ? 1 : style2['zoom']) : 1;
   return {
     ...style1,
     ...style2,

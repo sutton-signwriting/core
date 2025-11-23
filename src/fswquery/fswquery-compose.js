@@ -88,6 +88,10 @@ const compose = (fswQueryObject) => {
     }).join('')
   }
 
+  if (fswQueryObject.variance) {
+    query += "V" + fswQueryObject.variance;
+  }
+
   query += fswQueryObject.style ? '-' : '';
 
   query = query.match(new RegExp(`^${re.full}`))[0];

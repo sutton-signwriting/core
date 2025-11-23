@@ -1,6 +1,5 @@
 
 import { info } from './swu-info';
-import { sample } from './swu-sample';
 
 it('should return an object of information about a sign', () => {
   expect(info("𝠀񁲡񈩧𝠃𝤘𝤣񁲡𝣳𝣩񈩧𝤉𝣻")).toEqual({

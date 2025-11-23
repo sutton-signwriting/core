@@ -8,6 +8,21 @@ it('should merge style object', () => {
     });
 })
 
+it('should merge style zoom of x', () => {
+  expect(merge({'colorize': true},{zoom:'x'})).toEqual({
+      'colorize': true,
+      'zoom': 1
+    });
+})
+
+it('should merge style zoom of x', () => {
+  expect(merge({'colorize': true, 'zoom': 2},{'zoom':'x'})).toEqual({
+      'colorize': true,
+      'zoom': 2
+    });
+})
+
+
 it('should merge without breaking on bad data', () => {
   expect(merge()).toEqual({
     'zoom': 1

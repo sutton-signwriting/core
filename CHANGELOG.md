@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+- **Added** for new features.
+- **Changed** for changes in existing functionality.
+- **Deprecated** for soon-to-be removed features.
+- **Removed** for now removed features.
+- **Fixed** for any bug fixes.
+- **Security** in case of vulnerabilities.
+
 Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 
 ## [Unreleased]
@@ -11,6 +18,16 @@ Evaluation report: https://www.skypack.dev/view/@sutton-signwriting/core
 - update parse for style string that drops empty style of '-'
 - copy QuerySignbox types for QueryPrefix
 - investigate why types: core.d.ts in package.json causes problems and how to fix
+
+## [2.0.1] - 2025-10-23
+### Changed
+- fswquery-range function to modular design
+- fswquery-range tests for exhaustive and sampling
+- zoom 'x' now equates to 1 when merging or using in columns
+
+
+### Fixed
+- security issues
 
 ## [2.0.0] - 2024-11-29
 ### Added

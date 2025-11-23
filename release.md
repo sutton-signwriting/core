@@ -13,16 +13,16 @@
     git add ...
     git commit -m "version details"
     git push origin master
-    git tag -am "version details" v2.0.0
+    git tag -am "version details" v2.0.1
     git push --tags
 
 ## Packaging Binaries
     npm pack
-    gunzip sutton-signwriting-core-2.0.0.tgz
-    tar -xvf sutton-signwriting-core-2.0.0.tar
-    mv package sutton-signwriting-core-2.0.0
-    zip -r sutton-signwriting-core-2.0.0.zip sutton-signwriting-core-2.0.0
-    tar -zcvf sutton-signwriting-core-2.0.0.tar.gz sutton-signwriting-core-2.0.0
+    gunzip sutton-signwriting-core-2.0.1.tgz
+    tar -xvf sutton-signwriting-core-2.0.1.tar
+    mv package sutton-signwriting-core-2.0.1
+    zip -r sutton-signwriting-core-2.0.1.zip sutton-signwriting-core-2.0.1
+    tar -zcvf sutton-signwriting-core-2.0.1.tar.gz sutton-signwriting-core-2.0.1
 
 ## Create Github Release
 * Go to https://github.com/sutton-signwriting/core/tags

@@ -148,7 +148,8 @@ const columnDefaultsMerge = (options) => {
  */
 const columns = (fswText, options) => {
   if (typeof fswText !== 'string') return {};
-  const values = columnDefaultsMerge(options);
+  let values = columnDefaultsMerge(options);
+  if (values.style.zoom == "x") values.style.zoom = 1;
 
   let input = parse.text(fswText);
   let cursor = 0;
@@ -162,6 +163,8 @@ const columns = (fswText, options) => {
 
   for (let val of input) {
     let informed = info(val);
+    if (informed.zoom == 'x') informed.zoom = 1;
+
     cursor += plus;
     if (values.punctuation.spacing){
       cursor += ((informed.segment=='sign')?values.pad:0);

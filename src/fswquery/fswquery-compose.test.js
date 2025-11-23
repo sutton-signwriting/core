@@ -76,6 +76,16 @@ it('should compose signbox queries', () => {
   expect(compose({
     query: true,
     signbox: [
+      {
+        symbol: 'S20000',
+        coord: [500, 500]
+      }
+    ],
+    variance: 5
+  })).toBe('QS20000500x500V5');
+  expect(compose({
+    query: true,
+    signbox: [
       { range: ['100', '105'] }
     ]
   })).toBe('QR100t105');

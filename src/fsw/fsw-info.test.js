@@ -1,6 +1,5 @@
 
 import { info } from './fsw-info';
-import { sample } from './fsw-sample';
 
 it('should return an object of information about a sign', () => {
   expect(info("AS14c20S27106M518x529S14c20481x471S27106503x489")).toEqual({
